@@ -24,6 +24,12 @@ Any other static host that serves `image/svg+xml` also works (Netlify, GitHub Pa
 ## 2. CSS
 
 Paste `hero.css` into **Appearance → Customize → Additional CSS**.
+
+WordCamp.org runs Additional CSS and Remote CSS through Jetpack's CSSTidy
+sanitiser, which silently drops CSS custom properties (`--x` / `var()`),
+`will-change` and `container-type`. `hero.css` is written without them and
+was verified against that sanitiser: every declaration survives. Keep it that
+way when editing (use literal colours, not variables).
 WordCamp.org also offers **Appearance → Remote CSS**, which can pull
 `hero.css` straight from this GitHub repo and keep it in sync:
 `https://github.com/ajmaurya99/wc-mumbai-2027/blob/main/hero.css`.
