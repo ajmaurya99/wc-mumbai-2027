@@ -6,8 +6,10 @@
   font-family: "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   color: #1A2447;
   line-height: 1.4;
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
+  /* full width: the wrapper carries the alignfull class, so the theme's constrained layout
+     lets it span the container instead of capping it at the content width */
+  width: auto;
+  max-width: none !important;
   height: 100vh;
   height: 100dvh;
   display: flex;
