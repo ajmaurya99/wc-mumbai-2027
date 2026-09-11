@@ -1,0 +1,81 @@
+/* WordCamp Mumbai 2027 hero — paste into Appearance → Customize → Additional CSS */
+#wcm-hero {
+  --wcm-blue: #0A6CB5; --wcm-teal: #1B7A78; --wcm-purple: #5B2DB8; --wcm-navy: #1A2447;
+  --wcm-sky: #BFE3F7; --wcm-sky-mid: #E4F2FB; --wcm-white: #ffffff;
+  --wcm-font: "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  position: relative;
+  overflow: hidden;
+  font-family: var(--wcm-font);
+  color: var(--wcm-navy);
+  line-height: 1.4;
+  width: 100vw;                     /* full-bleed: breaks out of the content column */
+  margin-left: calc(50% - 50vw);
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, var(--wcm-sky) 0%, var(--wcm-sky-mid) 42%, var(--wcm-white) 78%);
+}
+#wcm-hero, #wcm-hero * { box-sizing: border-box; }
+#wcm-hero p { margin: 0; }
+#wcm-hero a { box-shadow: none; text-decoration: none; }
+#wcm-hero img { max-width: none; }
+
+/* clouds */
+#wcm-clouds { position: absolute; inset: 0 0 auto 0; height: 62%; overflow: hidden; pointer-events: none; z-index: 0; }
+.wcm-cloud { width: 200px; height: 60px; background: #fff; border-radius: 200px; position: relative; }
+.wcm-cloud::before, .wcm-cloud::after { content: ""; position: absolute; background: #fff; width: 100px; height: 80px; top: -15px; left: 10px; border-radius: 100px; transform: rotate(30deg); }
+.wcm-cloud::after { width: 120px; height: 120px; top: -55px; left: auto; right: 15px; }
+[class*="wcm-cloud-x"] { position: absolute; left: -320px; transform: scale(var(--s, 1)); opacity: var(--o, 1); animation: wcm-moveclouds var(--d, 40s) linear infinite; animation-delay: var(--delay, 0s); will-change: transform; }
+.wcm-cloud-x1 { top: 6%;  --s: 1;   --o: .95; --d: 55s; --delay: -10s; }
+.wcm-cloud-x2 { top: 22%; --s: .6;  --o: .7;  --d: 70s; --delay: -40s; }
+.wcm-cloud-x3 { top: 12%; --s: .8;  --o: .85; --d: 62s; --delay: -25s; }
+.wcm-cloud-x4 { top: 38%; --s: .75; --o: .6;  --d: 80s; --delay: -60s; }
+.wcm-cloud-x5 { top: 28%; --s: 1.1; --o: .5;  --d: 90s; --delay: -5s;  }
+@keyframes wcm-moveclouds { from { transform: translateX(0) scale(var(--s, 1)); } to { transform: translateX(calc(100vw + 400px)) scale(var(--s, 1)); } }
+
+/* CTA */
+.wcm-cta { position: relative; z-index: 2; display: flex; justify-content: flex-end; flex: none; padding: clamp(.75rem, 2vh, 1.25rem) clamp(1rem, 3vw, 2.5rem) 0; }
+.wcm-cta .wcm-btn { background: var(--wcm-blue); color: #fff; border-radius: 999px; padding: .6rem 1.5rem; font-weight: 600; font-size: 1.05rem; transition: background .2s; }
+.wcm-cta .wcm-btn:hover { background: var(--wcm-purple); color: #fff; }
+
+/* logo block */
+.wcm-content { position: relative; flex: none; text-align: center; max-width: 760px; margin: auto; padding: 0 1rem; }
+.wcm-logo { width: min(38vw, 34vh, 420px); height: auto; display: block; margin: 0 auto; }
+.wcm-tagline { margin: clamp(.4rem, 1.2vh, .75rem) 0 0; font-size: clamp(1.05rem, 1.6vw, 1.35rem); font-weight: 500; color: var(--wcm-teal); }
+.wcm-date { display: inline-block; margin: clamp(.6rem, 1.6vh, 1.1rem) 0 0; padding: clamp(.4rem, 1vh, .55rem) 1.4rem; border-radius: 999px; background: var(--wcm-blue); color: #fff; font-weight: 600; font-size: clamp(.95rem, 1.3vw, 1.15rem); }
+.wcm-venue { margin: clamp(.5rem, 1.4vh, .9rem) 0 0; font-size: clamp(1rem, 1.4vw, 1.2rem); display: flex; justify-content: center; align-items: center; gap: .4rem; }
+.wcm-venue::before { content: ""; width: .75em; height: .75em; background: var(--wcm-purple); border-radius: 50% 50% 50% 0; transform: rotate(-45deg); flex: none; }
+
+/* plane with banner (flies just under the venue line) */
+.wcm-plane { position: absolute; top: 100%; left: 50%; margin-top: clamp(1rem, 2.5vh, 1.75rem); display: flex; align-items: center; pointer-events: none; animation: wcm-fly 64s linear infinite; animation-delay: -12s; will-change: transform; }
+.wcm-plane-body { width: clamp(70px, 8vw, 120px); height: auto; flex: none; display: block; }
+.wcm-rope { width: clamp(24px, 3vw, 44px); height: 2px; background: #1A2447; opacity: .7; }
+.wcm-banner { font-family: var(--wcm-font); font-weight: 800; font-size: clamp(.9rem, 1.6vw, 1.4rem); letter-spacing: .04em; color: var(--wcm-blue); background: #fff; border: 2px solid var(--wcm-blue); padding: .3em .9em; white-space: nowrap; transform-origin: right center; animation: wcm-banner-wave 1.6s ease-in-out infinite alternate; }
+@keyframes wcm-banner-wave { from { transform: skewY(-3deg) translateY(-2px); } to { transform: skewY(3deg) translateY(2px); } }
+@keyframes wcm-fly { 0% { transform: translateX(calc(-50vw - 560px)) translateY(0); } 50% { transform: translateX(-250px) translateY(-10px); } 100% { transform: translateX(calc(50vw + 80px)) translateY(0); } }
+
+/* city */
+#wcm-city { position: relative; z-index: 1; flex: 1 1 auto; min-height: 140px; max-height: calc(100vw * 700 / 2400); margin-top: clamp(.5rem, 2vh, 1.5rem); overflow: hidden; }
+.wcm-scene { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); height: 100%; min-width: 100%; aspect-ratio: 2400 / 700; container-type: inline-size; }
+.wcm-city-img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center bottom; }
+@media (max-width: 1100px) and (orientation: portrait) {
+  #wcm-city { flex: none; height: clamp(260px, 42vh, 600px); max-height: none; }
+  .wcm-scene { min-width: 112%; left: 44%; }
+}
+@media (max-width: 700px) {
+  #wcm-city { flex: none; height: clamp(240px, 40vh, 420px); max-height: none; }
+  .wcm-scene { min-width: 125%; left: 37.5%; }
+}
+
+/* hover easter eggs: invisible hotspots over the image, tooltip from data-tip */
+.wcm-spot { position: absolute; cursor: pointer; }
+.wcm-spot::after { content: attr(data-tip); position: absolute; left: 50%; top: -.6cqw; transform: translate(-50%, -100%) translateY(6px); background: #1A2447; color: #fff; font-family: var(--wcm-font); font-weight: 700; font-size: clamp(.7rem, .6cqw, 1rem); line-height: 1; padding: .55em .9em; border-radius: 999px; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity .2s ease, transform .25s ease; }
+.wcm-spot::before { content: ""; position: absolute; left: 50%; top: -.6cqw; transform: translate(-50%, -2px); border: 6px solid transparent; border-top-color: #1A2447; border-bottom: 0; opacity: 0; transition: opacity .2s ease; }
+.wcm-spot:hover::after { opacity: 1; transform: translate(-50%, -100%) translateY(-4px); }
+.wcm-spot:hover::before { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  [class*="wcm-cloud-x"], .wcm-plane, .wcm-banner { animation: none !important; }
+  .wcm-plane { display: none; }
+}

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 44" width="120" height="44">
+<style>.prop{transform-box:fill-box;transform-origin:50% 50%;animation:spin .12s linear infinite}@keyframes spin{from{transform:scaleY(1)}to{transform:scaleY(.15)}}</style>
+<path d="M8 24 Q10 14 30 14 H88 Q104 14 112 22 Q104 30 88 30 H30 Q10 30 8 24Z" fill="#0A6CB5"/>
+<path d="M30 14 H88 Q100 14 106 20 H32 Z" fill="#3D9BE0"/>
+<path d="M40 30 L58 40 H76 L64 30Z" fill="#1A2447"/>
+<path d="M44 14 L56 2 H70 L62 14Z" fill="#1A2447"/>
+<path d="M12 16 L4 4 H16 L24 14Z" fill="#0A6CB5"/>
+<g fill="#DCEFF8"><rect x="48" y="17" width="8" height="6" rx="1.5"/><rect x="60" y="17" width="8" height="6" rx="1.5"/><rect x="72" y="17" width="8" height="6" rx="1.5"/><path d="M92 16 H100 Q106 18 108 22 H92Z"/></g>
+<ellipse class="prop" cx="113" cy="22" rx="2" ry="9" fill="#1A2447"/>
+</svg>
