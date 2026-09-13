@@ -1,10 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 44" width="120" height="44">
-<style>.prop{transform-box:fill-box;transform-origin:50% 50%;animation:spin .12s linear infinite}@keyframes spin{from{transform:scaleY(1)}to{transform:scaleY(.15)}}</style>
-<path d="M8 24 Q10 14 30 14 H88 Q104 14 112 22 Q104 30 88 30 H30 Q10 30 8 24Z" fill="#0A6CB5"/>
-<path d="M30 14 H88 Q100 14 106 20 H32 Z" fill="#3D9BE0"/>
-<path d="M40 30 L58 40 H76 L64 30Z" fill="#1A2447"/>
-<path d="M44 14 L56 2 H70 L62 14Z" fill="#1A2447"/>
-<path d="M12 16 L4 4 H16 L24 14Z" fill="#0A6CB5"/>
-<g fill="#DCEFF8"><rect x="48" y="17" width="8" height="6" rx="1.5"/><rect x="60" y="17" width="8" height="6" rx="1.5"/><rect x="72" y="17" width="8" height="6" rx="1.5"/><path d="M92 16 H100 Q106 18 108 22 H92Z"/></g>
-<ellipse class="prop" cx="113" cy="22" rx="2" ry="9" fill="#1A2447"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 52" width="140" height="52">
+<style>.beacon{animation:blink 1.2s steps(1) infinite}@keyframes blink{0%,60%{opacity:1}61%,100%{opacity:.15}}</style>
+<!-- far wing (above fuselage), swept back -->
+<path d="M74 19 L60 7 H40 L60 19Z" fill="#12386B"/>
+<!-- tail fin, swept back -->
+<path d="M36 18 L26 4 H10 L20 18Z" fill="#1A2447"/>
+<!-- fuselage, nose to the right -->
+<path d="M4 27 Q6 17 26 17 H104 Q126 17 136 26 Q126 35 104 35 H26 Q6 35 4 27Z" fill="#0A6CB5"/>
+<path d="M26 17 H104 Q118 17 128 22 H30 Z" fill="#3D9BE0"/>
+<!-- cockpit -->
+<path d="M114 20 H121 Q129 22 132 26 H114Z" fill="#DCEFF8"/>
+<!-- windows and door -->
+<g fill="#DCEFF8"><rect x="44" y="23" width="5" height="4" rx="1"/><rect x="53" y="23" width="5" height="4" rx="1"/><rect x="62" y="23" width="5" height="4" rx="1"/><rect x="71" y="23" width="5" height="4" rx="1"/><rect x="80" y="23" width="5" height="4" rx="1"/><rect x="89" y="23" width="5" height="4" rx="1"/><rect x="98" y="23" width="5" height="4" rx="1"/></g>
+<rect x="34" y="21" width="6" height="11" rx="1" fill="#0B5A98"/>
+<!-- horizontal stabiliser at the tail -->
+<path d="M34 31 L24 40 H12 L22 31Z" fill="#1A2447"/>
+<!-- near wing (below fuselage), swept back -->
+<path d="M78 33 L58 48 H32 L62 33Z" fill="#1A2447"/>
+<!-- engine under the wing -->
+<ellipse cx="50" cy="42" rx="10" ry="4.5" fill="#3D9BE0"/>
+<ellipse cx="41" cy="42" rx="2" ry="4.5" fill="#1A2447"/>
+<!-- beacon light on the fin -->
+<circle class="beacon" cx="11" cy="5" r="2.2" fill="#E8533F"/>
 </svg>
