@@ -541,7 +541,7 @@
    delete everything between these two markers and drop the petal <i> elements
    from the pandal hotspot in the block. */
 .wcm-spot--pandal {
-    cursor: url('https://cdn.jsdelivr.net/gh/ajmaurya99/wc-mumbai-2027@main/diya-cursor.png') 16 4, pointer;
+    cursor: url('https://cdn.jsdelivr.net/gh/ajmaurya99/wc-mumbai-2027@1d76f5c/diya-cursor.png') 16 4, pointer;
 }
 .wcm-spot--pandal:hover {
     background: radial-gradient(ellipse at 50% 78%, rgba(255, 196, 80, .45) 0%, rgba(255, 196, 80, 0) 62%);
