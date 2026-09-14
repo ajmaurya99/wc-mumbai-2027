@@ -554,7 +554,7 @@
     opacity: 0;
     pointer-events: none;
 }
-.wcm-petal-3 .wcm-petal-6 .wcm-petal-9 .wcm-petal-12 {
+.wcm-petal-3, .wcm-petal-6, .wcm-petal-9, .wcm-petal-12 {
     background: radial-gradient(circle at 50% 50%, #F6A21B 0%, #F6A21B 28%, #FFD166 32%, #FFD166 100%);
 }
 .wcm-petal-1 { left: 4.9%; width: 8px; height: 8px; animation-duration: 2.5s; animation-delay: -1.69s; }
