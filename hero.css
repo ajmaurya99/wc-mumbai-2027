@@ -61,7 +61,7 @@
 @keyframes wcm-fly { 0% { transform: translateX(calc(-50vw - 560px)) translateY(0); } 50% { transform: translateX(-250px) translateY(-10px); } 100% { transform: translateX(calc(50vw + 80px)) translateY(0); } }
 
 /* city */
-#wcm-city { position: relative; z-index: 1; flex: 1 1 auto; min-height: 140px; max-height: calc(100vw * 700 / 2400); margin-top: clamp(.5rem, 2vh, 1.5rem); overflow: hidden; }
+#wcm-city { position: relative; z-index: 1; flex: 1 1 auto; min-height: 140px; max-height: calc(100vw * 700 / 2400); margin-top: clamp(.5rem, 2vh, 1.5rem); overflow: visible; } /* visible: tooltips above tall landmarks must not be clipped; the hero clips the wide scene at the viewport edge anyway */
 .wcm-scene { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); height: 100%; min-width: 100%; aspect-ratio: 2400 / 700; }
 .wcm-city-img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center bottom; }
 @media (max-width: 1100px) and (orientation: portrait) {
