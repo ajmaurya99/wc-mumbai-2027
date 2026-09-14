@@ -1,86 +1,539 @@
 /* WordCamp Mumbai 2027 hero — paste into Appearance → Customize → Additional CSS
    (written without CSS variables, will-change or container units: WordCamp's CSS sanitiser strips those) */
 #wcm-hero {
-  position: relative;
-  overflow: hidden;
-  font-family: "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  color: #1A2447;
-  line-height: 1.4;
-  /* full width: the wrapper carries the alignfull class, so the theme's constrained layout
+    position: relative;
+    overflow: hidden;
+    color: #1A2447;
+    line-height: 1.4;
+/* full width: the wrapper carries the alignfull class, so the theme's constrained layout
      lets it span the container instead of capping it at the content width */
-  width: auto;
-  max-width: none !important;
-  height: 100vh;
-  height: 100dvh;
-  display: flex;
-  flex-direction: column;
-  background: linear-gradient(180deg, #BFE3F7 0%, #E4F2FB 42%, #FFFFFF 78%);
+    width: auto;
+    max-width: none !important;
+    height: 100vh;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(180deg, #BFE3F7 0%, #E4F2FB 42%, #FFFFFF 78%);
 }
-#wcm-hero, #wcm-hero * { box-sizing: border-box; }
-#wcm-hero p { margin: 0; }
-#wcm-hero a { box-shadow: none; text-decoration: none; }
-#wcm-hero img { max-width: none; }
+
+#wcm-hero, #wcm-hero * {
+    box-sizing: border-box;
+}
+
+#wcm-hero p {
+    margin: 0;
+}
+
+#wcm-hero a {
+    box-shadow: none;
+    text-decoration: none;
+}
+
+#wcm-hero img {
+    max-width: none;
+}
 
 /* clouds: the wrapper drifts, the inner cloud carries its own size and opacity */
-#wcm-clouds { position: absolute; top: 0; left: 0; right: 0; height: 62%; overflow: hidden; pointer-events: none; z-index: 0; }
-.wcm-cloud { width: 200px; height: 60px; background: #fff; border-radius: 200px; position: relative; }
-.wcm-cloud::before, .wcm-cloud::after { content: ""; position: absolute; background: #fff; width: 100px; height: 80px; top: -15px; left: 10px; border-radius: 100px; transform: rotate(30deg); }
-.wcm-cloud::after { width: 120px; height: 120px; top: -55px; left: auto; right: 15px; }
-[class*="wcm-cloud-x"] { position: absolute; left: -320px; animation-name: wcm-moveclouds; animation-timing-function: linear; animation-iteration-count: infinite; }
-.wcm-cloud-x1 { top: 6%; animation-duration: 55s; animation-delay: -10s; }
-.wcm-cloud-x1 .wcm-cloud { transform: scale(1); opacity: 0.95; }
-.wcm-cloud-x2 { top: 22%; animation-duration: 70s; animation-delay: -40s; }
-.wcm-cloud-x2 .wcm-cloud { transform: scale(0.6); opacity: 0.7; }
-.wcm-cloud-x3 { top: 12%; animation-duration: 62s; animation-delay: -25s; }
-.wcm-cloud-x3 .wcm-cloud { transform: scale(0.8); opacity: 0.85; }
-.wcm-cloud-x4 { top: 38%; animation-duration: 80s; animation-delay: -60s; }
-.wcm-cloud-x4 .wcm-cloud { transform: scale(0.75); opacity: 0.6; }
-.wcm-cloud-x5 { top: 28%; animation-duration: 90s; animation-delay: -5s; }
-.wcm-cloud-x5 .wcm-cloud { transform: scale(1.1); opacity: 0.5; }
-@keyframes wcm-moveclouds { from { transform: translateX(0); } to { transform: translateX(calc(100vw + 400px)); } }
+#wcm-clouds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 62%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.wcm-cloud {
+    width: 200px;
+    height: 60px;
+    background: #fff;
+    border-radius: 200px;
+    position: relative;
+}
+
+.wcm-cloud::before, .wcm-cloud::after {
+    content: "";
+    position: absolute;
+    background: #fff;
+    width: 100px;
+    height: 80px;
+    top: -15px;
+    left: 10px;
+    border-radius: 100px;
+    transform: rotate(30deg);
+}
+
+.wcm-cloud::after {
+    width: 120px;
+    height: 120px;
+    top: -55px;
+    left: auto;
+    right: 15px;
+}
+
+[class*="wcm-cloud-x"] {
+    position: absolute;
+    left: -320px;
+    animation-name: wcm-moveclouds;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.wcm-cloud-x1 {
+    top: 6%;
+    animation-duration: 55s;
+    animation-delay: -10s;
+}
+
+.wcm-cloud-x1 .wcm-cloud {
+    transform: scale(1);
+    opacity: .95;
+}
+
+.wcm-cloud-x2 {
+    top: 22%;
+    animation-duration: 70s;
+    animation-delay: -40s;
+}
+
+.wcm-cloud-x2 .wcm-cloud {
+    transform: scale(0.6);
+    opacity: .7;
+}
+
+.wcm-cloud-x3 {
+    top: 12%;
+    animation-duration: 62s;
+    animation-delay: -25s;
+}
+
+.wcm-cloud-x3 .wcm-cloud {
+    transform: scale(0.8);
+    opacity: .85;
+}
+
+.wcm-cloud-x4 {
+    top: 38%;
+    animation-duration: 80s;
+    animation-delay: -60s;
+}
+
+.wcm-cloud-x4 .wcm-cloud {
+    transform: scale(0.75);
+    opacity: .6;
+}
+
+.wcm-cloud-x5 {
+    top: 28%;
+    animation-duration: 90s;
+    animation-delay: -5s;
+}
+
+.wcm-cloud-x5 .wcm-cloud {
+    transform: scale(1.1);
+    opacity: .5;
+}
+
+@keyframes wcm-moveclouds {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(100vw + 400px));
+    }
+}
 
 /* CTA */
-.wcm-cta { position: relative; z-index: 2; display: flex; justify-content: flex-end; flex: none; padding: clamp(.75rem, 2vh, 1.25rem) clamp(1rem, 3vw, 2.5rem) 0; }
-.wcm-cta .wcm-btn { background: #0A6CB5; color: #fff; border-radius: 999px; padding: .6rem 1.5rem; font-weight: 600; font-size: 1.05rem; transition: background .2s; }
-.wcm-cta .wcm-btn:hover { background: #5B2DB8; color: #fff; }
+.wcm-cta {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: flex-end;
+    flex: none;
+    padding: clamp(.75rem, 2vh, 1.25rem) clamp(1rem, 3vw, 2.5rem) 0;
+}
+
+.wcm-cta .wcm-btn {
+    background: #0A6CB5;
+    color: #fff;
+    border-radius: 999px;
+    padding: .6rem 1.5rem;
+    font-weight: 600;
+    font-size: 1.05rem;
+    transition: background .2s;
+}
+
+.wcm-cta .wcm-btn:hover {
+    background: #5B2DB8;
+    color: #fff;
+}
 
 /* logo block */
-.wcm-content { position: relative; flex: none; text-align: center; max-width: 760px; margin: auto; padding: 0 1rem; }
-.wcm-logo { width: min(38vw, 34vh, 420px); height: auto; display: block; margin: 0 auto; }
-#wcm-hero .wcm-tagline { margin: clamp(.6rem, 1.6vh, 1rem) 0 0; font-size: clamp(1.05rem, 1.6vw, 1.35rem); font-weight: 500; color: #1B7A78; }
-#wcm-hero .wcm-date { display: inline-block; margin: clamp(1rem, 2.4vh, 1.5rem) 0 0; padding: clamp(.4rem, 1vh, .55rem) 1.4rem; border-radius: 999px; background: #0A6CB5; color: #fff; font-weight: 600; font-size: clamp(.95rem, 1.3vw, 1.15rem); }
-#wcm-hero .wcm-venue { margin: clamp(.9rem, 2.2vh, 1.35rem) 0 0; font-size: clamp(1rem, 1.4vw, 1.2rem); display: flex; justify-content: center; align-items: center; gap: .4rem; }
-.wcm-venue::before { content: ""; width: .75em; height: .75em; background: #5B2DB8; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); flex: none; }
+.wcm-content {
+    position: relative;
+    flex: none;
+    text-align: center;
+    max-width: 760px;
+    margin: auto;
+    padding: 0 1rem;
+}
+
+.wcm-logo {
+    width: min(38vw, 34vh, 420px);
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+#wcm-hero .wcm-tagline {
+    margin: clamp(.6rem, 1.6vh, 1rem) 0 0;
+    font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+    font-family: var(--wp--preset--font-family--kalam);
+    font-weight: 500;
+    color: #1B7A78;
+}
+
+#wcm-hero .wcm-date {
+    display: inline-block;
+    margin: clamp(1rem, 2.4vh, 1.5rem) 0 0;
+    padding: clamp(.4rem, 1vh, .55rem) 1.4rem;
+    border-radius: 999px;
+    background: #0A6CB5;
+    color: #fff;
+    font-weight: 600;
+    font-size: clamp(.95rem, 1.3vw, 1.15rem);
+}
+
+#wcm-hero .wcm-venue {
+    margin: clamp(.9rem, 2.2vh, 1.35rem) 0 0;
+    font-size: clamp(1rem, 1.4vw, 1.2rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .4rem;
+}
+
+.wcm-venue::before {
+    content: "";
+    width: .75em;
+    height: .75em;
+    background: #5B2DB8;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    flex: none;
+}
 
 /* plane with banner (flies just under the venue line) */
-.wcm-plane { position: absolute; top: 100%; left: 50%; margin-top: clamp(1rem, 2.5vh, 1.75rem); display: flex; align-items: center; pointer-events: none; animation: wcm-fly 64s linear infinite; animation-delay: -12s; }
-.wcm-plane-body { width: clamp(70px, 8vw, 120px); height: auto; flex: none; display: block; }
-.wcm-rope { width: clamp(24px, 3vw, 44px); height: 2px; background: #1A2447; opacity: .7; }
-.wcm-banner { font-family: "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-weight: 800; font-size: clamp(.9rem, 1.6vw, 1.4rem); letter-spacing: .04em; color: #0A6CB5; background: #fff; border: 2px solid #0A6CB5; padding: .3em .9em; white-space: nowrap; transform-origin: right center; animation: wcm-banner-wave 1.6s ease-in-out infinite alternate; }
-@keyframes wcm-banner-wave { from { transform: skewY(-3deg) translateY(-2px); } to { transform: skewY(3deg) translateY(2px); } }
-@keyframes wcm-fly { 0% { transform: translateX(calc(-50vw - 560px)) translateY(0); } 50% { transform: translateX(-250px) translateY(-10px); } 100% { transform: translateX(calc(50vw + 80px)) translateY(0); } }
+.wcm-plane {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-top: clamp(1rem, 2.5vh, 1.75rem);
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+    animation: wcm-fly 64s linear infinite;
+    animation-delay: -12s;
+}
+
+.wcm-plane-body {
+    width: clamp(70px, 8vw, 120px);
+    height: auto;
+    flex: none;
+    display: block;
+}
+
+.wcm-rope {
+    width: clamp(24px, 3vw, 44px);
+    height: 2px;
+    background: #1A2447;
+    opacity: .7;
+}
+
+.wcm-banner {
+    font-family: "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-weight: 800;
+    font-size: clamp(.9rem, 1.6vw, 1.4rem);
+    letter-spacing: .04em;
+    color: #0A6CB5;
+    background: #fff;
+    border: 2px solid #0A6CB5;
+    padding: .3em .9em;
+    white-space: nowrap;
+    transform-origin: right center;
+    animation: wcm-banner-wave 1.6s ease-in-out infinite alternate;
+}
+
+@keyframes wcm-banner-wave {
+    from {
+        transform: skewY(-3deg) translateY(-2px);
+    }
+
+    to {
+        transform: skewY(3deg) translateY(2px);
+    }
+}
+
+@keyframes wcm-fly {
+    0% {
+        transform: translateX(calc(-50vw - 560px)) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-250px) translateY(-10px);
+    }
+
+    100% {
+        transform: translateX(calc(50vw + 80px)) translateY(0);
+    }
+}
 
 /* city */
-#wcm-city { position: relative; z-index: 1; flex: 1 1 auto; min-height: 140px; max-height: calc(100vw * 700 / 2400); margin-top: clamp(.5rem, 2vh, 1.5rem); overflow: visible; } /* visible: tooltips above tall landmarks must not be clipped; the hero clips the wide scene at the viewport edge anyway */
-.wcm-scene { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); height: 100%; min-width: 100%; aspect-ratio: 2400 / 700; }
-.wcm-city-img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center bottom; }
-@media (max-width: 1100px) and (orientation: portrait) {
-  #wcm-city { flex: none; height: clamp(260px, 42vh, 600px); max-height: none; }
-  .wcm-scene { min-width: 112%; left: 44%; }
+#wcm-city {
+    position: relative;
+    z-index: 1;
+    flex: 1 1 auto;
+    min-height: 140px;
+    max-height: calc(100vw * 700 / 2400);
+    margin-top: clamp(.5rem, 2vh, 1.5rem);
+    /* visible, not hidden: tooltips above the tall landmarks (Taj, Antilia, CSMT, Rajabai)
+       were being clipped. The hero itself already clips the wide scene at the viewport edge. */
+    overflow: visible;
 }
+
+.wcm-scene {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    min-width: 100%;
+    aspect-ratio: 2400 / 700;
+}
+
+.wcm-city-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center bottom;
+}
+
+@media (max-width: 1100px) and (orientation: portrait) {
+    #wcm-city {
+        flex: none;
+        height: clamp(260px, 42vh, 600px);
+        max-height: none;
+    }
+
+    .wcm-scene {
+        min-width: 112%;
+        left: 44%;
+    }
+}
+
 @media (max-width: 700px) {
-  #wcm-city { flex: none; height: clamp(240px, 40vh, 420px); max-height: none; }
-  .wcm-scene { min-width: 125%; left: 37.5%; }
+    #wcm-city {
+        flex: none;
+        height: clamp(240px, 40vh, 420px);
+        max-height: none;
+    }
+
+    .wcm-scene {
+        min-width: 125%;
+        left: 37.5%;
+    }
 }
 
 /* hover easter eggs: hotspots sized as % of the scene width (left/width, margin-bottom/padding-top), tooltip from data-tip */
-.wcm-spot { position: absolute; bottom: 0; height: 0; cursor: pointer; }
-.wcm-spot::after { content: attr(data-tip); position: absolute; left: 50%; top: -10px; transform: translate(-50%, -100%) translateY(6px); background: #1A2447; color: #fff; font-family: "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-weight: 700; font-size: clamp(.7rem, .9vw, 1rem); line-height: 1; padding: .55em .9em; border-radius: 999px; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity .2s ease, transform .25s ease; }
-.wcm-spot::before { content: ""; position: absolute; left: 50%; top: -10px; transform: translate(-50%, -2px); border: 6px solid transparent; border-top-color: #1A2447; border-bottom: 0; opacity: 0; transition: opacity .2s ease; }
-.wcm-spot:hover::after { opacity: 1; transform: translate(-50%, -100%) translateY(-4px); }
-.wcm-spot:hover::before { opacity: 1; }
+.wcm-spot {
+    position: absolute;
+    bottom: 0;
+    height: 0;
+    cursor: pointer;
+}
+
+.wcm-spot::after {
+    content: attr(data-tip);
+    position: absolute;
+    left: 50%;
+    top: -10px;
+    transform: translate(-50%, -100%) translateY(6px);
+    background: #1A2447;
+    color: #fff;
+    font-family: "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-weight: 700;
+    font-size: clamp(.7rem, .9vw, 1rem);
+    line-height: 1;
+    padding: .55em .9em;
+    border-radius: 999px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .2s ease, transform .25s ease;
+}
+
+.wcm-spot::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -10px;
+    transform: translate(-50%, -2px);
+    border: 6px solid transparent;
+    border-top-color: #1A2447;
+    border-bottom: 0;
+    opacity: 0;
+    transition: opacity .2s ease;
+}
+
+.wcm-spot:hover::after {
+    opacity: 1;
+    transform: translate(-50%, -100%) translateY(-4px);
+}
+
+.wcm-spot:hover::before {
+    opacity: 1;
+}
 
 @media (prefers-reduced-motion: reduce) {
-  [class*="wcm-cloud-x"], .wcm-plane, .wcm-banner { animation: none; }
-  .wcm-plane { display: none; }
+    [class*="wcm-cloud-x"], .wcm-plane, .wcm-banner {
+        animation: none;
+    }
+
+    .wcm-plane {
+        display: none;
+    }
+}
+
+/* ---- Jetpack Forms: hand styling back to the theme ---- */
+/* Literal hex used on purpose: WordCamp's CSS sanitiser strips var() */
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form input[type="url"],
+.contact-form input[type="number"],
+.contact-form input[type="date"],
+.contact-form select,
+.contact-form textarea {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: #0D1B2A;
+    background-color: #FFFFFF;
+    border: 1px solid #9EA4AA;
+    border-radius: 0;
+    padding: .75rem 1rem;
+}
+
+.contact-form .grunion-field {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.contact-form textarea {
+    min-height: 10rem;
+}
+
+.contact-form input:not([type="submit"]):focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    border-color: #0073AA;
+    outline: 2px solid #0073AA;
+    outline-offset: 1px;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #546776;
+    opacity: 1;
+}
+
+.contact-form label,
+.contact-form legend.grunion-field-label {
+    color: #0D1B2A;
+    font-family: inherit;
+}
+
+.contact-form input[type="checkbox"],
+.contact-form input[type="radio"] {
+    width: auto;
+    accent-color: #0073AA;
+}
+
+.contact-form button.pushbutton-wide,
+.contact-form input[type="submit"] {
+    background-color: #0D1B2A;
+    color: #FFFFFF;
+    border: 0;
+    border-radius: 0;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: inherit;
+    padding: 1rem 2.25rem;
+    width: auto;
+    cursor: pointer;
+}
+
+.contact-form button.pushbutton-wide:hover,
+.contact-form input[type="submit"]:hover {
+    background-color: #0073AA;
+}
+
+/* Let the form fill its container so fields run full width */
+.jetpack-contact-form-container > .contact-form,
+.contact-form {
+    width: 100%;
+}
+
+/* ---- Header: date + venue meta beside the logo ---- */
+.wcm-header-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.wcm-header-meta__item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.3;
+    color: #0D1B2A;
+}
+
+.wcm-header-meta__icon {
+    flex: none;
+    color: #0073AA;
+}
+
+@media (max-width: 600px) {
+    .wcm-header-meta__item {
+        font-size: 14px;
+    }
+}
+
+.wcm-header-meta__item::before {
+    content: "";
+    flex: none;
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 16px 16px;
+}
+
+.wcm-header-meta__item.is-date::before {
+    background-image: url('https://mumbai.wordcamp.org/2027/files/2026/09/wcm-icon-calendar.png');
+}
+
+.wcm-header-meta__item.is-venue::before {
+    background-image: url('https://mumbai.wordcamp.org/2027/files/2026/09/wcm-icon-pin.png');
 }
