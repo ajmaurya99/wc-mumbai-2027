@@ -299,8 +299,6 @@
     min-height: 140px;
     max-height: calc(100vw * 700 / 2400);
     margin-top: clamp(.5rem, 2vh, 1.5rem);
-    /* visible, not hidden: tooltips above the tall landmarks (Taj, Antilia, CSMT, Rajabai)
-       were being clipped. The hero itself already clips the wide scene at the viewport edge. */
     overflow: visible;
 }
 
