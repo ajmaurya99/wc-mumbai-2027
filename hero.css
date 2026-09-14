@@ -537,3 +537,57 @@
 .wcm-header-meta__item.is-venue::before {
     background-image: url('https://mumbai.wordcamp.org/2027/files/2026/09/wcm-icon-pin.png');
 }
+
+/* ==== DIYA + FLOWER SHOWER: start ====
+   Self-contained hover effect for the Ganpati pandal hotspot. To remove it,
+   delete everything between these two markers and drop the petal <i> elements
+   from the pandal hotspot in the block. */
+.wcm-spot--pandal {
+    cursor: url('https://cdn.jsdelivr.net/gh/ajmaurya99/wc-mumbai-2027@main/diya-cursor.png') 16 4, pointer;
+}
+.wcm-spot--pandal:hover {
+    background: radial-gradient(ellipse at 50% 78%, rgba(255, 196, 80, .45) 0%, rgba(255, 196, 80, 0) 62%);
+}
+.wcm-petal {
+    position: absolute;
+    top: -6%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%, #E0552D 0%, #E0552D 28%, #F6A21B 32%, #F6A21B 100%);
+    opacity: 0;
+    pointer-events: none;
+}
+.wcm-petal-3 .wcm-petal-6 .wcm-petal-9 .wcm-petal-12 {
+    background: radial-gradient(circle at 50% 50%, #F6A21B 0%, #F6A21B 28%, #FFD166 32%, #FFD166 100%);
+}
+.wcm-petal-1 { left: 4.9%; width: 8px; height: 8px; animation-duration: 2.5s; animation-delay: -1.69s; }
+.wcm-petal-2 { left: 14.5%; width: 12px; height: 12px; animation-duration: 2.42s; animation-delay: -1.52s; }
+.wcm-petal-3 { left: 17.5%; width: 9px; height: 9px; animation-duration: 2.41s; animation-delay: -1.09s; }
+.wcm-petal-4 { left: 23.3%; width: 8px; height: 8px; animation-duration: 2.85s; animation-delay: -2.15s; }
+.wcm-petal-5 { left: 35.1%; width: 8px; height: 8px; animation-duration: 3.12s; animation-delay: -1.52s; }
+.wcm-petal-6 { left: 39.5%; width: 8px; height: 8px; animation-duration: 2.82s; animation-delay: -2.54s; }
+.wcm-petal-7 { left: 45.9%; width: 12px; height: 12px; animation-duration: 2.47s; animation-delay: -1.09s; }
+.wcm-petal-8 { left: 49.9%; width: 9px; height: 9px; animation-duration: 2.7s; animation-delay: -2.12s; }
+.wcm-petal-9 { left: 56.4%; width: 8px; height: 8px; animation-duration: 3.04s; animation-delay: -0.49s; }
+.wcm-petal-10 { left: 65.7%; width: 9px; height: 9px; animation-duration: 2.38s; animation-delay: -0.15s; }
+.wcm-petal-11 { left: 72.0%; width: 11px; height: 11px; animation-duration: 2.99s; animation-delay: -2.02s; }
+.wcm-petal-12 { left: 79.1%; width: 9px; height: 9px; animation-duration: 2.89s; animation-delay: -0.78s; }
+.wcm-petal-13 { left: 86.4%; width: 12px; height: 12px; animation-duration: 2.62s; animation-delay: -1.49s; }
+.wcm-petal-14 { left: 91.8%; width: 12px; height: 12px; animation-duration: 2.75s; animation-delay: -1.17s; }
+.wcm-spot--pandal:hover .wcm-petal {
+    animation-name: wcm-petal-fall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+@keyframes wcm-petal-fall {
+    0%   { top: -6%;  opacity: 0; transform: translateX(0) rotate(0deg); }
+    8%   { opacity: 1; }
+    25%  { transform: translateX(10px) rotate(90deg); }
+    50%  { transform: translateX(-8px) rotate(180deg); }
+    75%  { transform: translateX(12px) rotate(270deg); }
+    90%  { opacity: 1; }
+    100% { top: 96%; opacity: 0; transform: translateX(-4px) rotate(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .wcm-spot--pandal:hover .wcm-petal { animation: none; }
+}
+/* ==== DIYA + FLOWER SHOWER: end ==== */

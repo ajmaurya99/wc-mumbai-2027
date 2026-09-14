@@ -54,3 +54,15 @@ text (`data-tip` on each hotspot).
   still run, but nothing inside it can be hovered. Hover tooltips are
   therefore HTML hotspots layered over the image; they cover the fixed
   landmarks and props, not the moving vehicles.
+
+## Diya cursor + flower shower (pandal hover)
+
+Added in one commit on top of the tag `before-diya`. To remove it:
+
+* CSS: delete everything between `/* ==== DIYA + FLOWER SHOWER: start ==== */`
+  and `/* ==== end ==== */` in Additional CSS.
+* Block: restore the pandal hotspot to its original single line:
+  `<span class="wcm-spot" data-tip="Ganpati Bappa Morya!" style="…"></span>`
+  (drop the `wcm-spot--pandal` class and the fourteen `<i class="wcm-petal …">` children).
+* Or in git: `git revert <commit>` / `git checkout before-diya -- hero.css hero-block.html`.
+* `diya-cursor.png` can stay or go; nothing else references it.
