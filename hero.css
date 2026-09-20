@@ -620,17 +620,56 @@
     }
 }
 
+.wcm-cta {
+    flex-wrap: wrap;
+}
+
+/* 44px-tall touch targets; the underline sits on an inner line so the tap area stays large */
 .wcm-cta .wcm-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 .35rem;
     color: #1A2447;
     font-weight: 600;
     font-size: 1.05rem;
-    padding: .35rem 0;
-    border-bottom: 2px solid transparent;
-    transition: border-color .2s, color .2s;
+    background-image: linear-gradient(#0A6CB5, #0A6CB5);
+    background-repeat: no-repeat;
+    background-position: 50% 78%;
+    background-size: 0 2px;
+    transition: background-size .2s, color .2s;
 }
 
-.wcm-cta .wcm-link:hover {
+.wcm-cta .wcm-link:hover,
+.wcm-cta .wcm-link:active,
+.wcm-cta .wcm-link:focus-visible {
     color: #0A6CB5;
-    border-bottom-color: #0A6CB5;
+    background-size: calc(100% - .7rem) 2px;
+}
+
+.wcm-cta .wcm-btn {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+}
+
+.wcm-cta .wcm-btn:active {
+    background: #5B2DB8;
+}
+
+.wcm-cta a:focus-visible {
+    outline: 2px solid #5B2DB8;
+    outline-offset: 3px;
+    border-radius: 6px;
+}
+
+.wcm-cta .wcm-btn:focus-visible {
+    border-radius: 999px;
+}
+
+@media (max-width: 380px) {
+    .wcm-cta {
+        gap: .5rem;
+    }
 }
 /* ==== HERO NAV: end ==== */
