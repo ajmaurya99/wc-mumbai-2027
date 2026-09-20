@@ -67,25 +67,30 @@ Added in one commit on top of the tag `before-diya`. To remove it:
 * Or in git: `git revert <commit>` / `git checkout before-diya -- hero.css hero-block.html`.
 * `diya-cursor.png` can stay or go; nothing else references it.
 
-## Hero navigation (core Navigation block)
+## Hero navigation (the theme header, floated over the hero)
 
-The menu is WordPress's own Navigation block laid over the hero, so items and
-sub-items are managed in the editor and the mobile hamburger/overlay is core's.
+On the home page only (`body.home`), the `HERO NAV` section of `hero.css` takes the
+site's normal Header template part and:
 
-Editor setup, once:
+* floats it over the top of the hero with no background or shadow,
+* hides its logo and date/venue (the hero already shows them),
+* centres the Navigation block on desktop and puts the hamburger top-right on phones,
+* restyles the dropdowns and core's mobile overlay to match the hero.
 
-1. Open List View, select the hero **Custom HTML** block, and choose **Group** from its ⋮ menu.
-2. Select the new **Group**: set alignment to **Full width**; in **Advanced → Additional CSS class(es)** enter `wcm-hero-wrap`.
-3. Inside the Group, add a **Navigation** block *above* the hero block. In **Advanced → Additional CSS class(es)** enter `wcm-hero-nav`.
-4. Navigation block settings: **Justification: centre**, **Overlay menu: Mobile**. Leave its colour settings empty; the CSS sets them.
-5. Add the menu items (About, Venue, Contact …). Drag an item under another to nest it.
+Editor setup: add the **Header** (and Footer) template parts to the home page
+template. Nothing else: no extra Navigation block, no CSS classes. Menu items and
+sub-items are managed in the header's Navigation block, once, for the whole site.
 
-The `HERO NAV` section of `hero.css` does the rest. Two rules to keep:
+Rules to keep:
 
-* Never animate `transform` on `.wcm-hero-nav`. The mobile overlay is `position: fixed`
-  and a transformed ancestor would trap it inside the nav bar.
-* The overlay rules use long selectors and `!important` on two colours on purpose: core
-  sets those with CSS variables, which WordCamp's sanitiser strips from our file.
+* Never animate `transform` on the header or nav. Core's mobile overlay is
+  `position: fixed` and a transformed ancestor would trap it inside the header.
+* The header's outer Group has padding and a shadow set in its block settings
+  (inline styles), so the home overrides for those need `!important`.
+* The overlay rules use long selectors and `!important` on two colours on purpose:
+  core sets those with CSS variables, which WordCamp's sanitiser strips from our file.
+* If the header's structure changes (for example the logo group is moved), recheck
+  the `display: none` rule that hides the logo group.
 
 Rollback: `git checkout before-core-nav -- hero.css hero-block.html` restores the
 hand-built About / Venue / Contact links inside the block.
