@@ -625,12 +625,15 @@
     }
 }
 
-.home header.wp-block-template-part + main {
+/* whatever follows the header (a <main>, or the post content directly) must start at the
+   very top: cancel the theme's block gap, or a white strip shows above the hero */
+.home header.wp-block-template-part + * {
     margin-top: 0 !important;
+    margin-block-start: 0 !important;
 }
 
 /* keep the hero logo clear of the floating header */
-.home header.wp-block-template-part ~ main #wcm-hero {
+.home header.wp-block-template-part ~ * #wcm-hero {
     padding-top: clamp(56px, 8vh, 76px);
 }
 
