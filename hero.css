@@ -592,8 +592,32 @@
 
 /* ==== HERO NAV: start ==== (About / Venue links beside the Contact button) */
 .wcm-cta {
+    justify-content: center;
     align-items: center;
     gap: clamp(1rem, 2.5vw, 2rem);
+    animation-name: wcm-nav-in;
+    animation-duration: .9s;
+    animation-timing-function: ease-out;
+    animation-delay: .25s;
+    animation-fill-mode: both;
+}
+
+@keyframes wcm-nav-in {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .wcm-cta {
+        animation: none;
+    }
 }
 
 .wcm-cta .wcm-link {
