@@ -589,3 +589,24 @@
     .wcm-spot--pandal:hover .wcm-petal { animation: none; }
 }
 /* ==== DIYA + FLOWER SHOWER: end ==== */
+
+/* ==== HERO NAV: start ==== (About / Venue links beside the Contact button) */
+.wcm-cta {
+    align-items: center;
+    gap: clamp(1rem, 2.5vw, 2rem);
+}
+
+.wcm-cta .wcm-link {
+    color: #1A2447;
+    font-weight: 600;
+    font-size: 1.05rem;
+    padding: .35rem 0;
+    border-bottom: 2px solid transparent;
+    transition: border-color .2s, color .2s;
+}
+
+.wcm-cta .wcm-link:hover {
+    color: #0A6CB5;
+    border-bottom-color: #0A6CB5;
+}
+/* ==== HERO NAV: end ==== */
