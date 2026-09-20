@@ -590,11 +590,40 @@
 }
 /* ==== DIYA + FLOWER SHOWER: end ==== */
 
-/* ==== HERO NAV: start ==== (About / Venue links beside the Contact button) */
-.wcm-cta {
-    justify-content: center;
+/* ==== HERO NAV: start ====
+   Core Navigation block laid over the hero. Editor setup:
+   Group (full width, class "wcm-hero-wrap") containing
+   1. Navigation block (class "wcm-hero-nav", overlay menu: Mobile)
+   2. the hero Custom HTML block.
+   No transform may be animated on .wcm-hero-nav: it would trap the fixed mobile overlay. */
+.wcm-hero-wrap {
+    position: relative;
+}
+
+.wcm-hero-wrap > * {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+/* the nav floats over the hero, so keep the logo clear of it */
+.wcm-hero-wrap #wcm-hero {
+    padding-top: clamp(56px, 8vh, 76px);
+}
+
+.wcm-hero-wrap > .wcm-hero-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
+    max-width: none !important;
+    display: flex;
     align-items: center;
-    gap: clamp(1rem, 2.5vw, 2rem);
+    padding: clamp(.6rem, 1.6vh, 1rem) clamp(1rem, 3vw, 2.5rem);
+    justify-content: center;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1A2447;
     animation-name: wcm-nav-in;
     animation-duration: .9s;
     animation-timing-function: ease-out;
@@ -605,34 +634,25 @@
 @keyframes wcm-nav-in {
     from {
         opacity: 0;
-        transform: translateY(-10px);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
     }
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .wcm-cta {
-        animation: none;
-    }
+.wcm-hero-nav .wp-block-navigation__container {
+    gap: clamp(.5rem, 2vw, 1.5rem);
 }
 
-.wcm-cta {
-    flex-wrap: wrap;
-}
-
-/* 44px-tall touch targets; the underline sits on an inner line so the tap area stays large */
-.wcm-cta .wcm-link {
+/* links: 44px touch targets, underline grows in on hover, press and keyboard focus */
+.wcm-hero-nav .wp-block-navigation-item__content {
     display: inline-flex;
     align-items: center;
     min-height: 44px;
     padding: 0 .35rem;
     color: #1A2447;
-    font-weight: 600;
-    font-size: 1.05rem;
+    text-decoration: none;
     background-image: linear-gradient(#0A6CB5, #0A6CB5);
     background-repeat: no-repeat;
     background-position: 50% 78%;
@@ -640,36 +660,120 @@
     transition: background-size .2s, color .2s;
 }
 
-.wcm-cta .wcm-link:hover,
-.wcm-cta .wcm-link:active,
-.wcm-cta .wcm-link:focus-visible {
+.wcm-hero-nav .wp-block-navigation-item__content:hover,
+.wcm-hero-nav .wp-block-navigation-item__content:active,
+.wcm-hero-nav .wp-block-navigation-item__content:focus-visible,
+.wcm-hero-nav .current-menu-item > .wp-block-navigation-item__content {
     color: #0A6CB5;
     background-size: calc(100% - .7rem) 2px;
 }
 
-.wcm-cta .wcm-btn {
-    display: inline-flex;
-    align-items: center;
-    min-height: 44px;
-}
-
-.wcm-cta .wcm-btn:active {
-    background: #5B2DB8;
-}
-
-.wcm-cta a:focus-visible {
+.wcm-hero-nav a:focus-visible,
+.wcm-hero-nav button:focus-visible {
     outline: 2px solid #5B2DB8;
     outline-offset: 3px;
     border-radius: 6px;
 }
 
-.wcm-cta .wcm-btn:focus-visible {
-    border-radius: 999px;
+.wcm-hero-nav .wp-block-navigation__submenu-icon {
+    color: #1A2447;
 }
 
-@media (max-width: 380px) {
-    .wcm-cta {
-        gap: .5rem;
+/* desktop dropdowns */
+.wcm-hero-nav .wp-block-navigation__submenu-container {
+    background-color: #FFFFFF;
+    color: #1A2447;
+    border: 1px solid #D6E6F2;
+    border-radius: 12px;
+    box-shadow: 0 12px 32px rgba(26, 36, 71, .16);
+    padding: .4rem;
+    min-width: 220px;
+}
+
+.wcm-hero-nav .wp-block-navigation__submenu-container .wp-block-navigation-item__content {
+    min-height: 40px;
+    padding: 0 .75rem;
+    font-size: 1rem;
+    font-weight: 500;
+    background-image: none;
+    border-radius: 8px;
+}
+
+.wcm-hero-nav .wp-block-navigation__submenu-container .wp-block-navigation-item__content:hover,
+.wcm-hero-nav .wp-block-navigation__submenu-container .wp-block-navigation-item__content:focus-visible {
+    background-color: #E4F2FB;
+    color: #0A6CB5;
+}
+
+/* hamburger and close buttons */
+.wcm-hero-nav .wp-block-navigation__responsive-container-open,
+.wcm-hero-nav .wp-block-navigation__responsive-container-close {
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    color: #1A2447;
+}
+
+.wcm-hero-nav .wp-block-navigation__responsive-container-open svg,
+.wcm-hero-nav .wp-block-navigation__responsive-container-close svg {
+    width: 30px;
+    height: 30px;
+}
+
+/* mobile overlay. Core styles this with long selectors and CSS variables (which WordCamp's
+   sanitiser strips), so these rules match core's specificity on purpose. */
+.wcm-hero-wrap .wcm-hero-nav .wp-block-navigation__responsive-container.is-menu-open {
+    background-color: #EAF5FC !important;
+    color: #1A2447 !important;
+    padding: clamp(1rem, 4vw, 2rem);
+}
+
+.wcm-hero-wrap .wcm-hero-nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content {
+    padding-top: 3.5rem;
+    align-items: flex-start;
+}
+
+.wcm-hero-wrap .wcm-hero-nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation__container,
+.wcm-hero-wrap .wcm-hero-nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation-item {
+    align-items: flex-start;
+}
+
+.wcm-hero-wrap .wcm-hero-nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation__container {
+    gap: .25rem;
+    width: 100%;
+}
+
+.wcm-hero-wrap .wcm-hero-nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation-item__content {
+    font-size: 1.35rem;
+    min-height: 48px;
+    padding: 0 .35rem;
+    background-position: .35rem 82%;
+}
+
+.wcm-hero-wrap .wcm-hero-nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .has-child .wp-block-navigation__submenu-container {
+    padding: 0 0 .5rem 1rem;
+    min-width: 0;
+    gap: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.wcm-hero-wrap .wcm-hero-nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation__submenu-container .wp-block-navigation-item__content {
+    font-size: 1.1rem;
+    font-weight: 500;
+    min-height: 44px;
+}
+
+@media (max-width: 599px) {
+    .wcm-hero-wrap > .wcm-hero-nav {
+        justify-content: flex-end;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .wcm-hero-wrap > .wcm-hero-nav {
+        animation: none;
     }
 }
 /* ==== HERO NAV: end ==== */

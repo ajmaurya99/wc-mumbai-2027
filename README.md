@@ -66,3 +66,26 @@ Added in one commit on top of the tag `before-diya`. To remove it:
   (drop the `wcm-spot--pandal` class and the fourteen `<i class="wcm-petal …">` children).
 * Or in git: `git revert <commit>` / `git checkout before-diya -- hero.css hero-block.html`.
 * `diya-cursor.png` can stay or go; nothing else references it.
+
+## Hero navigation (core Navigation block)
+
+The menu is WordPress's own Navigation block laid over the hero, so items and
+sub-items are managed in the editor and the mobile hamburger/overlay is core's.
+
+Editor setup, once:
+
+1. Open List View, select the hero **Custom HTML** block, and choose **Group** from its ⋮ menu.
+2. Select the new **Group**: set alignment to **Full width**; in **Advanced → Additional CSS class(es)** enter `wcm-hero-wrap`.
+3. Inside the Group, add a **Navigation** block *above* the hero block. In **Advanced → Additional CSS class(es)** enter `wcm-hero-nav`.
+4. Navigation block settings: **Justification: centre**, **Overlay menu: Mobile**. Leave its colour settings empty; the CSS sets them.
+5. Add the menu items (About, Venue, Contact …). Drag an item under another to nest it.
+
+The `HERO NAV` section of `hero.css` does the rest. Two rules to keep:
+
+* Never animate `transform` on `.wcm-hero-nav`. The mobile overlay is `position: fixed`
+  and a transformed ancestor would trap it inside the nav bar.
+* The overlay rules use long selectors and `!important` on two colours on purpose: core
+  sets those with CSS variables, which WordCamp's sanitiser strips from our file.
+
+Rollback: `git checkout before-core-nav -- hero.css hero-block.html` restores the
+hand-built About / Venue / Contact links inside the block.
