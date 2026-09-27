@@ -1,0 +1,25 @@
+/* ==== LANDING: buttons ==== */
+/* The resting look is set once in Styles → Blocks → Button (background Accent 1,
+   text Base, radius 999px, padding .6rem 1.5rem, weight 700, 16px). This adds
+   what Styles cannot: hover, focus and the outline variant's hover fill.
+   The theme's preset colour classes carry !important, so the hover colours do too. */
+.wp-block-button__link {
+    transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+}
+.wp-block-button__link:hover {
+    background-color: #6d28d9;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.wp-block-button.is-style-outline .wp-block-button__link:hover {
+    background-color: #0073aa;
+    color: #FFFFFF !important;
+}
+.wp-block-button__link:focus-visible {
+    outline: 2px solid #6d28d9;
+    outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+    .wp-block-button__link { transition: none; }
+}
+/* ==== end ==== */

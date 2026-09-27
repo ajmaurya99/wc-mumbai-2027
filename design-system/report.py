@@ -429,7 +429,7 @@ class Report:
             # -- CSS declarations (in CSS files and inline style="")
             decl_text = line
             if not is_css:
-                decl_text = " ".join(re.findall(r'style="([^"]*)"', line))
+                decl_text = "; ".join(re.findall(r'style="([^"]*)"', line))
             # shadows first, then blank them so their rgba is not re-read as a colour
             for m in re.finditer(r"box-shadow\s*:\s*([^;\"}]+)", decl_text):
                 self.shadow_value(i, m.group(1))
