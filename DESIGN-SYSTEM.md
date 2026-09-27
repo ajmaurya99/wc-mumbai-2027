@@ -1,222 +1,167 @@
-# WordCamp Mumbai 2027 — landing page design system
+# WordCamp Mumbai 2027 — design system for the site
 
-Brief for building the rest of https://mumbai.wordcamp.org/2027/ with WordPress core
-blocks, matching the animated hero that already sits at the top of the page.
+Brief for building https://mumbai.wordcamp.org/2027/ with WordPress core blocks on the
+Twenty Twenty-Five theme. Everything below applies to the landing page and all inner
+pages. Verified against the Site Editor's saved Styles on 27 Sep 2026.
 
-Read this whole file before designing anything. The "Platform constraints" section
-explains why several normal WordPress techniques are unavailable here.
+The animated hero at the top of the home page is a separate custom build (a Custom
+HTML block plus CSS prefixed `wcm-`). Treat it as finished: do not edit it, restyle it,
+or reuse its classes. It shares the palette below, so anything you build will sit
+naturally under it.
 
-## 1. What already exists
+## 1. Platform constraints (WordCamp.org)
 
-* **The hero** fills the first screen: sky gradient, drifting clouds, the logo, a Kalam
-  tagline, a blue date pill, the venue line, a plane towing a #WCMumbai banner, and an
-  illustrated Mumbai skyline (CSMT, Rajabai, Sea Link, Gateway of India, Taj, a Ganpati
-  pandal, Antilia, a local train, BEST bus, taxi, vada pav cart, dabbawala). Landmarks
-  show tooltips on hover; the pandal gets a diya cursor and a marigold shower.
-* **The header** is the theme's Header template part. On the home page only it floats
-  over the hero with no background, its logo/date/venue hidden. Other pages show it
-  normally. Menu items live in the header's Navigation block.
-* **The footer** is the theme's Footer template part, in normal flow below the content.
-* Source of truth: https://github.com/ajmaurya99/wc-mumbai-2027
-  (`hero-block.html`, `hero.css`, SVG assets, `README.md`). The hero's CSS is pasted
-  into Appearance → Customize → Additional CSS. Do not restyle anything prefixed `wcm-`.
+These are enforced by the platform, not preferences. Design around them.
 
-Everything below the hero is yours to build.
+1. **No JavaScript.** `<script>` is stripped from content. Use what core blocks provide
+   (Navigation overlay, Details block, Embed block) and CSS hover/focus states.
+2. **Custom HTML blocks are sanitised.** No `<style>`, `<svg>`, `<input>`, `<iframe>`.
+   Build with core blocks; reach for Custom HTML only as a last resort.
+3. **Additional CSS is sanitised.** CSS custom properties you define (`--x:`) and
+   `will-change` are stripped. Use literal hex colours. Theme presets such as
+   `var(--wp--preset--color--accent-1)` are fine to reference.
+4. **SVG upload is blocked.** Use PNG or WebP at 2× size in the media library.
+5. Prefer block settings (colour, spacing, typography pickers) over custom CSS.
+   When CSS is needed, prefix classes with `wcm-`, add it to
+   **Appearance → Customize → Additional CSS** under a fenced comment such as
+   `/* ==== LANDING: <section> ==== */`. Leave the Site Editor's own Styles CSS box empty.
+6. After saving CSS, reload and confirm the rule survived. If it vanished, it used a
+   stripped feature; rewrite it with literal values.
 
-## 2. Platform constraints (WordCamp.org, Twenty Twenty-Five)
+## 2. Colour
 
-These are enforced by the site, not preferences.
+Theme palette as saved in Styles → Colors. Use the presets from the block colour
+picker; the hex values are for the rare custom CSS rule.
 
-1. **No JavaScript.** `<script>` is stripped from content. Interactivity is CSS only
-   (hover, focus, `<details>`), or whatever core blocks ship with (Navigation overlay,
-   Details block, Cover block parallax is fine).
-2. **Custom HTML blocks are sanitised** with `wp_kses_post`: no `<style>`, `<svg>`,
-   `<input>`, `<iframe>`, no `autoplay`. `div/p/a/img/span/ul/details/summary/button`
-   with `class`, `style`, `data-*` and `aria-*` attributes survive. Prefer core blocks.
-3. **Additional CSS is sanitised** by CSSTidy. It strips **CSS custom properties**
-   (`--x:` declarations and therefore `var(--x)` of your own), `will-change`, and
-   container-query units. Use literal hex colours. Theme presets such as
-   `var(--wp--preset--color--accent-1)` are fine to *reference*.
-4. **SVG upload is blocked.** PNG/JPG/WebP go in the media library. SVGs live in the
-   GitHub repo and are served by jsDelivr, pinned to a commit hash.
-5. **Content width** is 800px, **wide** 1340px. Full-width blocks need the
-   "Full width" alignment; a stray `100vw` trick fights the theme's constrained layout.
-6. Prefer block settings (colour, spacing, typography pickers) over custom CSS. When
-   CSS is needed, prefix classes with `wcm-`, keep it in a clearly fenced section of
-   Additional CSS, and keep selectors simple.
-7. **Two places can hold custom CSS.** Appearance → Customize → Additional CSS holds
-   the hero and form CSS (sanitised, see 3). The Site Editor's Styles panel also has its
-   own Additional CSS box; it is empty and should stay empty. Keep all CSS in the
-   Customizer so there is one file to mirror in the repo.
+| Preset | Hex | Use for |
+|---|---|---|
+| Base | `#FFFFFF` | Page ground, cards on tinted sections |
+| Contrast | `#0d1b2a` | Body text, headings |
+| Accent 1 (blue) | `#0073aa` | Primary buttons, links, active states |
+| Accent 2 (teal) | `#006b78` | Eyebrows, taglines, secondary accents |
+| Accent 3 (purple) | `#6d28d9` | Button hover, focus rings, small highlights |
+| Accent 4 (slate) | `#546776` | Meta text, captions, icons |
+| Accent 5 (sky wash) | `#f2f7fa` | Alternate section backgrounds, cards, tints |
 
-## 3. Colour
+Festive accents, sparingly, for badges and dividers only: marigold `#F6A21B`,
+saffron `#E0552D`, gold `#E8B93B`. Do not introduce other hues.
 
-Brand colours, pulled from the logo. Use these exact values in custom CSS; in the
-block colour picker use the closest theme preset named in the right column.
+Rules: page ground is white; alternate sections in sky wash for rhythm. One primary
+blue button per section. Text on blue, teal or purple is white; on white or sky wash
+it is contrast. Keep AA contrast.
 
-| Role | Hex | Theme preset (block picker) | Use for |
-|---|---|---|---|
-| Blue (primary) | `#0A6CB5` | accent-1 `#0073aa` | Primary buttons, links, date pill, active states |
-| Teal | `#1B7A78` | accent-2 `#006b78` | Tagline, secondary accents, section eyebrows |
-| Purple | `#5B2DB8` | accent-3 `#6d28d9` | Button hover, focus rings, small highlights |
-| Navy (text) | `#1A2447` | contrast `#0d1b2a` | Body text, headings, nav links |
-| Sky | `#BFE3F7` → `#E4F2FB` | — | Hero sky gradient, light section tints |
-| Sky wash | `#EAF5FC` | accent-5 `#f2f7fa` | Alternate section backgrounds, cards, the mobile menu overlay |
-| White | `#FFFFFF` | base | Page ground, cards on tinted sections |
+## 3. Typography
 
-Warm accents used sparingly in the artwork, available for festive touches only
-(badges, marigold dividers, the Ganpati section if any):
-marigold `#F6A21B`, saffron `#E0552D`, gold `#E8B93B`, pandal maroon `#8E1B2E`.
+Set in Styles → Typography. Do not override fonts in CSS.
 
-Rules:
-* Page ground is white; alternate sections in **sky wash** to create rhythm.
-* One primary blue CTA per section. Secondary actions are outlined in blue or plain
-  navy links with the underline treatment (see §6).
-* Text on blue/purple/teal is white. Text on sky/white is navy. Keep AA contrast.
-* Do not introduce new hues. Greens, reds and oranges belong to the illustration.
-
-## 4. Typography
-
-**Verified against the Site Editor's saved Styles (27 Sep 2026).**
-
-Fonts registered on the site: Manrope and Fira Code (theme), Newsreader (all weights)
-and Kalam (**weight 700 only**) added as custom fonts.
-
-* **Body and headings: Newsreader** (serif), set in Styles → Typography. Body 400,
-  headings 700. Select it in the block typography picker or leave inherit. Do not
-  specify Manrope, Arial or Verdana anywhere; an earlier system-font override in the
-  Styles panel's Additional CSS was removed on 27 Sep 2026 and must not come back.
-* Buttons inherit the body font at 16px, weight 700.
-
-* **Accent: Kalam** (preset `kalam`, only the 700 face is installed, so it always
-  renders bold). Only for one-line flourishes such as a section tagline, in teal.
+* **Body and headings: Newsreader** (serif). Body 400, 17px fluid to 14px on phones,
+  line-height 1.6. Headings 700, letter-spacing -0.01em, line-height 1.2.
+* **Accent: Kalam** (preset `kalam`, only the 700 face is installed so it always
+  renders bold). One-line flourishes only: a section tagline or pull quote, in teal.
   Never for body text or buttons.
-* Navy for all text; teal only for Kalam flourishes and eyebrows.
+* Also registered but unused: Manrope, Fira Code. Leave them unused.
 
-Theme size presets (use these in the block typography picker):
-small `.875rem` · medium `1rem` · large `1.38rem` · x-large `1.75rem` · xx-large `2.15rem`.
-Body is set to 17px in Styles (fluid down to 14px on phones), line-height 1.6.
-Headings: weight 700, letter-spacing -0.01em, line-height 1.2. H2 = x-large, H3 = large.
+Size presets (typography picker): small `.875rem` · medium `1rem` · large `1.38rem` ·
+x-large `1.75rem` · xx-large `2.15rem`.
 
-| Element | Size | Weight | Notes |
+| Element | Preset | Weight | Colour |
 |---|---|---|---|
-| Section title (H2) | preset x-large, or `clamp(1.75rem, 3.2vw, 2.5rem)` for a hero-like one | 700 | Centred on centred sections, else left |
-| Eyebrow above H2 | small preset, uppercase, letter-spacing `.08em` | 700 | Teal |
-| Kalam tagline | `clamp(1.05rem, 1.6vw, 1.35rem)` | 700 (only face) | Teal, matches the hero |
-| Card title (H3) | preset large | 700 | |
-| Body | theme default (17px) | 400 | line-height 1.6, max 65ch |
-| Small / meta | preset small | 400 | navy at 70% opacity is fine |
-| Buttons | 16px (theme) | 700 | |
+| Page title / hero-like H1 | xx-large | 700 | Contrast |
+| Section title (H2) | x-large | 700 | Contrast |
+| Eyebrow above H2 | small, uppercase, letter-spacing `.08em` | 700 | Accent 2 |
+| Kalam tagline | large | 700 | Accent 2 |
+| Card title (H3) | large | 700 | Contrast |
+| Body | default | 400 | Contrast, max 65ch |
+| Meta / captions | small | 400 | Accent 4 |
+| Buttons | 16px (theme) | 700 | see §5 |
 
-## 5. Layout and spacing
+## 4. Layout and spacing
 
-Saved layout: content width **800px** (set in Styles; the theme default is 645px),
-wide width **1340px**, root padding top **0** and sides preset 50. Spacing presets:
-20 = 10px · 30 = 20px · 40 = 30px · 50 = clamp(30px, 5vw, 50px) · 60 = clamp(30px, 7vw, 70px) ·
-70 = clamp(50px, 7vw, 90px) · 80 = clamp(70px, 10vw, 140px).
+Saved layout: content width **800px**, wide **1340px**, root side padding preset 50,
+root top padding 0.
 
-* Sections are full-width Group blocks (alignment: Full width) with an inner
-  constrained Group. Section padding: theme spacing preset **70** top and bottom
-  (`clamp(50px, 7vw, 90px)`); **60** on phones if it feels tall.
-* Inside sections use preset **40** (30px) between title and content, **30** (20px)
-  between cards or list items.
-* Grids: Columns block, 3 columns desktop, 2 tablet, 1 phone (stack on mobile on).
-  Cards: white on sky-wash sections, sky-wash on white sections; radius **16px**;
-  padding preset 40; no border; shadow `0 12px 32px rgba(26, 36, 71, .12)` on hover only.
-* Corner radii: pills and buttons `999px`; cards and images `16px`; small chips `8px`.
-* Keep the horizontal gutter the theme provides (root padding); never set negative margins.
+Spacing presets: 20 = 10px · 30 = 20px · 40 = 30px · 50 = clamp(30px, 5vw, 50px) ·
+60 = clamp(30px, 7vw, 70px) · 70 = clamp(50px, 7vw, 90px) · 80 = clamp(70px, 10vw, 140px).
 
-## 6. Components
+* A section is a full-width Group (alignment Full width, background set in the
+  colour picker) containing a constrained inner Group. Section padding preset **70**
+  top and bottom.
+* Preset **40** between a section title and its content, **30** between cards or
+  list items.
+* Grids: Columns block, 3 columns desktop, 2 tablet, 1 phone (Stack on mobile on).
+* Radii: buttons and pills `999px`; cards and images `16px`; chips `8px`.
+* Never set negative margins or `100vw` widths; use Full width alignment instead.
 
-**Primary button** — Buttons block, style Fill. The theme's saved button default is
-**navy background, white text, square corners, 1rem × 2.25rem padding, Newsreader 700**,
-which does not match the hero. For every button set: background blue `#0A6CB5`, text
-white, radius `999px`, padding `.6rem 1.5rem`. Hover: purple `#5B2DB8`. Do this once in
-Styles → Blocks → Button so all buttons match, rather than per block. This is the hero's
-date pill and the old Contact button; keep it identical.
+## 5. Components (all core blocks)
 
-**Secondary button** — Buttons block, style Outline, border 2px blue, text blue,
-radius 999px. Hover: fill blue, text white.
+**Primary button** — Buttons block, Fill style. Set once in Styles → Blocks → Button:
+background Accent 1, text Base, radius 999px, padding `.6rem 1.5rem`, weight 700.
+Hover: background Accent 3. (The theme default is navy and square; override it.)
 
-**Text link / nav-style link** — navy, no underline at rest, a 2px blue underline that
-grows in from the centre on hover (`background-image` gradient trick, see the
-`HERO NAV` section of `hero.css`). Minimum 44px tap height for anything tappable.
+**Secondary button** — Buttons block, Outline style: 2px Accent 1 border, Accent 1
+text, radius 999px. Hover: fill Accent 1, text Base.
 
-**Focus ring** — `outline: 2px solid #5B2DB8; outline-offset: 3px`. Always visible for
-keyboard users.
+**Links** — Contrast colour, no underline at rest, underline on hover in Accent 1.
 
-**Eyebrow + title + Kalam line** — the section header pattern:
-teal uppercase eyebrow, navy H2, optional Kalam teal line under it. Centre it on
-symmetric sections (sponsors, speakers, CTA); left-align in two-column sections.
+**Focus ring** — `outline: 2px solid #6d28d9; outline-offset: 3px`, always visible.
 
-**Info pill** — white or sky-wash pill with a small icon and short text (e.g. date,
-venue, "Tickets from ₹…"). Same shape as the date pill, navy text.
+**Section header** — Paragraph (eyebrow, small, uppercase, Accent 2) + Heading H2 +
+optional Paragraph in Kalam, Accent 2. Centre on symmetric sections (sponsors,
+speakers, CTA); left-align in two-column sections.
 
-**Card** — see §5. Content order: image (16px radius, 16:10), H3, one or two lines,
-optional link. Speaker cards: square photo, name H3, role in small/meta.
+**Info pill** — Paragraph with Accent 5 background, radius 999px, padding 30 sides,
+optional inline icon. Short facts: date, venue, ticket price.
 
-**Sponsor tier grid** — logos on white, greyscale off, equal-height rows,
-tier heading as eyebrow. Never distort logos; use the Image block's contain scaling.
+**Card** — Group with 16px radius and padding 40. Base on sky-wash sections, Accent 5
+on white sections. No border; shadow `0 12px 32px rgba(13, 27, 42, .12)` on hover only.
+Order: Image (16px radius, 16:10) → H3 → one or two lines → link.
+Speaker cards: square photo, name H3, role in meta style.
 
-**Banner / callout** — full-width sky-wash strip with the eyebrow-title pattern and
-one primary button, used for "Call for speakers", "Become a sponsor".
+**Sponsor tier grid** — Image blocks in Columns, equal-height rows, tier name as an
+eyebrow. Never distort logos.
 
-## 7. Motion
+**Callout banner** — Full-width Group in Accent 5 with a section header and one primary
+button. For "Call for speakers", "Become a sponsor".
 
-The hero moves; the rest of the page should be calm so the hero stays the event.
+**Details block** — for FAQs; the only expand/collapse that works without JavaScript.
 
-* Allowed: hover transitions of 150–250ms on colour, underline, shadow, and a
-  4px lift (`transform: translateY(-4px)`) on cards. A single one-time fade-in on a
-  section's title is fine (opacity only, ≤ .9s).
-* Not allowed: looping animations below the hero, parallax on Cover blocks,
-  auto-advancing carousels, anything that competes with the skyline.
-* Wrap every animation in `@media (prefers-reduced-motion: reduce) { animation: none; transition: none; }`.
-* Never animate `transform` on the header or its ancestors: the mobile menu overlay
-  is `position: fixed` and a transformed ancestor traps it.
+## 6. Motion
 
-## 8. Imagery and Mumbai flavour
+Keep everything calm; the hero is the only animated element on the site.
 
-* Illustrated, flat, friendly: the skyline sets the tone. Photos are fine for
-  speakers, venue and past-event galleries; keep them warm and daylight.
-* Reuse hero motifs as small decorations, not repeats of the whole scene: a marigold
-  row as a section divider, a single cloud shape as a card ornament, the plane's banner
-  style for an announcement strip. Ask before reusing artwork so it can be exported as
-  PNG from the SVG at the right size.
-* Icons: simple line or flat icons in navy or blue, 24px, consistent stroke.
-  Upload as PNG (SVG is blocked) at 2× size.
+* Allowed: 150–250ms hover transitions on colour, underline and shadow, and a 4px
+  lift on cards.
+* Not allowed: looping animations, Cover block parallax, auto-advancing carousels.
+* Wrap any animation or transition in
+  `@media (prefers-reduced-motion: reduce) { animation: none; transition: none; }`.
+* Never animate `transform` on the header; core's mobile menu overlay breaks inside a
+  transformed ancestor.
 
-## 9. Accessibility and quality bar
+## 7. Imagery
 
-* AA contrast everywhere; navy on sky wash and white on blue both pass.
-* One H1 on the page (the hero's logo alt text acts as the page title; use H2 for sections).
-* Every interactive element: 44px minimum target, visible focus, real link text
-  (no "click here").
-* Check at 320px, 390px, 768px portrait, 1366px and 1920px. Nothing scrolls
-  horizontally; images never exceed their column.
-* Test Additional CSS survives saving: if a rule disappears after save, it used a
-  stripped feature (see §2.3). Rewrite it with literal values.
+Flat, friendly, daylight. Photos for speakers, venue and past events; illustrations
+in the palette above for everything else. Icons: simple line or flat, Contrast or
+Accent 1, 24px, uploaded as PNG at 2×. Ask before reusing hero artwork; it can be
+exported as PNG at the size needed.
 
-## 10. Landing page sections to build (suggested order)
+## 8. Quality bar
 
-1. Intro / "What is WordCamp Mumbai" — two columns: text left, illustration or photo right.
-2. Key facts strip — three or four info pills: date, venue, tickets, contributor day.
-3. Call for speakers / sponsors — banner callout.
-4. Speakers (placeholder grid until announced).
-5. Schedule teaser — link to the schedule page.
+* AA contrast everywhere.
+* One H1 per page; sections start at H2.
+* Every interactive element: 44px minimum target, visible focus, real link text.
+* Check at 320px, 390px, 768px portrait, 1366px and 1920px. No horizontal scroll.
+* After each section, load the page on a phone and open the header menu once.
+
+## 9. Landing page sections (suggested order)
+
+1. Intro — what WordCamp Mumbai is; two columns, text and image.
+2. Key facts — three or four info pills: date, venue, tickets, contributor day.
+3. Callout — call for speakers / sponsors.
+4. Speakers grid (placeholder until announced).
+5. Schedule teaser linking to the schedule page.
 6. Sponsors by tier.
-7. Venue — map embed is allowed (core Embed block) plus address and travel tips.
-8. Community / past WordCamps — optional gallery.
+7. Venue — Embed block map, address, travel tips.
+8. Community / past WordCamps gallery (optional).
 9. Final CTA — "Get tickets" primary, "Contact" secondary.
 
-Each section: eyebrow + H2 (+ optional Kalam line), one clear action, alternate
-white / sky-wash backgrounds, preset-70 padding.
-
-## 11. Hand-off checklist for the new session
-
-* Work only in the block editor and Additional CSS. Do not edit `hero-block.html`,
-  `hero.css` or the SVGs for landing-page work; raise hero changes separately.
-* Add new CSS under a fenced comment, e.g. `/* ==== LANDING: <section> ==== */`,
-  after the existing sections, so it can be found and removed independently.
-* Prefix new classes with `wcm-`. Never reuse a `wcm-` class the hero already uses.
-* Before pasting CSS, remove every `--custom-property` and `var(--custom)`.
-* After each section, load the page on a phone and tap the header menu once.
+Alternate white and sky-wash backgrounds; each section gets one clear action.
