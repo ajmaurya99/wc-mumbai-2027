@@ -31,6 +31,7 @@ default block gap (not overridden). Card width follows the Columns block:
 | On a white section (default) | card background `accent-5` |
 | On a sky-wash section | card background `base` |
 | No image | delete the Image block; the rest is unchanged |
+| No link | delete the last Paragraph when the section has one shared button (see `examples/why-attend`) |
 | Two cards | Columns with two Columns; keep `align: wide` |
 | Whole card clickable | not possible without JavaScript or Custom HTML; keep the text link |
 
