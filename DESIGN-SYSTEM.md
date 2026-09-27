@@ -44,6 +44,11 @@ These are enforced by the site, not preferences.
 6. Prefer block settings (colour, spacing, typography pickers) over custom CSS. When
    CSS is needed, prefix classes with `wcm-`, keep it in a clearly fenced section of
    Additional CSS, and keep selectors simple.
+7. **Two places hold custom CSS.** Appearance → Customize → Additional CSS holds the
+   hero and form CSS (sanitised, see 3). The Site Editor's Styles panel also has its own
+   Additional CSS box, currently holding the font overrides in §4. Do not put landing
+   page CSS in the Styles box; keep it all in the Customizer so there is one file to
+   mirror in the repo.
 
 ## 3. Colour
 
@@ -73,25 +78,54 @@ Rules:
 
 ## 4. Typography
 
-* **Body and headings: Manrope** (theme default; select it in the block typography
-  picker, or leave inherit). Weights: 400 body, 500 nav/labels, 600 buttons, 700 headings.
-* **Accent: Kalam** (theme preset `kalam`). Only for one-line flourishes such as a
-  section tagline or a pull quote, in teal, 500 weight. Never for body text or buttons.
+**Verified against the Site Editor's saved Styles (27 Sep 2026).** What renders today is
+not the theme default, so read this carefully.
+
+Fonts registered on the site: Manrope and Fira Code (theme), Newsreader (all weights)
+and Kalam (**weight 700 only**) added as custom fonts.
+
+Saved Styles set body and headings to **Newsreader**, but a custom CSS block inside
+Styles (Styles → ⋮ → Additional CSS) then overrides everything:
+
+```
+body, figcaption { font-family: Arial, Helvetica, sans-serif; }
+h1–h6 { font-family: Verdana, Geneva, sans-serif; font-weight: 700; }
+.wp-block-button__link, .wp-element-button, .wcm-btn { font-family: Verdana, Geneva, sans-serif; font-weight: 700; }
+```
+
+So the live page renders **Arial body / Verdana headings and buttons**, and the
+hero's date pill and venue line inherit Arial. This is a deliberate site setting; do
+not change it in a landing-page session without asking. If the owner agrees to switch,
+the recommended target is **Manrope** for body and headings (Styles → Typography, then
+delete the three lines above), which matches the hero's geometric sans feel. Until then,
+design for the system fonts and do not specify Manrope anywhere.
+
+* **Accent: Kalam** (preset `kalam`, only the 700 face is installed, so it always
+  renders bold). Only for one-line flourishes such as a section tagline, in teal.
+  Never for body text or buttons.
 * Navy for all text; teal only for Kalam flourishes and eyebrows.
 
-Scale (use clamp so it tracks the hero):
+Theme size presets (use these in the block typography picker):
+small `.875rem` · medium `1rem` · large `1.38rem` · x-large `1.75rem` · xx-large `2.15rem`.
+Body is set to 17px in Styles (fluid down to 14px on phones), line-height 1.6.
+Headings: weight 700, letter-spacing -0.01em, line-height 1.2. H2 = x-large, H3 = large.
 
 | Element | Size | Weight | Notes |
 |---|---|---|---|
-| Section title (H2) | `clamp(1.75rem, 3.2vw, 2.5rem)` | 700 | Centred on centred sections, else left |
-| Eyebrow above H2 | `.85rem`, uppercase, letter-spacing `.08em` | 600 | Teal |
-| Kalam tagline | `clamp(1.05rem, 1.6vw, 1.35rem)` | 500 | Teal, matches the hero |
-| Card title (H3) | `1.25rem` | 700 | |
-| Body | `1.05rem` | 400 | line-height 1.6, max 65ch |
-| Small / meta | `.9rem` | 500 | navy at 70% opacity is fine |
-| Buttons | `1.05rem` | 600 | |
+| Section title (H2) | preset x-large, or `clamp(1.75rem, 3.2vw, 2.5rem)` for a hero-like one | 700 | Centred on centred sections, else left |
+| Eyebrow above H2 | small preset, uppercase, letter-spacing `.08em` | 700 | Teal |
+| Kalam tagline | `clamp(1.05rem, 1.6vw, 1.35rem)` | 700 (only face) | Teal, matches the hero |
+| Card title (H3) | preset large | 700 | |
+| Body | theme default (17px) | 400 | line-height 1.6, max 65ch |
+| Small / meta | preset small | 400 | navy at 70% opacity is fine |
+| Buttons | 16px (theme) | 700 | |
 
 ## 5. Layout and spacing
+
+Saved layout: content width **800px** (set in Styles; the theme default is 645px),
+wide width **1340px**, root padding top **0** and sides preset 50. Spacing presets:
+20 = 10px · 30 = 20px · 40 = 30px · 50 = clamp(30px, 5vw, 50px) · 60 = clamp(30px, 7vw, 70px) ·
+70 = clamp(50px, 7vw, 90px) · 80 = clamp(70px, 10vw, 140px).
 
 * Sections are full-width Group blocks (alignment: Full width) with an inner
   constrained Group. Section padding: theme spacing preset **70** top and bottom
@@ -106,9 +140,12 @@ Scale (use clamp so it tracks the hero):
 
 ## 6. Components
 
-**Primary button** — Buttons block, style Fill, background blue `#0A6CB5`, text white,
-radius 999px, padding `.6rem 1.5rem`, weight 600. Hover: purple `#5B2DB8`. This is the
-hero's date pill and the old Contact button; keep it identical.
+**Primary button** — Buttons block, style Fill. The theme's saved button default is
+**navy background, white text, square corners, 1rem × 2.25rem padding, Verdana 700**,
+which does not match the hero. For every button set: background blue `#0A6CB5`, text
+white, radius `999px`, padding `.6rem 1.5rem`. Hover: purple `#5B2DB8`. Do this once in
+Styles → Blocks → Button so all buttons match, rather than per block. This is the hero's
+date pill and the old Contact button; keep it identical.
 
 **Secondary button** — Buttons block, style Outline, border 2px blue, text blue,
 radius 999px. Hover: fill blue, text white.
