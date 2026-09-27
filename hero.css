@@ -799,9 +799,10 @@
 /* ==== HERO NAV: end ==== */
 
 /* ==== FOOTER SCENE: start ====
-   Footer Group carries the class "wcm-footer-scene" and the daytime Gateway PNG as its
-   block background (Cover, position centre bottom). The padding keeps the footer text
-   inside the plain sky band of the image; phones need a taller footer for that. */
+   Footer Group carries the class "wcm-footer-scene" and the auditorium PNG as its block
+   background (Cover, position centre bottom). The padding keeps the footer text inside
+   the plain wall band at the top of the image. Phones swap to the portrait crop
+   (footer-mumbai-ai-phone.png) so the robot and lectern stay in view. */
 .wcm-footer-scene {
     padding-bottom: clamp(300px, 42vw, 620px) !important;
     color: #1A2447;
@@ -809,7 +810,8 @@
 
 @media (max-width: 600px) {
     .wcm-footer-scene {
-        padding-bottom: 700px !important;
+        background-image: url('https://mumbai.wordcamp.org/2027/files/2026/09/footer-mumbai-ai-phone.png') !important;
+        padding-bottom: 760px !important;
     }
 }
 /* ==== FOOTER SCENE: end ==== */
