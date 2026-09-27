@@ -129,7 +129,7 @@ wide width **1340px**, root padding top **0** and sides preset 50. Spacing prese
 ## 6. Components
 
 **Primary button** — Buttons block, style Fill. The theme's saved button default is
-**navy background, white text, square corners, 1rem × 2.25rem padding, Verdana 700**,
+**navy background, white text, square corners, 1rem × 2.25rem padding, Newsreader 700**,
 which does not match the hero. For every button set: background blue `#0A6CB5`, text
 white, radius `999px`, padding `.6rem 1.5rem`. Hover: purple `#5B2DB8`. Do this once in
 Styles → Blocks → Button so all buttons match, rather than per block. This is the hero's
