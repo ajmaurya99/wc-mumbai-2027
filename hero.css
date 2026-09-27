@@ -799,21 +799,17 @@
 /* ==== HERO NAV: end ==== */
 
 /* ==== FOOTER SCENE: start ====
-   Footer Group carries the class "wcm-footer-scene" and the dusk skyline PNG as its
+   Footer Group carries the class "wcm-footer-scene" and the daytime Gateway PNG as its
    block background (Cover, position centre bottom). The padding keeps the footer text
    inside the plain sky band of the image; phones need a taller footer for that. */
 .wcm-footer-scene {
     padding-bottom: clamp(300px, 42vw, 620px) !important;
-    color: #FFFFFF;
-}
-
-.wcm-footer-scene a {
-    color: #FFFFFF;
+    color: #1A2447;
 }
 
 @media (max-width: 600px) {
     .wcm-footer-scene {
-        padding-bottom: 640px !important;
+        padding-bottom: 700px !important;
     }
 }
 /* ==== FOOTER SCENE: end ==== */
