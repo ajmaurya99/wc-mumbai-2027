@@ -278,6 +278,9 @@ class Report:
                 continue
             name, kind = nearest_dimension(lit_s, TOK["spacing"])
             found = "%s: %s" % (prop, lit_s)
+            if re.search(r"(vw|vh)$", lit_s):
+                self.add(line, "spacing", found, "–", "REVIEW", "viewport-relative spacing: only for image-tied offsets; justify in spec")
+                continue
             if kind == "exact":
                 self.add(line, "spacing", found, "spacing." + name, "PASS", "prefer the preset var")
             elif kind == "close":

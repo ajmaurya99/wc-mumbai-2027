@@ -14,6 +14,14 @@ Usage:
   preview.py <component-dir> [...]      write <dir>/preview.html for each dir
   preview.py --group <out.html> <dir>...  one page stacking several components
   preview.py --stdin < block.html         print the rendered fragment only
+  preview.py --site block.html            print the paste-ready markup (see markers)
+
+Markers inside block.html:
+  <!-- ds:preview-only --> … <!-- /ds:preview-only -->  shown in previews only
+      (stand-ins for dynamic blocks such as Query Loop or Jetpack forms)
+  <!-- ds:site-only --> … <!-- /ds:site-only -->        pasted to the site only
+Asset URLs under https://cdn.jsdelivr.net/gh/ajmaurya99/wc-mumbai-2027@main/
+are rewritten to local repo paths in previews.
 
 It never modifies block.html.
 """
@@ -25,6 +33,12 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DS_ROOT = os.path.dirname(HERE)
+REPO = os.path.dirname(DS_ROOT)
+# Assets are committed to the repo and served by jsDelivr on the live site
+# (the hero already does this). Previews load the same files from disk.
+CDN_PREFIX = "https://cdn.jsdelivr.net/gh/ajmaurya99/wc-mumbai-2027@main/"
+PREVIEW_ONLY = re.compile(r"<!--\s*ds:preview-only\s*-->(.*?)<!--\s*/ds:preview-only\s*-->", re.S)
+SITE_ONLY = re.compile(r"<!--\s*ds:site-only\s*-->(.*?)<!--\s*/ds:site-only\s*-->", re.S)
 
 BLOCK_OPEN = re.compile(r"<!--\s*wp:([a-z0-9/_-]+)(\s+(\{.*?\}))?\s*(/)?-->", re.S)
 TAG_OPEN = re.compile(r"<([a-zA-Z][a-zA-Z0-9-]*)((?:\s+[^\s=>/]+(?:=(?:\"[^\"]*\"|'[^']*'|[^\s>]+))?)*)\s*(/?)>")
@@ -36,7 +50,36 @@ LAYOUT_BLOCKS = {
     "core/column": "flow",
     "core/buttons": "flex",
     "core/post-content": "flow",
+    "core/cover": "flow",
 }
+
+
+def background_style(attrs):
+    """Inline background declarations WordPress adds at render for style.background."""
+    bg = (attrs.get("style") or {}).get("background") or {}
+    decls = []
+    img = bg.get("backgroundImage")
+    if isinstance(img, dict) and img.get("url"):
+        decls.append("background-image:url('%s')" % img["url"])
+        decls.append("background-size:%s" % bg.get("backgroundSize", "cover"))
+        if bg.get("backgroundPosition"):
+            decls.append("background-position:%s" % bg["backgroundPosition"])
+        decls.append("background-repeat:%s" % bg.get("backgroundRepeat", "no-repeat"))
+        if bg.get("backgroundAttachment"):
+            decls.append("background-attachment:%s" % bg["backgroundAttachment"])
+    return ";".join(decls)
+
+
+def for_site(markup):
+    """Handover form: drop preview-only parts, unwrap site-only markers."""
+    markup = PREVIEW_ONLY.sub("", markup)
+    return SITE_ONLY.sub(lambda m: m.group(1), markup)
+
+
+def for_preview(markup):
+    markup = SITE_ONLY.sub("", markup)
+    markup = PREVIEW_ONLY.sub(lambda m: m.group(1), markup)
+    return markup
 
 
 def preset_to_css(value):
@@ -60,9 +103,10 @@ def gap_css(block_gap):
 
 
 class Renderer:
-    def __init__(self):
+    def __init__(self, cdn_local=None):
         self.counter = 0
         self.styles = []
+        self.cdn_local = cdn_local
 
     def next_id(self, block):
         self.counter += 1
@@ -130,6 +174,10 @@ class Renderer:
         return classes
 
     def render(self, markup):
+        markup = for_preview(markup)
+        markup = markup.replace(CDN_PREFIX, self.cdn_local or CDN_PREFIX)
+        # cover: WordPress puts the layout classes on the inner container
+        markup = re.sub(r'class="wp-block-cover__inner-container"', 'class="wp-block-cover__inner-container is-layout-constrained wp-block-cover-is-layout-constrained"', markup)
         out = []
         pos = 0
         for m in BLOCK_OPEN.finditer(markup):
@@ -153,11 +201,20 @@ class Renderer:
             if between.strip():
                 continue  # something other than whitespace before the wrapper: leave it
             new_classes = self.layout_classes(block, attrs)
+            if block == "core/cover":
+                new_classes = []  # cover's layout classes go on its inner container (handled below)
             tag_text = tag.group(0)
-            if re.search(r'\sclass="', tag_text):
-                tag_text = re.sub(r'(\sclass=")([^"]*)"', lambda mm: '%s%s %s"' % (mm.group(1), mm.group(2), " ".join(new_classes)), tag_text, count=1)
-            else:
-                tag_text = tag_text[: len(tag.group(1)) + 1] + ' class="%s"' % " ".join(new_classes) + tag_text[len(tag.group(1)) + 1:]
+            if new_classes:
+                if re.search(r'\sclass="', tag_text):
+                    tag_text = re.sub(r'(\sclass=")([^"]*)"', lambda mm: '%s%s %s"' % (mm.group(1), mm.group(2), " ".join(new_classes)), tag_text, count=1)
+                else:
+                    tag_text = tag_text[: len(tag.group(1)) + 1] + ' class="%s"' % " ".join(new_classes) + tag_text[len(tag.group(1)) + 1:]
+            extra_style = background_style(attrs)
+            if extra_style:
+                if re.search(r'\sstyle="', tag_text):
+                    tag_text = re.sub(r'(\sstyle=")([^"]*)"', lambda mm: '%s%s;%s"' % (mm.group(1), mm.group(2), extra_style), tag_text, count=1)
+                else:
+                    tag_text = tag_text[: len(tag.group(1)) + 1] + ' style="%s"' % extra_style + tag_text[len(tag.group(1)) + 1:]
             out.append(between)
             out.append(tag_text)
             pos = tag.end()
@@ -202,10 +259,10 @@ PAGE = """<!doctype html>
 
 def build_page(sections, out_path, title):
     """sections: list of (label or None, block_html, [css paths])"""
-    r = Renderer()
+    out_dir = os.path.dirname(os.path.abspath(out_path))
+    r = Renderer(cdn_local=rel(out_dir, REPO) + "/")
     body_parts = []
     css_links = []
-    out_dir = os.path.dirname(os.path.abspath(out_path))
     for label, markup, css_files in sections:
         if label:
             body_parts.append('<p class="ds-preview-label alignfull">%s</p>' % html.escape(label))
@@ -242,6 +299,10 @@ def main(argv):
         return 0
     if argv[0] == "--stdin":
         print(Renderer().render(sys.stdin.read()))
+        return 0
+    if argv[0] == "--site":
+        # print the paste-ready form of a block.html (preview-only parts removed)
+        sys.stdout.write(for_site(open(argv[1]).read()))
         return 0
     if argv[0] == "--group":
         out = argv[1]
