@@ -89,6 +89,14 @@ constrain to 800px, or 1340px with `"align":"wide"`.
 | radius.chip | `8px` | Chips | `"style":{"border":{"radius":"8px"}}` |
 | shadow.cardHover | `0 12px 32px rgba(13, 27, 42, .12)` | Card hover only | No picker (the Shadow control applies at rest). Custom CSS: `.wcm-card:hover`. |
 
+## Gradient and background image (block controls)
+
+| Token | Block JSON | Front-end |
+|---|---|---|
+| gradient.band | `"style":{"color":{"gradient":"linear-gradient(135deg,#0073aa 0%,#6d28d9 100%)"}}` | `has-background` + inline `background:` |
+| asset tile / motif | `"style":{"background":{"backgroundImage":{"url":"…png","source":"file"},"backgroundSize":"120px auto","backgroundPosition":"0 0","backgroundRepeat":"repeat"}}` | inline `background-image` etc., added at render (preview.py reproduces it) |
+| border.accent | `"style":{"border":{"left":{"color":"var:preset\|color\|accent-2","width":"4px"}}}` | inline `border-left-*` |
+
 ## Things only CSS can do here
 
 The pickers cover colour, size, family, spacing, radius, alignment and layout.

@@ -74,6 +74,8 @@ def hero_classes():
         p = os.path.join(REPO, f)
         if os.path.exists(p):
             txt = open(p, errors="replace").read()
+            # the FOOTER SCENE fence in hero.css styles the site footer, not the hero: its class is reusable
+            txt = re.sub(r"/\* ==== FOOTER SCENE: start ====.*?FOOTER SCENE: end ==== \*/", "", txt, flags=re.S)
             names.update(re.findall(r"\.(wcm-[\w-]+)", txt))
             names.update(re.findall(r'class="([^"]*)"', txt) and [c for m in re.findall(r'class="([^"]*)"', txt) for c in m.split() if c.startswith("wcm-")])
             names.update(re.findall(r'id="(wcm-[\w-]+)"', txt))
@@ -421,7 +423,7 @@ class Report:
             # -- preset classes
             for m in re.finditer(r"has-([\w-]+?)-(background-color|color)\b", line):
                 slug = m.group(1)
-                if slug in ("text", "link", "background"):
+                if slug in ("text", "link", "background", "icon", "icon-background"):
                     continue
                 self.colour_slug(i, slug, m.group(0))
             for m in re.finditer(r"has-([\w-]+?)-font-size\b", line):

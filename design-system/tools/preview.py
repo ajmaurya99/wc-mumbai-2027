@@ -12,6 +12,7 @@ sits next to block.html.
 
 Usage:
   preview.py <component-dir> [...]      write <dir>/preview.html for each dir
+  preview.py <file.html>                 write <file>.preview.html (CSS from its folder)
   preview.py --group <out.html> <dir>...  one page stacking several components
   preview.py --stdin < block.html         print the rendered fragment only
   preview.py --site block.html            print the paste-ready markup (see markers)
@@ -286,6 +287,11 @@ def build_page(sections, out_path, title):
 
 def component_inputs(d):
     d = os.path.abspath(d)
+    if os.path.isfile(d):
+        block = d
+        d = os.path.dirname(d)
+        css = sorted(os.path.join(d, f) for f in os.listdir(d) if f.endswith(".css"))
+        return open(block).read(), css
     block = os.path.join(d, "block.html")
     if not os.path.exists(block):
         sys.exit("no block.html in %s" % d)
@@ -317,8 +323,13 @@ def main(argv):
         return 0
     for d in argv:
         markup, css = component_inputs(d)
-        out = os.path.join(os.path.abspath(d), "preview.html")
-        name = os.path.basename(os.path.abspath(d))
+        if os.path.isfile(d):
+            stem = os.path.splitext(os.path.basename(d))[0]
+            out = os.path.join(os.path.dirname(os.path.abspath(d)), stem + ".preview.html")
+            name = stem
+        else:
+            out = os.path.join(os.path.abspath(d), "preview.html")
+            name = os.path.basename(os.path.abspath(d))
         build_page([(None, markup, css)], out, "WCM component: " + name)
         print("wrote", out)
     return 0

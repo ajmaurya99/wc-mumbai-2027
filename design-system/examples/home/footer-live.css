@@ -1,0 +1,6 @@
+/* PREVIEW ONLY. Copy of the FOOTER SCENE fence that is already live in hero.css /
+   Additional CSS. Do not paste again. Loaded here so previews match the site. */
+.wcm-footer-scene { padding-bottom: clamp(300px, 42vw, 620px) !important; color: #1A2447; }
+@media (max-width: 600px) {
+  .wcm-footer-scene { background-image: url('https://mumbai.wordcamp.org/2027/files/2026/09/footer-mumbai-ai-phone.png') !important; padding-bottom: 760px !important; }
+}

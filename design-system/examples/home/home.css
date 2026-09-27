@@ -1,0 +1,42 @@
+/* ==== LANDING: separators ==== */
+/* Group .wcm-sep (flex, nowrap, centred): Separator | Image (diamond-icon-diamond PNG) | Separator.
+   The Separator blocks become the dashed teal line; the artwork carries the diamonds,
+   so no pseudo-elements are needed. */
+.wcm-sep .wcm-sep__line {
+    flex: 1 1 auto;
+    width: auto;
+    max-width: none;
+    height: 0;
+    margin: 0;
+    border: 0;
+    border-top: 2px dashed #006b78;
+    background: none !important;
+    opacity: 1;
+}
+.wcm-sep .wp-block-image {
+    flex: 0 0 auto;
+    margin: 0;
+}
+/* ==== end ==== */
+
+/* ==== LANDING: fact cards and chips ==== */
+.wcm-fact .wp-block-image { flex: 0 0 auto; margin: 0; }
+.wcm-fact > .wp-block-group { min-width: 0; }
+.wcm-chip { width: fit-content; }
+.wcm-point > p { flex: 0 0 auto; min-width: 2.5ch; }
+.wcm-point > .wp-block-group { flex: 1 1 auto; min-width: 0; }
+/* ==== end ==== */
+
+/* ==== LANDING: bands ==== */
+/* Dark strip under the numbers (Contrast, wide, flex). Text is Base. */
+.wcm-band > .wp-block-group { flex: 1 1 420px; }
+/* "Be part": gradient band; the logo sits in a white disc. */
+.wcm-logo-disc { width: 320px; height: 320px; padding: 0 !important; margin-left: auto; margin-right: auto; align-items: center; justify-content: center; }
+.wcm-logo-disc .wp-block-image { margin: 0; }
+@media (max-width: 781px) {
+    .wcm-logo-disc { width: 240px; height: 240px; }
+    .wcm-logo-disc .wp-block-image img { width: 170px !important; }
+}
+.wcm-map img { width: 100%; }
+.wcm-fake-input { flex: 1 1 240px; }
+/* ==== end ==== */

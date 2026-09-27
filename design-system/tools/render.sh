@@ -52,7 +52,7 @@ HTML
         | sed -n 's:.*<title>\([0-9]*\)</title>.*:\1:p' | head -1)
   [ -n "$H" ] && [ "$H" -gt 0 ] || H=900
   [ "$H" -lt 200 ] && H=200
-  [ "$H" -gt 12000 ] && H=12000
+  [ "$H" -gt 24000 ] && H=24000
   sed -i '' "s/height:600px/height:${H}px/" "$WRAP"
   OUT="$OUT_DIR/${NAME}-${W}.png"
   "$CHROME" --headless=new --disable-gpu --hide-scrollbars --allow-file-access-from-files \

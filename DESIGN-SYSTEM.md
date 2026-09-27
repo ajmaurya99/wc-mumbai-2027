@@ -50,6 +50,18 @@ Rules: page ground is white; alternate sections in sky wash for rhythm. One prim
 blue button per section. Text on blue, teal or purple is white; on white or sky wash
 it is contrast. Keep AA contrast.
 
+Bands (added 28 Sep 2026 for the home page): at most one **dark band** per screen,
+Contrast background with Base text and a Base-filled button (text Contrast); and one
+**gradient band** per page, `linear-gradient(135deg, #0073aa 0%, #6d28d9 100%)`
+(Accent 1 to Accent 3) with Base text, a Base-filled button (text Accent 3) and a
+Base outline button. No other gradients.
+
+Decorative backgrounds: a section Group may carry one background image from
+`design-system/assets/png` set in the block's Background control: a subtle tile
+(`tile-lattice-*`, `tile-waves-*`, size 120px, repeat) or one corner motif
+(`motif-*`, 320–420px, no-repeat, anchored to a corner). Tiles are white lines on
+sky wash or Accent 1/2 at 7–8% on white; motifs are palette colours at 10%.
+
 ## 3. Typography
 
 Set in Styles → Typography. Do not override fonts in CSS.
@@ -125,6 +137,26 @@ button. For "Call for speakers", "Become a sponsor".
 
 **Details block** — for FAQs; the only expand/collapse that works without JavaScript.
 
+Added 28 Sep 2026, all in `design-system/components`:
+
+**Fact card** — Group, flex, Accent 5 (Base on sky wash), radius 16px, 4px Accent 2 left
+edge, 24px icon, small Accent 4 label, large bold value, optional note.
+
+**Stat tile** — Card with the number in xx-large Accent 1, an uppercase small label in
+Accent 4 and one line. Three or four per row.
+
+**Separator** — Group, flex: Separator, Image (diamond-icon-diamond PNG, 200px),
+Separator; CSS makes the separators a dashed 2px Accent 2 line.
+
+**Pattern strip** — full-width Group with a 60px repeat-x background tile
+(`strip-train`, `strip-toran`, `strip-waves`, `strip-kolam`) and a 60px Spacer.
+
+**Status chip** — inside a card: Group, flex, Base, radius 8px, padding 20/30, small
+700 text in Accent 2 (open) or Accent 4 (coming soon).
+
+**Numbered point** — Group, flex, nowrap: Paragraph numeral (x-large, 700, Accent 1)
+beside a Group with H3 and one line. Four points beside a 4:5 photo.
+
 ## 6. Motion
 
 Keep everything calm; the hero is the only animated element on the site.
@@ -138,6 +170,12 @@ Keep everything calm; the hero is the only animated element on the site.
   transformed ancestor.
 
 ## 7. Imagery
+
+Artwork lives in `design-system/assets` as SVG sources and PNG at 2× (SVG upload is
+blocked): six separator icons (marigold, local train, vada pav, cutting chai, taxi,
+Gateway of India), four 24px fact icons, four pattern strips, four section tiles and
+three corner motifs. Draw new pieces flat, in the palette, and rasterise with
+`design-system/tools/rasterise.py`.
 
 Flat, friendly, daylight. Photos for speakers, venue and past events; illustrations
 in the palette above for everything else. Icons: simple line or flat, Contrast or

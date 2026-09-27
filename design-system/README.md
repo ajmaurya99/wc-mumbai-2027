@@ -22,15 +22,23 @@ design-system/
 ├── tools/
 │   ├── preview.py            block.html → preview.html, adding the classes WordPress adds at render
 │   ├── render.sh             preview.html → preview-390.png and preview-1366.png (headless Chrome)
+│   ├── rasterise.py          SVG artwork → PNG at 2× (SVG upload is blocked on WordCamp.org)
 │   └── theme-shim.css        emulates the saved Styles for local previews only; never paste it
 ├── components/
-│   ├── core/        buttons · links · section-header · info-pill
-│   ├── content/     card · speaker-card · faq-details
+│   ├── core/        buttons · links · section-header · info-pill · fact-card · separator · pattern-strip
+│   ├── content/     card · speaker-card · faq-details · stat-tile
 │   └── marketing/   sponsor-tier-grid · callout-banner
+├── assets/
+│   ├── svg/                  artwork sources (icons, separators, strips, tiles, motifs)
+│   ├── png/                  the same at 2×, served from jsDelivr on the site
+│   └── img/                  photos and illustrations (footer scene)
+├── references/
+│   └── wordcamp-2026-homepages.md   analysis of Delhi, Kathmandu, Bengaluru, Rajasthan
 ├── templates/
 │   └── landing-page.md       section order, backgrounds and actions, composed from the components
 └── examples/
-    └── why-attend/           worked example of the reference → component workflow
+    ├── why-attend/           worked example of the reference → component workflow
+    └── home/                 the home page: build.py → sections/, block.html, footer.html, README.md (handover)
 ```
 
 Each component folder holds:
@@ -57,6 +65,10 @@ whole group.
 | Card | `components/content/card` | `card.css` | REVIEW (the allowed 4px lift; justified in spec) |
 | Speaker card | `components/content/speaker-card` | reuses `card.css` | PASS |
 | FAQ (Details) | `components/content/faq-details` | `faq-details.css` | PASS |
+| Fact card | `components/core/fact-card` | `fact-card.css` | PASS |
+| Separator (ornament) | `components/core/separator` | `separator.css` | PASS |
+| Pattern strip | `components/core/pattern-strip` | none | PASS |
+| Stat tile | `components/content/stat-tile` | reuses `card.css` | PASS |
 | Sponsor tier grid | `components/marketing/sponsor-tier-grid` | none | PASS |
 | Callout banner | `components/marketing/callout-banner` | none | PASS |
 

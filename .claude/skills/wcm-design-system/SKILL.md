@@ -25,6 +25,9 @@ code-first and lives in `design-system/`. Read this file, then the index at
 | Headless Chrome renderer (390px and 1366px) | `design-system/tools/render.sh` |
 | Theme emulation for local previews only | `design-system/tools/theme-shim.css` |
 | Worked example of the full loop | `design-system/examples/why-attend/` |
+| The home page (generator, sections, handover) | `design-system/examples/home/` |
+| Artwork: SVG sources and PNG at 2× | `design-system/assets/` (rasterise with `tools/rasterise.py`) |
+| Reference analysis of other WordCamp sites | `design-system/references/` |
 
 ## Off limits
 
@@ -62,7 +65,18 @@ code-first and lives in `design-system/`. Read this file, then the index at
   columns → one column on the phone, text on colour is white, headings start
   at H2 inside a page.
 * Alternate white and sky-wash (`accent-5`) section backgrounds. One primary
-  blue button per section. Text on blue, teal or purple is Base.
+  blue button per section. Text on blue, teal or purple is Base. Bands: at
+  most one dark (Contrast) band per screen and one gradient band per page
+  (DESIGN-SYSTEM.md §2). Section backgrounds may carry one tile or one corner
+  motif from `assets/png` via the Group's Background control.
+* Artwork: no SVG on the site. Draw in `assets/svg`, run `rasterise.py`, commit
+  the PNG, reference it by its jsDelivr URL
+  (`https://cdn.jsdelivr.net/gh/ajmaurya99/wc-mumbai-2027@main/design-system/assets/png/<name>@2x.png`);
+  previews rewrite that prefix to the local file.
+* Dynamic blocks (Query Loop, Jetpack Subscriptions, Navigation, Social Links)
+  render nothing in previews: wrap the real block in `<!-- ds:site-only -->`
+  and a static stand-in in `<!-- ds:preview-only -->`; `preview.py --site`
+  prints the paste-ready form.
 * Section = Group, Full width, constrained layout, padding preset 70 top and
   bottom, background from the colour picker. Title-to-content gap preset 40;
   between cards preset 30. Grids = Columns 3/2/1, Stack on mobile on.

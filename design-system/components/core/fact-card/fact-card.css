@@ -1,0 +1,7 @@
+/* ==== LANDING: fact cards and chips ==== */
+.wcm-fact .wp-block-image { flex: 0 0 auto; margin: 0; }
+.wcm-fact > .wp-block-group { min-width: 0; }
+.wcm-chip { width: fit-content; }
+.wcm-point > p { flex: 0 0 auto; min-width: 2.5ch; }
+.wcm-point > .wp-block-group { flex: 1 1 auto; min-width: 0; }
+/* ==== end ==== */

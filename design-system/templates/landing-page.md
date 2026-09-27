@@ -1,5 +1,9 @@
 # Landing page template
 
+> The home page as actually planned on 28 Sep 2026 lives in
+> `design-system/examples/home/` (thirteen sections, footer, handover). This file
+> keeps the generic section recipe from DESIGN-SYSTEM.md §9.
+
 Section order from DESIGN-SYSTEM.md §9, composed from the component library.
 Backgrounds alternate white and sky wash (`accent-5`); each section has one
 clear action. The hero above section 1 is the finished custom build and is

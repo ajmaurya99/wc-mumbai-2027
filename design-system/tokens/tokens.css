@@ -79,6 +79,10 @@
 .wcm-mt-30          { margin-top: 20px; }
 .wcm-mt-40          { margin-top: 30px; }
 
+/* -- bands (added 28 Sep 2026) ------------------------------------------- */
+.wcm-bg-gradient    { background: linear-gradient(135deg, #0073aa 0%, #6d28d9 100%); }
+.wcm-border-accent  { border-left: 4px solid #006b78; }
+
 /* -- radius -------------------------------------------------------------- */
 .wcm-radius-chip    { border-radius: 8px; }
 .wcm-radius-card    { border-radius: 16px; }

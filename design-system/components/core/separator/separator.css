@@ -1,0 +1,20 @@
+/* ==== LANDING: separators ==== */
+/* Group .wcm-sep (flex, nowrap, centred): Separator | Image (diamond-icon-diamond PNG) | Separator.
+   The Separator blocks become the dashed teal line; the artwork carries the diamonds,
+   so no pseudo-elements are needed. */
+.wcm-sep .wcm-sep__line {
+    flex: 1 1 auto;
+    width: auto;
+    max-width: none;
+    height: 0;
+    margin: 0;
+    border: 0;
+    border-top: 2px dashed #006b78;
+    background: none !important;
+    opacity: 1;
+}
+.wcm-sep .wp-block-image {
+    flex: 0 0 auto;
+    margin: 0;
+}
+/* ==== end ==== */
