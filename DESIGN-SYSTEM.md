@@ -44,11 +44,10 @@ These are enforced by the site, not preferences.
 6. Prefer block settings (colour, spacing, typography pickers) over custom CSS. When
    CSS is needed, prefix classes with `wcm-`, keep it in a clearly fenced section of
    Additional CSS, and keep selectors simple.
-7. **Two places hold custom CSS.** Appearance → Customize → Additional CSS holds the
-   hero and form CSS (sanitised, see 3). The Site Editor's Styles panel also has its own
-   Additional CSS box, currently holding the font overrides in §4. Do not put landing
-   page CSS in the Styles box; keep it all in the Customizer so there is one file to
-   mirror in the repo.
+7. **Two places can hold custom CSS.** Appearance → Customize → Additional CSS holds
+   the hero and form CSS (sanitised, see 3). The Site Editor's Styles panel also has its
+   own Additional CSS box; it is empty and should stay empty. Keep all CSS in the
+   Customizer so there is one file to mirror in the repo.
 
 ## 3. Colour
 
@@ -78,27 +77,16 @@ Rules:
 
 ## 4. Typography
 
-**Verified against the Site Editor's saved Styles (27 Sep 2026).** What renders today is
-not the theme default, so read this carefully.
+**Verified against the Site Editor's saved Styles (27 Sep 2026).**
 
 Fonts registered on the site: Manrope and Fira Code (theme), Newsreader (all weights)
 and Kalam (**weight 700 only**) added as custom fonts.
 
-Saved Styles set body and headings to **Newsreader**, but a custom CSS block inside
-Styles (Styles → ⋮ → Additional CSS) then overrides everything:
-
-```
-body, figcaption { font-family: Arial, Helvetica, sans-serif; }
-h1–h6 { font-family: Verdana, Geneva, sans-serif; font-weight: 700; }
-.wp-block-button__link, .wp-element-button, .wcm-btn { font-family: Verdana, Geneva, sans-serif; font-weight: 700; }
-```
-
-So the live page renders **Arial body / Verdana headings and buttons**, and the
-hero's date pill and venue line inherit Arial. This is a deliberate site setting; do
-not change it in a landing-page session without asking. If the owner agrees to switch,
-the recommended target is **Manrope** for body and headings (Styles → Typography, then
-delete the three lines above), which matches the hero's geometric sans feel. Until then,
-design for the system fonts and do not specify Manrope anywhere.
+* **Body and headings: Newsreader** (serif), set in Styles → Typography. Body 400,
+  headings 700. Select it in the block typography picker or leave inherit. Do not
+  specify Manrope, Arial or Verdana anywhere; an earlier system-font override in the
+  Styles panel's Additional CSS was removed on 27 Sep 2026 and must not come back.
+* Buttons inherit the body font at 16px, weight 700.
 
 * **Accent: Kalam** (preset `kalam`, only the 700 face is installed, so it always
   renders bold). Only for one-line flourishes such as a section tagline, in teal.
