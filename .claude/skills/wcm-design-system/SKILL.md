@@ -120,6 +120,9 @@ e. **Hand over.** Give the paste-ready `block.html` contents in a fenced
   appear in the HTML exactly as WordPress would save them; see
   `design-system/tokens/theme-presets.md` and copy patterns from an existing
   `block.html`.
+* A plain stacked Group is `"layout":{"type":"default"}`, never `"flow"`: the
+  editor shows "This block has encountered an error" for `flow` although the
+  front end renders it.
 * `blockGap` lives only in the JSON; WordPress emits it at render time.
   `preview.py` reproduces that, so do not add gap CSS.
 * Placeholder images: `https://placehold.co/…` is fine for previews; say

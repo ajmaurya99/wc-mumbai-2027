@@ -171,7 +171,7 @@ sections.append(("08-numbers", section_c([
 def logo(name, colour):
     import json
     inner = image(PLACEHOLDER % ("600x400", "ffffff", colour, name), name.replace("+", " "), ratio="3/2", scale="contain", link="#")
-    return column('<!-- wp:group {"className":"wcm-card","style":{"color":{"background":"%s"},"border":{"radius":"16px"},"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"layout":{"type":"flow"}} -->\n<div class="wp-block-group wcm-card has-background" style="background-color:%s;border-radius:16px;padding-top:%s;padding-right:%s;padding-bottom:%s;padding-left:%s">%s</div>\n<!-- /wp:group -->' % (WASH_MARIGOLD, WASH_MARIGOLD, SP(40), SP(40), SP(40), SP(40), inner))
+    return column('<!-- wp:group {"className":"wcm-card","style":{"color":{"background":"%s"},"border":{"radius":"16px"},"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"layout":{"type":"default"}} -->\n<div class="wp-block-group wcm-card has-background" style="background-color:%s;border-radius:16px;padding-top:%s;padding-right:%s;padding-bottom:%s;padding-left:%s">%s</div>\n<!-- /wp:group -->' % (WASH_MARIGOLD, WASH_MARIGOLD, SP(40), SP(40), SP(40), SP(40), inner))
 
 sections.append(("09-sponsors", section([
     header_b("Sponsors", "Made possible by our sponsors", body="WordCamp Mumbai runs on the generosity of the WordPress ecosystem. Here are the partners making 2027 happen."),

@@ -118,6 +118,8 @@ class Renderer:
         classes = []
         layout = attrs.get("layout") or {}
         ltype = layout.get("type") or LAYOUT_BLOCKS.get(block, "flow")
+        if ltype == "default":
+            ltype = "flow"  # saved as "default", rendered as is-layout-flow
         if block == "core/columns":
             ltype = "flex"
         short = block.split("/")[-1]

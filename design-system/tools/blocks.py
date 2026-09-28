@@ -183,7 +183,7 @@ def group(inner, layout="flow", align=None, bg=None, gradient=None, padding=None
         j["style"] = style
     if bg:
         j["backgroundColor"] = bg
-    lay = {"type": layout}
+    lay = {"type": "default" if layout == "flow" else layout}  # WordPress saves flow as "default"
     if justify:
         lay["justifyContent"] = justify
     if wrap:

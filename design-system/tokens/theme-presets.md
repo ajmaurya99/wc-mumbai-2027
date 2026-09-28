@@ -76,6 +76,10 @@ Padding and margin serialise as inline styles on the block wrapper. `blockGap`
 is emitted by WordPress at render time as a generated `wp-container-…` class,
 so it never appears in the saved HTML; the preview builder reproduces it.
 
+Layout types in block JSON: a plain stacked Group is `"layout":{"type":"default"}`
+(the editor errors on `"flow"`, even though the front end renders it and the class
+is `is-layout-flow`); the others are `constrained`, `flex` and `grid`.
+
 Layout: content width `800px`, wide `1340px`, root side padding preset 50.
 A section is `"align":"full"` + `"layout":{"type":"constrained"}`; inner blocks
 constrain to 800px, or 1340px with `"align":"wide"`.
