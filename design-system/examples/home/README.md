@@ -1,5 +1,18 @@
 # Home page: handover
 
+## Status (28 Sep 2026)
+
+Pasted on the live site by section, in order, from this folder: strip, key
+facts, marigold separator, why attend, train separator, get involved, vada pav
+separator, numbers, sponsors, venue, chai separator, updates, be part, and the
+footer template part. All four CSS fences (buttons, fact cards and chips,
+separators, cards, bands) are in Additional CSS. Next: a front-end review at
+desktop and phone width, then replace placeholders (images, dates, numbers,
+sponsor logos, `#` links) and confirm the Jetpack Subscriptions block renders.
+
+Lesson recorded on the way: a stacked Group is `"layout":{"type":"default"}`;
+`"flow"` errors in the editor.
+
 > Chosen 28 Sep 2026 over sample B (`../home-b/`, kept for reference).
 
 Built 28 Sep 2026 from the references in `../../references/` and the sample
