@@ -1,4 +1,8 @@
-# Home page sample B: warm and colourful
+# Home page sample B: warm and colourful (not chosen)
+
+> Decision 28 Sep 2026: sample A (`../home/`) is the home page. This sample
+> is kept for reference only. Its proposed wash tokens and second gradient were
+> withdrawn from tokens.json; the values below stay documented here.
 
 Same thirteen sections and footer as sample A (`../home/`), rebuilt with more
 colour. Compare `page-with-footer.preview-1366.png` here with the one in

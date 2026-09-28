@@ -1,5 +1,7 @@
 # Home page: handover
 
+> Chosen 28 Sep 2026 over sample B (`../home-b/`, kept for reference).
+
 Built 28 Sep 2026 from the references in `../../references/` and the sample
 artifact, with core blocks only. Regenerate with `python3 build.py`; the
 generator is the source, `sections/*.html`, `block.html` and `footer.html` are

@@ -38,7 +38,8 @@ design-system/
 │   └── landing-page.md       section order, backgrounds and actions, composed from the components
 └── examples/
     ├── why-attend/           worked example of the reference → component workflow
-    └── home/                 the home page: build.py → sections/, block.html, footer.html, README.md (handover)
+    ├── home/                 the home page (chosen): build.py → sections/, block.html, footer.html, README.md (handover)
+    └── home-b/               colourful alternative, not chosen, kept for reference
 ```
 
 Each component folder holds:
