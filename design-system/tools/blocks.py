@@ -30,11 +30,11 @@ def pad(top=None, bottom=None, left=None, right=None):
 # ------------------------------------------------------------------ atoms --
 
 def eyebrow(text, align="left", color="accent-2"):
-    al = ' "align":"%s",' % align if align != "left" else ""
-    cls = " has-text-align-%s" % align if align != "left" else ""
+    al = '"align":"%s",' % align if align != "left" else ""
+    cls = "has-text-align-%s " % align if align != "left" else ""
     return ('<!-- wp:paragraph {%s"style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.08em","fontStyle":"normal","fontWeight":"700"}},"textColor":"%s","fontSize":"small"} -->\n'
-            '<p class="%s has-%s-color has-text-color has-small-font-size" style="font-style:normal;font-weight:700;letter-spacing:0.08em;text-transform:uppercase">%s</p>\n'
-            '<!-- /wp:paragraph -->') % (al.strip() + (" " if al else ""), color, cls.strip() or "", color, text)
+            '<p class="%shas-%s-color has-text-color has-small-font-size" style="font-style:normal;font-weight:700;letter-spacing:0.08em;text-transform:uppercase">%s</p>\n'
+            '<!-- /wp:paragraph -->') % (al, color, cls, color, text)
 
 
 def heading(text, level=2, size="x-large", align="left", color=None):
