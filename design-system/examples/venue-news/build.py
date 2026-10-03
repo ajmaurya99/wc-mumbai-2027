@@ -106,13 +106,39 @@ venue.append(("05-thanks", section([
 
 news = []
 
+# subscribe card: Jetpack Subscriptions on the site, a static stand-in in previews
+subscribe = '''<!-- ds:site-only -->
+<!-- wp:jetpack/subscriptions {"buttonText":"Subscribe","submitButtonText":"Subscribe","buttonBackgroundColor":"accent-1","textColor":"base","borderRadius":999,"padding":12,"spacing":8} /-->
+<!-- /ds:site-only -->
+<!-- ds:preview-only -->
+%s
+<!-- /ds:preview-only -->''' % group("\n\n".join([
+    group(para("you@example.com", color="accent-4"), layout="flex", bg="base", radius="999px", padding=(20, 20, 30, 30), gap=0, cls="wcm-fake-input"),
+    buttons([button("Subscribe", "#")], justify="left"),
+]), layout="flex", wrap="wrap", valign="center", gap=20)
+
+subscribe_card = group("\n\n".join([
+    group("\n\n".join([heading("Get updates in your inbox", 2, "large"), para("Speaker announcements, schedule and ticket news, the moment we publish them.")]), gap=20),
+    subscribe,
+]), bg="accent-5", radius="16px", padding=(40, 40, 40, 40), gap=30, cls="wcm-card")
+
 news.append(("01-intro", section([
-    group("\n\n".join([
-        eyebrow("Latest news"),
-        heading("News &amp; updates", 1, "xx-large"),
-        tagline("Aamchi Mumbai, Aapla WordPress"),
-    ]), gap=20),
-    para("Announcements, behind-the-scenes notes and everything you need to know on the road to %s." % EVENT_DATE),
+    columns([
+        column("\n\n".join([
+            group("\n\n".join([
+                eyebrow("Latest news"),
+                heading("News &amp; updates", 1, "xx-large"),
+                tagline("Aamchi Mumbai, Aapla WordPress"),
+            ]), gap=20),
+            para("Announcements, behind-the-scenes notes and everything you need to know on the road to %s." % EVENT_DATE),
+        ]), "55%", valign="center"),
+        column(subscribe_card, "45%", valign="center"),
+    ], valign="center"),
+    columns([
+        column(fact_card("fact-calendar", "Date", EVENT_DATE, "One day of talks, workshops and the hallway track")),
+        column(fact_card("fact-pin", "Venue", "ATLAS SkillTech University", "Off BKC, Kurla West, Mumbai")),
+        column(fact_card("fact-ticket", "Tickets", "Coming soon", "Follow the news for the on-sale date")),
+    ]),
 ], bg=None, bgimage=(PNG + "motif-gateway@2x.png", "320px auto", "100% 100%", "no-repeat"))))
 
 # one post per row: image 40% | category + date, title, excerpt with "Read more"
@@ -178,22 +204,6 @@ query_preview = group("\n\n".join([
 query = "<!-- ds:site-only -->\n%s\n<!-- /ds:site-only -->\n<!-- ds:preview-only -->\n%s\n<!-- /ds:preview-only -->" % (query_site, query_preview)
 
 news.append(("02-posts", section([query], bg="accent-5", bgimage=(PNG + "tile-lattice-light@2x.png", "120px auto", "0 0", "repeat"))))
-
-subscribe = '''<!-- ds:site-only -->
-<!-- wp:jetpack/subscriptions {"buttonText":"Subscribe","submitButtonText":"Subscribe","buttonBackgroundColor":"accent-1","textColor":"base","borderRadius":999,"padding":12,"spacing":8} /-->
-<!-- /ds:site-only -->
-<!-- ds:preview-only -->
-%s
-<!-- /ds:preview-only -->''' % group("\n\n".join([
-    group(para("you@example.com", color="accent-4"), layout="flex", bg="base", radius="999px", padding=(20, 20, 30, 30), gap=0, cls="wcm-fake-input"),
-    buttons([button("Subscribe", "#")], justify="left"),
-]), layout="flex", wrap="wrap", valign="center", gap=20)
-
-stay = group(columns([
-    column(group("\n\n".join([heading("Stay in touch", 2, "x-large"), para("Speaker announcements, schedule and ticket news, straight to your inbox.")]), gap=20), "50%", valign="center"),
-    column(subscribe, "50%", valign="center"),
-], align=None, valign="center"), layout="constrained", align="wide", bg="accent-5", radius="16px", padding=(40, 40, 40, 40), cls="wcm-card")
-news.append(("03-stay", section([stay], bg=None)))
 
 # ---------------------------------------------------------------- write --
 

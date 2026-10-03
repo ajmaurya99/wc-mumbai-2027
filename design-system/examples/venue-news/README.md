@@ -36,9 +36,8 @@ is the whole template: header part → main (constrained) → footer part, with:
 
 | # | Section | Background |
 |---|---|---|
-| 1 | Intro: eyebrow "Latest news", H1 "News & updates", tagline, one line | white, gateway motif |
+| 1 | Intro, two columns: eyebrow "Latest news", H1 "News & updates", tagline, one line · "Get updates in your inbox" card (Jetpack Subscriptions) · three fact cards (date, venue, tickets coming soon) | white, gateway motif |
 | 2 | Query Loop (inherits the main query, 10 per page): one post per row as a `wcm-card` — featured image 16:9 (40%) · category + date, title, excerpt with "Read more →" (60%) · numbered pagination · a no-results line | sky wash, lattice |
-| 3 | Stay in touch: the home page's subscribe card (Jetpack Subscriptions) | white |
 
 The panorama Cover banner the old template had is dropped (decided 3 Oct).
 Templates have no draft state, and the Site Editor write was blocked for
