@@ -1285,3 +1285,116 @@
 }
 
 /* ==== end ==== */
+/* ==== LANDING: faq ==== */
+/* Details block with the class wcm-faq. Card tokens (Accent 5, 16px, padding 40)
+   come from block settings. This makes the question bold, colours the
+   disclosure marker, and adds the focus ring. Opening and closing is native
+   , so no JavaScript is involved. */
+.wcm-faq summary {
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.wcm-faq summary::marker {
+	color: #0073aa;
+}
+
+.wcm-faq summary:focus-visible {
+	outline: 2px solid #6d28d9;
+	outline-offset: 3px;
+}
+
+.wcm-faq[open] summary {
+	margin-bottom: var(--wp--preset--spacing--30);
+}
+
+/* ==== end ==== */
+/* ==== LANDING: tier cards ==== */
+/* Checklist: a core List block with the class wcm-check. The bullet becomes a
+   teal tick; everything else is the theme's list styling. */
+.wcm-check {
+	list-style: none;
+	padding-left: 0;
+}
+
+.wcm-check li {
+	position: relative;
+	padding-left: 1.6em;
+}
+
+.wcm-check li::before {
+	content: "\2713";
+	position: absolute;
+	left: 0;
+	top: 0;
+	color: #006b78;
+	font-weight: 700;
+}
+
+/* Tier card: .wcm-card (hover lift, equal heights) plus .wcm-tier. The card is a
+   flex column and the checklist stretches, so the "Best for" line and the button
+   sit on one line across a row whatever the list length. */
+.wcm-tier {
+	display: flex;
+	flex-direction: column;
+}
+
+.wcm-tier .wp-block-image {
+	margin: 0;
+}
+
+.wcm-tier .wcm-check {
+	flex: 1 1 auto;
+}
+
+/* ==== end ==== */
+/* ==== LANDING: sponsors ==== */
+/* Why-sponsor cards: the numeral is an inline Accent 1 highlight; browsers paint
+    yellow and the sanitiser drops the transparent inline background. */
+.wcm-why mark.has-inline-color {
+	background-color: transparent;
+}
+
+/* Comparison table: first column left, tier columns centred, header in Contrast
+   on sky wash, the stripes come from the block style. */
+.wcm-compare table {
+	border-collapse: collapse;
+}
+
+.wcm-compare th,
+.wcm-compare td {
+	border: 0;
+	padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--30);
+	text-align: center;
+	vertical-align: middle;
+}
+
+.wcm-compare th:first-child,
+.wcm-compare td:first-child {
+	text-align: left;
+}
+
+.wcm-compare thead th {
+	background: #f2f7fa;
+	color: #0d1b2a;
+	font-weight: 700;
+}
+
+.wcm-compare tbody tr:last-child td {
+	font-weight: 700;
+}
+
+/* On phones the four columns do not fit; the figure scrolls sideways instead of
+   the page (core sets overflow-x on .wp-block-table; repeated here for clarity). */
+.wcm-compare {
+	overflow-x: auto;
+}
+
+@media (max-width: 600px) {
+	.wcm-compare table {
+		min-width: 560px;
+		font-size: var(--wp--preset--font-size--small);
+	}
+}
+
+/* ==== end ==== */

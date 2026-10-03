@@ -187,6 +187,10 @@ class Report:
         if not parsed:
             return
         rgb, alpha = parsed
+        if alpha == 0:
+            # fully transparent: what the editor's Highlight format writes as the <mark> background
+            self.add(line, "colour", raw, "transparent", "PASS")
+            return
         name, dist = nearest_colour(rgb)
         tok = "color." + name
         if dist < 0.5 and alpha >= 0.999:
@@ -423,7 +427,7 @@ class Report:
             # -- preset classes
             for m in re.finditer(r"has-([\w-]+?)-(background-color|border-color|color)\b", line):
                 slug = m.group(1)
-                if slug in ("text", "link", "background", "border", "icon", "icon-background"):
+                if slug in ("text", "link", "background", "border", "icon", "icon-background", "inline"):
                     continue
                 self.colour_slug(i, slug, m.group(0))
             for m in re.finditer(r"has-([\w-]+?)-font-size\b", line):

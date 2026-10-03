@@ -1,4 +1,9 @@
 /* ==== LANDING: sponsors ==== */
+/* Why-sponsor cards: the numeral is an inline Accent 1 highlight; browsers paint
+   <mark> yellow and the sanitiser drops the transparent inline background. */
+.wcm-why mark.has-inline-color {
+    background-color: transparent;
+}
 /* Comparison table: first column left, tier columns centred, header in Contrast
    on sky wash, the stripes come from the block style. */
 .wcm-compare table {

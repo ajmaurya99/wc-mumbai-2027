@@ -45,11 +45,11 @@
 
 | Result | Category | Found | Token | Lines | Note |
 |---|---|---|---|---|---|
-| PASS | colour | `#f2f7fa` | color.accent-5 | 19 |  |
-| PASS | colour | `#0d1b2a` | color.contrast | 20 |  |
-| PASS | font-size | `var(--wp--preset--font-size--small)` | type.size.small | 34 |  |
-| PASS | spacing | `padding: var(--wp--preset--spacing--20)` | spacing.20 | 10 |  |
-| PASS | spacing | `padding: var(--wp--preset--spacing--30)` | spacing.30 | 10 |  |
+| PASS | colour | `#f2f7fa` | color.accent-5 | 24 |  |
+| PASS | colour | `#0d1b2a` | color.contrast | 25 |  |
+| PASS | font-size | `var(--wp--preset--font-size--small)` | type.size.small | 39 |  |
+| PASS | spacing | `padding: var(--wp--preset--spacing--20)` | spacing.20 | 15 |  |
+| PASS | spacing | `padding: var(--wp--preset--spacing--30)` | spacing.30 | 15 |  |
 
 **PASS** · 5 PASS · 0 REVIEW · 0 FAIL · 0 STRIP
 

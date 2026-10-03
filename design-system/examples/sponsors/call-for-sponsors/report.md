@@ -5,7 +5,7 @@
 | PASS | colour | `textColor: accent-2` | color.accent-2 | 5, 13, 127, 219, 227 +5 |  |
 | PASS | colour | `has-accent-2-color` | color.accent-2 | 6, 14, 113, 121, 128 +7 |  |
 | PASS | colour | `textColor: accent-1` | color.accent-1 | 31, 47, 63, 79, 95 +10 |  |
-| PASS | colour | `has-accent-1-color` | color.accent-1 | 32, 48, 64, 80, 96 +10 |  |
+| PASS | colour | `has-accent-1-color` | color.accent-1 | 32, 48, 64, 80, 96 +16 |  |
 | PASS | colour | `backgroundColor: accent-5` | color.accent-5 | 46, 62, 78, 94, 125 +12 |  |
 | PASS | colour | `has-accent-5-background-color` | color.accent-5 | 47, 63, 79, 95, 126 +12 |  |
 | PASS | colour | `textColor: accent-4` | color.accent-4 | 51, 67, 83, 99 |  |
@@ -13,7 +13,9 @@
 | PASS | colour | `backgroundColor: accent-2` | color.accent-2 | 112, 120 |  |
 | PASS | colour | `has-accent-2-background-color` | color.accent-2 | 113, 121 |  |
 | PASS | colour | `backgroundColor: base` | color.base | 142, 154, 166, 180, 192 +2 |  |
+| PASS | colour | `var:preset\|color\|accent-2` | color.accent-2 | 142, 154, 166, 180, 192 +1 |  |
 | PASS | colour | `has-base-background-color` | color.base | 143, 155, 167, 181, 193 +2 |  |
+| PASS | colour | `var(--wp--preset--color--accent-2)` | color.accent-2 | 143, 155, 167, 181, 193 +1 |  |
 | PASS | colour | `has-accent-1-border-color` | color.accent-1 | 239 |  |
 | PASS | colour | `#0073aa` | color.accent-1 | 564 |  |
 | PASS | colour | `#6d28d9` | color.accent-3 | 564 |  |
@@ -43,17 +45,17 @@
 | PASS | spacing | `padding-left: var(--wp--preset--spacing--40)` | spacing.40 | 47, 63, 79, 95, 143 +16 |  |
 | PASS | spacing | `padding-right: var(--wp--preset--spacing--40)` | spacing.40 | 47, 63, 79, 95, 143 +16 |  |
 
-**PASS** · 40 PASS · 0 REVIEW · 0 FAIL · 0 STRIP
+**PASS** · 42 PASS · 0 REVIEW · 0 FAIL · 0 STRIP
 
 ### report: design-system/examples/sponsors/sponsors.css
 
 | Result | Category | Found | Token | Lines | Note |
 |---|---|---|---|---|---|
-| PASS | colour | `#f2f7fa` | color.accent-5 | 19 |  |
-| PASS | colour | `#0d1b2a` | color.contrast | 20 |  |
-| PASS | font-size | `var(--wp--preset--font-size--small)` | type.size.small | 34 |  |
-| PASS | spacing | `padding: var(--wp--preset--spacing--20)` | spacing.20 | 10 |  |
-| PASS | spacing | `padding: var(--wp--preset--spacing--30)` | spacing.30 | 10 |  |
+| PASS | colour | `#f2f7fa` | color.accent-5 | 24 |  |
+| PASS | colour | `#0d1b2a` | color.contrast | 25 |  |
+| PASS | font-size | `var(--wp--preset--font-size--small)` | type.size.small | 39 |  |
+| PASS | spacing | `padding: var(--wp--preset--spacing--20)` | spacing.20 | 15 |  |
+| PASS | spacing | `padding: var(--wp--preset--spacing--30)` | spacing.30 | 15 |  |
 
 **PASS** · 5 PASS · 0 REVIEW · 0 FAIL · 0 STRIP
 

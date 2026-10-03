@@ -144,21 +144,27 @@ cfs.append(("01-intro", section([
 
 cfs.append(("02-sep-train", separator("train")))
 
-def why(title, text):
-    return column(card([heading(title, 3, "large"), para(text)], bg="base", gap=20))
+def why(n, title, text):
+    """Why-sponsor card: Base card with the fact-card's 4px Accent 2 left edge; the numeral
+    sits inside the H3 as an inline Accent 1 highlight (the editor's Highlight format)."""
+    # the editor's Highlight format also writes style="background-color:rgba(0, 0, 0, 0)", which
+    # WordCamp's sanitiser strips on save, so sponsors.css clears the <mark> background instead
+    h3 = '<mark class="has-inline-color has-accent-1-color">%s</mark> %s' % (n, title)
+    return column(group("\n\n".join([heading(h3, 3, "large"), para(text)]), bg="base", radius="16px",
+                        padding=(40, 40, 40, 40), gap=20, cls="wcm-card wcm-why", border_left=("accent-2", "4px")))
 
+WHY = [
+    ("01", "High-impact brand visibility", "Showcase your tools and services throughout the single-day main conference."),
+    ("02", "Direct lead generation", "Engage users and decision-makers through booth interactions, demonstrations and networking."),
+    ("03", "Access to top-tier talent", "Connect with WordPress engineering and product talent across enterprise, plugins and modern workflows."),
+    ("04", "Community leadership", "Support open-source education and collaboration through a volunteer-led initiative."),
+    ("05", "Limited availability", "Packages are structured for focused visibility and are available first-come, first-served."),
+    ("06", "Early advantage", "Secure a preferred tier early to maximise promotional runway and pre-event digital benefits."),
+]
 cfs.append(("03-why", section([
-    section_header("Why sponsor", "Why this room is worth it", body="WordCamps are non-commercial and volunteer-run. Tickets cover a fraction of the cost; sponsors cover the rest, and get the room’s attention for it."),
-    columns([
-        why("Reach the people who decide", "Agency founders, freelance developers, product builders and in-house teams who choose, recommend and influence WordPress tools every day."),
-        why("Hire from the room", "Mumbai has a deep base of developers, designers and students. WordCamps are where hiring conversations start."),
-        why("Be seen on site, on stage, online", "Logo on the website, the sponsor board and the main stage backdrop; dedicated social posts; a blog post of your own."),
-    ]),
-    columns([
-        why("Stand with open source", "Backing a not-for-profit WordCamp says you stand behind the open web. That reputation compounds over editions."),
-        why("Mumbai’s ecosystem, in one place", "The city’s agencies, product companies, media houses and startups run on WordPress. Meet them over cutting chai and code."),
-        why("In-kind is welcome", "Refreshments, merchandise, the after-party or a side event: we will agree on a value and match it with benefits."),
-    ]),
+    section_header("Why sponsor", "Why sponsor WordCamp Mumbai 2027?", body="WordCamps are non-commercial and volunteer-run. Tickets cover a fraction of the cost; sponsors cover the rest, and get the room’s attention for it."),
+    columns([why(*w) for w in WHY[:3]]),
+    columns([why(*w) for w in WHY[3:]]),
 ], bg="accent-5", bgimage=(PNG + "tile-lattice-light@2x.png", "120px auto", "0 0", "repeat"))))
 
 cfs.append(("04-tiers", section([
