@@ -421,9 +421,9 @@ class Report:
                 self.colour_literal(i, m.group(1))
 
             # -- preset classes
-            for m in re.finditer(r"has-([\w-]+?)-(background-color|color)\b", line):
+            for m in re.finditer(r"has-([\w-]+?)-(background-color|border-color|color)\b", line):
                 slug = m.group(1)
-                if slug in ("text", "link", "background", "icon", "icon-background"):
+                if slug in ("text", "link", "background", "border", "icon", "icon-background"):
                     continue
                 self.colour_slug(i, slug, m.group(0))
             for m in re.finditer(r"has-([\w-]+?)-font-size\b", line):

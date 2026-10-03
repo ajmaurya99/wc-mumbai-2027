@@ -45,11 +45,12 @@ def avatar(person):
     photo = person.get("photo")
     src = photo["url"] if photo else PLACEHOLDER
     alt = esc(person["name"])
+    # 4px Accent 2 ring, the same edge the fact cards carry (Image → Border in the editor)
     j = {"align": "center", "width": "160px", "height": "160px", "aspectRatio": "1", "scale": "cover",
          "sizeSlug": "medium_large" if photo else "full", "linkDestination": "none",
-         "style": {"border": {"radius": "999px"}}}
+         "style": {"border": {"radius": "999px", "width": "4px"}}, "borderColor": "accent-2"}
     return ('<!-- wp:image %s -->\n<figure class="wp-block-image aligncenter size-%s is-resized has-custom-border">'
-            '<img src="%s" alt="%s" style="border-radius:999px;aspect-ratio:1;object-fit:cover;width:160px;height:160px"/></figure>\n<!-- /wp:image -->'
+            '<img src="%s" alt="%s" class="has-border-color has-accent-2-border-color" style="border-width:4px;border-radius:999px;aspect-ratio:1;object-fit:cover;width:160px;height:160px"/></figure>\n<!-- /wp:image -->'
             % (json.dumps(j, separators=(",", ":")), j["sizeSlug"], src, alt))
 
 

@@ -14,6 +14,7 @@
 | PASS | colour | `has-accent-2-background-color` | color.accent-2 | 89, 97 |  |
 | PASS | colour | `backgroundColor: base` | color.base | 120, 152, 184, 218, 250 +8 |  |
 | PASS | colour | `has-base-background-color` | color.base | 121, 153, 185, 219, 251 +8 |  |
+| PASS | colour | `has-accent-2-border-color` | color.accent-2 | 122, 154, 186, 220, 252 +7 |  |
 | PASS | font-family | `fontFamily: kalam` | type.family.accent | 12 |  |
 | PASS | font-family | `has-kalam-font-family` | type.family.accent | 13 |  |
 | PASS | font-size | `fontSize: small` | type.size.small | 4, 42, 58, 74, 104 +1 |  |
@@ -37,7 +38,7 @@
 | PASS | spacing | `padding-left: var(--wp--preset--spacing--40)` | spacing.40 | 38, 54, 70, 121, 153 +10 |  |
 | PASS | spacing | `padding-right: var(--wp--preset--spacing--40)` | spacing.40 | 38, 54, 70, 121, 153 +10 |  |
 
-**PASS** · 34 PASS · 0 REVIEW · 0 FAIL · 0 STRIP
+**PASS** · 35 PASS · 0 REVIEW · 0 FAIL · 0 STRIP
 
 ### report: design-system/examples/organizers/organizers.css
 

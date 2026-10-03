@@ -78,6 +78,13 @@ a:hover { text-decoration: underline; text-decoration-color: var(--wp--preset--c
 .has-accent-3-background-color { background-color: var(--wp--preset--color--accent-3) !important; }
 .has-accent-4-background-color { background-color: var(--wp--preset--color--accent-4) !important; }
 .has-accent-5-background-color { background-color: var(--wp--preset--color--accent-5) !important; }
+.has-base-border-color { border-color: var(--wp--preset--color--base) !important; }
+.has-contrast-border-color { border-color: var(--wp--preset--color--contrast) !important; }
+.has-accent-1-border-color { border-color: var(--wp--preset--color--accent-1) !important; }
+.has-accent-2-border-color { border-color: var(--wp--preset--color--accent-2) !important; }
+.has-accent-3-border-color { border-color: var(--wp--preset--color--accent-3) !important; }
+.has-accent-4-border-color { border-color: var(--wp--preset--color--accent-4) !important; }
+.has-accent-5-border-color { border-color: var(--wp--preset--color--accent-5) !important; }
 .has-newsreader-font-family { font-family: var(--wp--preset--font-family--newsreader) !important; }
 .has-kalam-font-family { font-family: var(--wp--preset--font-family--kalam) !important; font-weight: 700; }
 .has-small-font-size { font-size: var(--wp--preset--font-size--small) !important; }
@@ -231,3 +238,6 @@ a:hover { text-decoration: underline; text-decoration-color: var(--wp--preset--c
 .wp-block-navigation a { text-decoration: none; }
 /* post-template stand-ins */
 .wp-block-post-template { list-style: none; padding: 0; margin: 0; }
+
+/* WordPress global styles emit this for any block with a border colour preset */
+.has-border-color { border-style: solid; }
