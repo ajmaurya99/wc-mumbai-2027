@@ -1,0 +1,1287 @@
+/* Mirror of Appearance → Customize → Additional CSS on mumbai.wordcamp.org/2027,
+   as the site serves it on 3 Oct 2026 (after the WordCamp.org CSSTidy pass, so
+   formatting is normalised and stripped features are already gone). Sources of
+   the fences live in hero.css, design-system/components/*/<name>.css,
+   design-system/examples/home/home.css and
+   design-system/examples/organizers/organizers.css; edit those, paste into the
+   Customizer, then refresh this file from the front end. */
+
+/* WordCamp Mumbai 2027 hero — paste into Appearance → Customize → Additional CSS
+   (written without CSS variables, will-change or container units: WordCamp's CSS sanitiser strips those) */
+#wcm-hero {
+	position: relative;
+	overflow: hidden;
+	color: #1A2447;
+	line-height: 1.4;
+/* full width: the wrapper carries the alignfull class, so the theme's constrained layout
+     lets it span the container instead of capping it at the content width */
+	width: auto;
+	max-width: none !important;
+	height: 100vh;
+	height: 100dvh;
+	display: flex;
+	flex-direction: column;
+	background: linear-gradient(180deg, #BFE3F7 0%, #E4F2FB 42%, #FFFFFF 78%);
+}
+
+#wcm-hero, #wcm-hero * {
+	box-sizing: border-box;
+}
+
+#wcm-hero p {
+	margin: 0;
+}
+
+#wcm-hero a {
+	box-shadow: none;
+	text-decoration: none;
+}
+
+#wcm-hero img {
+	max-width: none;
+}
+
+/* clouds: the wrapper drifts, the inner cloud carries its own size and opacity */
+#wcm-clouds {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 62%;
+	overflow: hidden;
+	pointer-events: none;
+	z-index: 0;
+}
+
+.wcm-cloud {
+	width: 200px;
+	height: 60px;
+	background: #fff;
+	border-radius: 200px;
+	position: relative;
+}
+
+.wcm-cloud::before, .wcm-cloud::after {
+	content: "";
+	position: absolute;
+	background: #fff;
+	width: 100px;
+	height: 80px;
+	top: -15px;
+	left: 10px;
+	border-radius: 100px;
+	transform: rotate(30deg);
+}
+
+.wcm-cloud::after {
+	width: 120px;
+	height: 120px;
+	top: -55px;
+	left: auto;
+	right: 15px;
+}
+
+[class*="wcm-cloud-x"] {
+	position: absolute;
+	left: -320px;
+	animation-name: wcm-moveclouds;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+}
+
+.wcm-cloud-x1 {
+	top: 6%;
+	animation-duration: 55s;
+	animation-delay: -10s;
+}
+
+.wcm-cloud-x1 .wcm-cloud {
+	transform: scale(1);
+	opacity: .95;
+}
+
+.wcm-cloud-x2 {
+	top: 22%;
+	animation-duration: 70s;
+	animation-delay: -40s;
+}
+
+.wcm-cloud-x2 .wcm-cloud {
+	transform: scale(0.6);
+	opacity: .7;
+}
+
+.wcm-cloud-x3 {
+	top: 12%;
+	animation-duration: 62s;
+	animation-delay: -25s;
+}
+
+.wcm-cloud-x3 .wcm-cloud {
+	transform: scale(0.8);
+	opacity: .85;
+}
+
+.wcm-cloud-x4 {
+	top: 38%;
+	animation-duration: 80s;
+	animation-delay: -60s;
+}
+
+.wcm-cloud-x4 .wcm-cloud {
+	transform: scale(0.75);
+	opacity: .6;
+}
+
+.wcm-cloud-x5 {
+	top: 28%;
+	animation-duration: 90s;
+	animation-delay: -5s;
+}
+
+.wcm-cloud-x5 .wcm-cloud {
+	transform: scale(1.1);
+	opacity: .5;
+}
+
+@keyframes wcm-moveclouds {
+	from {
+		transform: translateX(0);
+	}
+	
+	to {
+		transform: translateX(calc(100vw + 400px));
+	}
+}
+
+/* CTA */
+.wcm-cta {
+	position: relative;
+	z-index: 2;
+	display: flex;
+	justify-content: flex-end;
+	flex: none;
+	padding: clamp(.75rem, 2vh, 1.25rem) clamp(1rem, 3vw, 2.5rem) 0;
+}
+
+.wcm-cta .wcm-btn {
+	background: #0A6CB5;
+	color: #fff;
+	border-radius: 999px;
+	padding: .6rem 1.5rem;
+	font-weight: 600;
+	font-size: 1.05rem;
+	transition: background .2s;
+}
+
+.wcm-cta .wcm-btn:hover {
+	background: #5B2DB8;
+	color: #fff;
+}
+
+/* logo block */
+.wcm-content {
+	position: relative;
+	flex: none;
+	text-align: center;
+	max-width: 760px;
+	margin: auto;
+	padding: 0 1rem;
+}
+
+.wcm-logo {
+	width: min(38vw, 34vh, 420px);
+	height: auto;
+	display: block;
+	margin: 0 auto;
+}
+
+#wcm-hero .wcm-tagline {
+	margin: clamp(.6rem, 1.6vh, 1rem) 0 0;
+	font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+	font-family: var(--wp--preset--font-family--kalam);
+	font-weight: 500;
+	color: #1B7A78;
+}
+
+#wcm-hero .wcm-date {
+	display: inline-block;
+	margin: clamp(1rem, 2.4vh, 1.5rem) 0 0;
+	padding: clamp(.4rem, 1vh, .55rem) 1.4rem;
+	border-radius: 999px;
+	background: #0A6CB5;
+	color: #fff;
+	font-weight: 600;
+	font-size: clamp(.95rem, 1.3vw, 1.15rem);
+}
+
+#wcm-hero .wcm-venue {
+	margin: clamp(.9rem, 2.2vh, 1.35rem) 0 0;
+	font-size: clamp(1rem, 1.4vw, 1.2rem);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: .4rem;
+}
+
+.wcm-venue::before {
+	content: "";
+	width: .75em;
+	height: .75em;
+	background: #5B2DB8;
+	border-radius: 50% 50% 50% 0;
+	transform: rotate(-45deg);
+	flex: none;
+}
+
+/* plane with banner (flies just under the venue line) */
+.wcm-plane {
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-top: clamp(1rem, 2.5vh, 1.75rem);
+	display: flex;
+	align-items: center;
+	pointer-events: none;
+	animation: wcm-fly 64s linear infinite;
+	animation-delay: -12s;
+}
+
+.wcm-plane-body {
+	width: clamp(70px, 8vw, 120px);
+	height: auto;
+	flex: none;
+	display: block;
+}
+
+.wcm-rope {
+	width: clamp(24px, 3vw, 44px);
+	height: 2px;
+	background: #1A2447;
+	opacity: .7;
+}
+
+.wcm-banner {
+	font-family: "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+	font-weight: 800;
+	font-size: clamp(.9rem, 1.6vw, 1.4rem);
+	letter-spacing: .04em;
+	color: #0A6CB5;
+	background: #fff;
+	border: 2px solid #0A6CB5;
+	padding: .3em .9em;
+	white-space: nowrap;
+	transform-origin: right center;
+	animation: wcm-banner-wave 1.6s ease-in-out infinite alternate;
+}
+
+@keyframes wcm-banner-wave {
+	from {
+		transform: skewY(-3deg) translateY(-2px);
+	}
+	
+	to {
+		transform: skewY(3deg) translateY(2px);
+	}
+}
+
+@keyframes wcm-fly {
+	0% {
+		transform: translateX(calc(-50vw - 560px)) translateY(0);
+	}
+	
+	50% {
+		transform: translateX(-250px) translateY(-10px);
+	}
+	
+	100% {
+		transform: translateX(calc(50vw + 80px)) translateY(0);
+	}
+}
+
+/* city */
+#wcm-city {
+	position: relative;
+	z-index: 1;
+	flex: 1 1 auto;
+	min-height: 140px;
+	max-height: calc(100vw * 700 / 2400);
+	margin-top: clamp(.5rem, 2vh, 1.5rem);
+	overflow: visible;
+}
+
+.wcm-scene {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	height: 100%;
+	min-width: 100%;
+	aspect-ratio: 2400 / 700;
+}
+
+.wcm-city-img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center bottom;
+}
+
+@media (max-width: 1100px) and (orientation: portrait) {
+	#wcm-city {
+		flex: none;
+		height: clamp(260px, 42vh, 600px);
+		max-height: none;
+	}
+	
+	.wcm-scene {
+		min-width: 112%;
+		left: 44%;
+	}
+}
+
+@media (max-width: 700px) {
+	#wcm-city {
+		flex: none;
+		height: clamp(240px, 40vh, 420px);
+		max-height: none;
+	}
+	
+	.wcm-scene {
+		min-width: 125%;
+		left: 37.5%;
+	}
+}
+
+/* hover easter eggs: hotspots sized as % of the scene width (left/width, margin-bottom/padding-top), tooltip from data-tip */
+.wcm-spot {
+	position: absolute;
+	bottom: 0;
+	height: 0;
+	cursor: pointer;
+}
+
+.wcm-spot::after {
+	content: attr(data-tip);
+	position: absolute;
+	left: 50%;
+	top: -10px;
+	transform: translate(-50%, -100%) translateY(6px);
+	background: #1A2447;
+	color: #fff;
+	font-family: "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+	font-weight: 700;
+	font-size: clamp(.7rem, .9vw, 1rem);
+	line-height: 1;
+	padding: .55em .9em;
+	border-radius: 999px;
+	white-space: nowrap;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity .2s ease, transform .25s ease;
+}
+
+.wcm-spot::before {
+	content: "";
+	position: absolute;
+	left: 50%;
+	top: -10px;
+	transform: translate(-50%, -2px);
+	border: 6px solid transparent;
+	border-top-color: #1A2447;
+	border-bottom: 0;
+	opacity: 0;
+	transition: opacity .2s ease;
+}
+
+.wcm-spot:hover::after {
+	opacity: 1;
+	transform: translate(-50%, -100%) translateY(-4px);
+}
+
+.wcm-spot:hover::before {
+	opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	[class*="wcm-cloud-x"], .wcm-plane, .wcm-banner {
+		animation: none;
+	}
+	
+	.wcm-plane {
+		display: none;
+	}
+}
+
+/* ---- Jetpack Forms: hand styling back to the theme ---- */
+/* Literal hex used on purpose: WordCamp's CSS sanitiser strips var() */
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form input[type="url"],
+.contact-form input[type="number"],
+.contact-form input[type="date"],
+.contact-form select,
+.contact-form textarea {
+	box-sizing: border-box;
+	width: 100%;
+	max-width: 100%;
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+	color: #0D1B2A;
+	background-color: #FFFFFF;
+	border: 1px solid #9EA4AA;
+	border-radius: 0;
+	padding: .75rem 1rem;
+}
+
+.contact-form .grunion-field {
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+.contact-form textarea {
+	min-height: 10rem;
+}
+
+.contact-form input:not([type="submit"]):focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+	border-color: #0073AA;
+	outline: 2px solid #0073AA;
+	outline-offset: 1px;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+	color: #546776;
+	opacity: 1;
+}
+
+.contact-form label,
+.contact-form legend.grunion-field-label {
+	color: #0D1B2A;
+	font-family: inherit;
+}
+
+.contact-form input[type="checkbox"],
+.contact-form input[type="radio"] {
+	width: auto;
+	accent-color: #0073AA;
+}
+
+.contact-form button.pushbutton-wide,
+.contact-form input[type="submit"] {
+	background-color: #0D1B2A;
+	color: #FFFFFF;
+	border: 0;
+	border-radius: 0;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: inherit;
+	padding: 1rem 2.25rem;
+	width: auto;
+	cursor: pointer;
+}
+
+.contact-form button.pushbutton-wide:hover,
+.contact-form input[type="submit"]:hover {
+	background-color: #0073AA;
+}
+
+/* Let the form fill its container so fields run full width */
+.jetpack-contact-form-container > .contact-form,
+.contact-form {
+	width: 100%;
+}
+
+/* ---- Header: date + venue meta beside the logo ---- */
+.wcm-header-meta {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.wcm-header-meta__item {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: 0;
+	font-size: 15px;
+	line-height: 1.3;
+	color: #0D1B2A;
+}
+
+.wcm-header-meta__icon {
+	flex: none;
+	color: #0073AA;
+}
+
+@media (max-width: 600px) {
+	.wcm-header-meta__item {
+		font-size: 14px;
+	}
+}
+
+.wcm-header-meta__item::before {
+	content: "";
+	flex: none;
+	width: 16px;
+	height: 16px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 16px 16px;
+}
+
+.wcm-header-meta__item.is-date::before {
+	background-image: url('https://mumbai.wordcamp.org/2027/files/2026/09/wcm-icon-calendar.png');
+}
+
+.wcm-header-meta__item.is-venue::before {
+	background-image: url('https://mumbai.wordcamp.org/2027/files/2026/09/wcm-icon-pin.png');
+}
+
+/* ==== DIYA + FLOWER SHOWER: start ====
+   Self-contained hover effect for the Ganpati pandal hotspot. To remove it,
+   delete everything between these two markers and drop the petal  elements
+   from the pandal hotspot in the block. */
+.wcm-spot--pandal {
+	cursor: url('https://cdn.jsdelivr.net/gh/ajmaurya99/wc-mumbai-2027@1d76f5c/diya-cursor.png') 16 4, pointer;
+}
+
+.wcm-spot--pandal:hover {
+	background: radial-gradient(ellipse at 50% 78%, rgba(255, 196, 80, .45) 0%, rgba(255, 196, 80, 0) 62%);
+}
+
+.wcm-petal {
+	position: absolute;
+	top: -6%;
+	border-radius: 50%;
+	background: radial-gradient(circle at 50% 50%, #E0552D 0%, #E0552D 28%, #F6A21B 32%, #F6A21B 100%);
+	opacity: 0;
+	pointer-events: none;
+}
+
+.wcm-petal-3, .wcm-petal-6, .wcm-petal-9, .wcm-petal-12 {
+	background: radial-gradient(circle at 50% 50%, #F6A21B 0%, #F6A21B 28%, #FFD166 32%, #FFD166 100%);
+}
+
+.wcm-petal-1 {
+	left: 4.9%;
+	width: 8px;
+	height: 8px;
+	animation-duration: 2.5s;
+	animation-delay: -1.69s;
+}
+
+.wcm-petal-2 {
+	left: 14.5%;
+	width: 12px;
+	height: 12px;
+	animation-duration: 2.42s;
+	animation-delay: -1.52s;
+}
+
+.wcm-petal-3 {
+	left: 17.5%;
+	width: 9px;
+	height: 9px;
+	animation-duration: 2.41s;
+	animation-delay: -1.09s;
+}
+
+.wcm-petal-4 {
+	left: 23.3%;
+	width: 8px;
+	height: 8px;
+	animation-duration: 2.85s;
+	animation-delay: -2.15s;
+}
+
+.wcm-petal-5 {
+	left: 35.1%;
+	width: 8px;
+	height: 8px;
+	animation-duration: 3.12s;
+	animation-delay: -1.52s;
+}
+
+.wcm-petal-6 {
+	left: 39.5%;
+	width: 8px;
+	height: 8px;
+	animation-duration: 2.82s;
+	animation-delay: -2.54s;
+}
+
+.wcm-petal-7 {
+	left: 45.9%;
+	width: 12px;
+	height: 12px;
+	animation-duration: 2.47s;
+	animation-delay: -1.09s;
+}
+
+.wcm-petal-8 {
+	left: 49.9%;
+	width: 9px;
+	height: 9px;
+	animation-duration: 2.7s;
+	animation-delay: -2.12s;
+}
+
+.wcm-petal-9 {
+	left: 56.4%;
+	width: 8px;
+	height: 8px;
+	animation-duration: 3.04s;
+	animation-delay: -.49s;
+}
+
+.wcm-petal-10 {
+	left: 65.7%;
+	width: 9px;
+	height: 9px;
+	animation-duration: 2.38s;
+	animation-delay: -.15s;
+}
+
+.wcm-petal-11 {
+	left: 72%;
+	width: 11px;
+	height: 11px;
+	animation-duration: 2.99s;
+	animation-delay: -2.02s;
+}
+
+.wcm-petal-12 {
+	left: 79.1%;
+	width: 9px;
+	height: 9px;
+	animation-duration: 2.89s;
+	animation-delay: -.78s;
+}
+
+.wcm-petal-13 {
+	left: 86.4%;
+	width: 12px;
+	height: 12px;
+	animation-duration: 2.62s;
+	animation-delay: -1.49s;
+}
+
+.wcm-petal-14 {
+	left: 91.8%;
+	width: 12px;
+	height: 12px;
+	animation-duration: 2.75s;
+	animation-delay: -1.17s;
+}
+
+.wcm-spot--pandal:hover .wcm-petal {
+	animation-name: wcm-petal-fall;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+}
+
+@keyframes wcm-petal-fall {
+	0% {
+		top: -6%;
+		opacity: 0;
+		transform: translateX(0) rotate(0deg);
+	}
+	
+	8% {
+		opacity: 1;
+	}
+	
+	25% {
+		transform: translateX(10px) rotate(90deg);
+	}
+	
+	50% {
+		transform: translateX(-8px) rotate(180deg);
+	}
+	
+	75% {
+		transform: translateX(12px) rotate(270deg);
+	}
+	
+	90% {
+		opacity: 1;
+	}
+	
+	100% {
+		top: 96%;
+		opacity: 0;
+		transform: translateX(-4px) rotate(360deg);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.wcm-spot--pandal:hover .wcm-petal {
+		animation: none;
+	}
+}
+
+/* ==== DIYA + FLOWER SHOWER: end ==== */
+/* ==== HERO NAV: start ====
+   Home page only: the theme Header template part floats over the hero with no
+   background, its logo and date/venue are hidden (the hero shows them), and its
+   Navigation block is restyled. Needs nothing in the editor beyond adding the
+   Header to the home template. Other pages keep the normal header.
+   No transform may be animated on the header or nav: it would trap core's fixed mobile overlay. */
+.home .wp-site-blocks {
+	position: relative;
+}
+
+.home header.wp-block-template-part {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 5;
+	background-color: transparent;
+	box-shadow: none;
+	animation-name: wcm-nav-in;
+	animation-duration: .9s;
+	animation-timing-function: ease-out;
+	animation-delay: .25s;
+	animation-fill-mode: both;
+}
+
+@keyframes wcm-nav-in {
+	from {
+		opacity: 0;
+	}
+	
+	to {
+		opacity: 1;
+	}
+}
+
+/* whatever follows the header (a , or the post content directly) must start at the
+   very top: cancel the theme's block gap, or a white strip shows above the hero */
+.home header.wp-block-template-part + * {
+	margin-top: 0 !important;
+	margin-block-start: 0 !important;
+}
+
+/* keep the hero logo clear of the floating header */
+.home header.wp-block-template-part ~ * #wcm-hero {
+	padding-top: clamp(56px, 8vh, 76px);
+}
+
+.home header.wp-block-template-part > .wp-block-group {
+	background-color: transparent !important;
+	box-shadow: none !important;
+/* the header Group has a shadow set in its block settings */
+	padding-top: clamp(.6rem, 1.6vh, 1rem) !important;
+	padding-bottom: clamp(.6rem, 1.6vh, 1rem) !important;
+}
+
+/* the hero already shows the logo, date and venue */
+.home header.wp-block-template-part .wp-block-site-logo,
+.home header.wp-block-template-part .wp-block-site-title,
+.home header.wp-block-template-part .wcm-header-meta,
+.home header.wp-block-template-part .wp-block-group .wp-block-group .wp-block-group {
+	display: none;
+}
+
+.home header.wp-block-template-part .is-content-justification-space-between {
+	justify-content: center;
+}
+
+.home header.wp-block-template-part .wp-block-navigation {
+	font-size: 1.05rem;
+	font-weight: 600;
+	color: #1A2447;
+}
+
+.home header.wp-block-template-part .wp-block-navigation .wp-block-navigation__container {
+	gap: clamp(.5rem, 2vw, 1.5rem);
+}
+
+/* links: 44px touch targets, underline grows in on hover, press and keyboard focus */
+.home header.wp-block-template-part .wp-block-navigation .wp-block-navigation-item__content {
+	display: inline-flex;
+	align-items: center;
+	min-height: 44px;
+	padding: 0 .35rem;
+	color: #1A2447;
+	text-decoration: none;
+	background-image: linear-gradient(#0A6CB5, #0A6CB5);
+	background-repeat: no-repeat;
+	background-position: 50% 78%;
+	background-size: 0 2px;
+	transition: background-size .2s, color .2s;
+}
+
+.home header.wp-block-template-part .wp-block-navigation .wp-block-navigation-item__content:hover,
+.home header.wp-block-template-part .wp-block-navigation .wp-block-navigation-item__content:active,
+.home header.wp-block-template-part .wp-block-navigation .wp-block-navigation-item__content:focus-visible {
+	color: #0A6CB5;
+	background-size: calc(100% - .7rem) 2px;
+}
+
+.home header.wp-block-template-part .wp-block-navigation a:focus-visible,
+.home header.wp-block-template-part .wp-block-navigation button:focus-visible {
+	outline: 2px solid #5B2DB8;
+	outline-offset: 3px;
+	border-radius: 6px;
+}
+
+.home header.wp-block-template-part .wp-block-navigation .wp-block-navigation__submenu-icon {
+	color: #1A2447;
+}
+
+/* desktop dropdowns */
+.home header.wp-block-template-part .wp-block-navigation .wp-block-navigation__submenu-container {
+	background-color: #FFFFFF;
+	color: #1A2447;
+	border: 1px solid #D6E6F2;
+	border-radius: 12px;
+	box-shadow: 0 12px 32px rgba(26, 36, 71, .16);
+	padding: .4rem;
+	min-width: 220px;
+}
+
+.home header.wp-block-template-part .wp-block-navigation .wp-block-navigation__submenu-container .wp-block-navigation-item__content {
+	min-height: 40px;
+	padding: 0 .75rem;
+	font-size: 1rem;
+	font-weight: 500;
+	background-image: none;
+	border-radius: 8px;
+}
+
+.home header.wp-block-template-part .wp-block-navigation .wp-block-navigation__submenu-container .wp-block-navigation-item__content:hover,
+.home header.wp-block-template-part .wp-block-navigation .wp-block-navigation__submenu-container .wp-block-navigation-item__content:focus-visible {
+	background-color: #E4F2FB;
+	color: #0A6CB5;
+}
+
+/* hamburger and close buttons */
+.home header.wp-block-template-part .wp-block-navigation .wp-block-navigation__responsive-container-open,
+.home header.wp-block-template-part .wp-block-navigation .wp-block-navigation__responsive-container-close {
+	min-width: 44px;
+	min-height: 44px;
+	align-items: center;
+	justify-content: center;
+	color: #1A2447;
+}
+
+.home header.wp-block-template-part .wp-block-navigation .wp-block-navigation__responsive-container-open svg,
+.home header.wp-block-template-part .wp-block-navigation .wp-block-navigation__responsive-container-close svg {
+	width: 30px;
+	height: 30px;
+}
+
+/* mobile overlay. Core styles this with long selectors and CSS variables (which WordCamp's
+   sanitiser strips), so these rules match core's specificity on purpose. */
+.home header.wp-block-template-part .wp-block-navigation__responsive-container.is-menu-open {
+	background-color: #EAF5FC !important;
+	color: #1A2447 !important;
+	padding: clamp(1rem, 4vw, 2rem);
+}
+
+.home header.wp-block-template-part .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content {
+	padding-top: 3.5rem;
+	align-items: flex-start;
+}
+
+.home header.wp-block-template-part .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation__container,
+.home header.wp-block-template-part .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation-item {
+	align-items: flex-start;
+}
+
+.home header.wp-block-template-part .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation__container {
+	gap: .25rem;
+	width: 100%;
+}
+
+.home header.wp-block-template-part .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation-item__content {
+	font-size: 1.35rem;
+	min-height: 48px;
+	padding: 0 .35rem;
+	background-position: .35rem 82%;
+}
+
+.home header.wp-block-template-part .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .has-child .wp-block-navigation__submenu-container {
+	padding: 0 0 .5rem 1rem;
+	min-width: 0;
+	gap: 0;
+	border-radius: 0;
+	box-shadow: none;
+}
+
+.home header.wp-block-template-part .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation__submenu-container .wp-block-navigation-item__content {
+	font-size: 1.1rem;
+	font-weight: 500;
+	min-height: 44px;
+}
+
+@media (max-width: 599px) {
+	.home header.wp-block-template-part .is-content-justification-space-between {
+		justify-content: flex-end;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.home header.wp-block-template-part {
+		animation: none;
+	}
+}
+
+/* ==== HERO NAV: end ==== */
+/* ak Css For  */
+/* ===== Colours (skip if already in your stylesheet) ===== */
+:root {
+}
+
+/* ===== Section ===== */
+.intro {
+	padding: 96px 0;
+	background: #fff;
+	color: var(--ink);
+}
+
+.intro .container {
+	width: min(1180px, 100% - 40px);
+	margin-inline: auto;
+}
+
+.intro__grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 64px;
+	align-items: center;
+}
+
+.intro .kicker {
+	color: var(--ai-deep);
+	font-weight: 700;
+	font-size: .8rem;
+	letter-spacing: .12em;
+	text-transform: uppercase;
+}
+
+.intro h2 {
+	font-family: "Poppins", "Inter", sans-serif;
+	font-size: clamp(2rem, 3.4vw, 2.6rem);
+	line-height: 1.15;
+	letter-spacing: -.02em;
+	margin: .6rem 0 1.2rem;
+}
+
+.intro p {
+	color: var(--ink-soft);
+	font-size: 1.08rem;
+	line-height: 1.6;
+	margin: 0 0 1rem;
+}
+
+/* Highlighted quote */
+.intro .quote {
+	margin-top: 1.6rem;
+	padding: 1.2rem 1.4rem;
+	border-left: 4px solid var(--ai);
+	border-radius: 0 12px 12px 0;
+	background: linear-gradient(90deg, rgba(124, 58, 237, .07), transparent);
+	font-weight: 500;
+	color: var(--ink);
+	line-height: 1.6;
+}
+
+/* Audience cards */
+.audience {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 14px;
+}
+
+.audience li {
+	display: flex;
+	align-items: center;
+	gap: .75rem;
+	padding: 1rem 1.1rem;
+	border-radius: 14px;
+	background: #fff;
+	border: 1px solid var(--line);
+	box-shadow: var(--shadow);
+	font-weight: 600;
+	transition: transform .2s ease, border-color .2s ease;
+}
+
+.audience li:hover {
+	transform: translateY(-3px);
+	border-color: var(--sea);
+}
+
+.audience .ic {
+	flex: none;
+	width: 38px;
+	height: 38px;
+	border-radius: 10px;
+	display: grid;
+	color: #fff;
+	font-size: 1.1rem;
+}
+
+.ic--wp {
+	background: var(--wp);
+}
+
+.ic--sea {
+	background: var(--sea);
+}
+
+.ic--ai {
+	background: var(--ai);
+}
+
+.ic--teal {
+	background: var(--teal);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+	.intro__grid {
+		grid-template-columns: 1fr;
+		gap: 40px;
+	}
+}
+
+@media (max-width: 600px) {
+	.intro {
+		padding: 72px 0;
+	}
+	
+	.intro .container {
+		width: calc(100% - 32px);
+	}
+	
+	.audience li {
+		padding: .8rem;
+		font-size: .9rem;
+	}
+}
+
+/* ==== LANDING: buttons ==== */
+/* The resting look is set once in Styles → Blocks → Button (background Accent 1,
+   text Base, radius 999px, padding .6rem 1.5rem, weight 700, 16px). This adds
+   what Styles cannot: hover, focus and the outline variant's hover fill.
+   The theme's preset colour classes carry !important, so the hover colours do too. */
+.wp-block-button__link {
+	transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+}
+
+.wp-block-button__link:hover {
+	background-color: #6d28d9;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+.wp-block-button.is-style-outline .wp-block-button__link:hover {
+	background-color: #0073aa;
+	color: #FFFFFF !important;
+}
+
+.wp-block-button__link:focus-visible {
+	outline: 2px solid #6d28d9;
+	outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.wp-block-button__link {
+		transition: none;
+	}
+}
+
+/* ==== end ==== */
+/* ==== LANDING: links ==== */
+/* Body links: Contrast at rest with no underline, underline in Accent 1 on hover,
+   the shared focus ring on keyboard focus. Buttons are excluded. Also settable in
+   Styles → Colors → Link (text and hover); keep the two in agreement. */
+.entry-content a:not(.wp-element-button) {
+	color: #0d1b2a;
+	text-decoration: none;
+	transition: color 200ms ease, text-decoration-color 200ms ease;
+}
+
+.entry-content a:not(.wp-element-button):hover {
+	text-decoration: underline;
+	text-decoration-color: #0073aa;
+}
+
+.entry-content a:not(.wp-element-button):focus-visible {
+	outline: 2px solid #6d28d9;
+	outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.entry-content a:not(.wp-element-button) {
+		transition: none;
+	}
+}
+
+/* ==== end ==== */
+/* ==== LANDING: fact cards and chips ==== */
+.wcm-fact .wp-block-image {
+	flex: 0 0 auto;
+	margin: 0;
+}
+
+.wcm-fact > .wp-block-group {
+	min-width: 0;
+}
+
+.wcm-chip {
+	width: fit-content;
+}
+
+.wcm-point > p {
+	flex: 0 0 auto;
+	min-width: 2.5ch;
+}
+
+.wcm-point > .wp-block-group {
+	flex: 1 1 auto;
+	min-width: 0;
+}
+
+/* ==== end ==== */
+/* ==== LANDING: separators ==== */
+.wcm-sep .wcm-sep__line {
+	flex: 1 1 auto;
+	width: auto;
+	max-width: none;
+	height: 0;
+	margin: 0;
+	border: 0;
+	border-top: 2px dashed #006b78;
+	background: none !important;
+	opacity: 1;
+}
+
+.wcm-sep .wp-block-image {
+	flex: 0 0 auto;
+	margin: 0;
+}
+
+/* ==== end ==== */
+/* ==== LANDING: cards ==== */
+.wcm-card {
+	height: 100%;
+	transition: box-shadow 200ms ease, transform 200ms ease;
+}
+
+.wcm-card:hover {
+	box-shadow: 0 12px 32px rgba(13, 27, 42, .12);
+	transform: translateY(-4px);
+}
+
+.wcm-card a:focus-visible {
+	outline: 2px solid #6d28d9;
+	outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.wcm-card {
+		transition: none;
+	}
+	
+	.wcm-card:hover {
+		transform: none;
+	}
+}
+
+/* ==== end ==== */
+/* ==== LANDING: bands ==== */
+.wcm-band > .wp-block-group {
+	flex: 1 1 420px;
+}
+
+.wcm-logo-disc {
+	width: 320px;
+	height: 320px;
+	padding: 0 !important;
+	margin-left: auto;
+	margin-right: auto;
+	align-items: center;
+	justify-content: center;
+}
+
+.wcm-logo-disc .wp-block-image {
+	margin: 0;
+}
+
+@media (max-width: 781px) {
+	.wcm-logo-disc {
+		width: 240px;
+		height: 240px;
+	}
+	
+	.wcm-logo-disc .wp-block-image img {
+		width: 170px !important;
+	}
+}
+
+.wcm-map img {
+	width: 100%;
+}
+
+/* ==== end ==== */
+/* ==== LANDING: organizers ==== */
+/* Organizer card = .wcm-card (card.css: hover lift, equal heights, focus ring)
+   plus .wcm-organizer. Rest state comes from block settings. This keeps the
+   round photo tight to the name and gives the Social Links icons (Accent 1 on
+   sky wash, set in the block) their hover and focus states. */
+.wcm-organizer {
+	display: flex;
+	flex-direction: column;
+}
+
+.wcm-organizer .wcm-organizer__bio {
+	flex: 1 1 auto;
+}
+
+.wcm-organizer .wp-block-image.aligncenter {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wcm-organizer .wp-block-image img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wcm-social .wp-social-link {
+	transition: background-color 200ms ease, color 200ms ease;
+}
+
+.wcm-social .wp-social-link:hover {
+	background-color: #0073aa !important;
+	color: #FFFFFF !important;
+}
+
+.wcm-social .wp-social-link a:focus-visible {
+	outline: 2px solid #6d28d9;
+	outline-offset: 3px;
+	border-radius: 999px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.wcm-social .wp-social-link {
+		transition: none;
+	}
+}
+
+/* ==== end ==== */

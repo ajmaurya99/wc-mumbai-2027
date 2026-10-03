@@ -54,11 +54,13 @@ true circle, which both references use.
 
 ## Paste order
 
-1. **CSS** (once). Appearance → Customize → Additional CSS. `organizers.css`
-   is live under its fence since 3 Oct 2026, as are the cards and separators
-   fences. Not live yet, checked the same day: the `buttons`, `links` and
-   `fact cards and chips` fences from the home page handover, which is why
-   primary buttons still render in the theme's navy rather than Accent 1.
+1. **CSS** (once). Appearance → Customize → Additional CSS. All seven
+   LANDING fences are live since 3 Oct 2026 (buttons, links, fact cards and
+   chips, separators, cards, bands, organizers); `../../site/additional-css.css`
+   mirrors what the site serves. Still open: the primary button's resting
+   colour is set in Styles → Blocks → Button (background Accent 1, text Base,
+   padding .6rem 1.5rem), which has not been done, so buttons render in the
+   theme's navy until it is.
 2. **Page.** Organizers page → Options → Code editor → paste the output of
    `python3 design-system/tools/preview.py --site design-system/examples/organizers/block.html`.
    Page settings → Template → "Page, no title (header and footer)".
