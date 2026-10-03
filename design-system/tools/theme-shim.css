@@ -241,3 +241,6 @@ a:hover { text-decoration: underline; text-decoration-color: var(--wp--preset--c
 
 /* WordPress global styles emit this for any block with a border colour preset */
 .has-border-color { border-style: solid; }
+
+/* WordPress emits border-<side>-style:solid at render time for split borders set in the editor */
+[style*="border-left-width"] { border-left-style: solid; }

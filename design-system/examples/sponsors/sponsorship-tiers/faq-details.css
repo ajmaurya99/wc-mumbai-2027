@@ -1,0 +1,20 @@
+/* ==== LANDING: faq ==== */
+/* Details block with the class wcm-faq. Card tokens (Accent 5, 16px, padding 40)
+   come from block settings. This makes the question bold, colours the
+   disclosure marker, and adds the focus ring. Opening and closing is native
+   <details>, so no JavaScript is involved. */
+.wcm-faq summary {
+    font-weight: 700;
+    cursor: pointer;
+}
+.wcm-faq summary::marker {
+    color: #0073aa;
+}
+.wcm-faq summary:focus-visible {
+    outline: 2px solid #6d28d9;
+    outline-offset: 3px;
+}
+.wcm-faq[open] summary {
+    margin-bottom: var(--wp--preset--spacing--30);
+}
+/* ==== end ==== */

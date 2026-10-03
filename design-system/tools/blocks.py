@@ -147,9 +147,11 @@ def buttons(items, justify="center"):
 
 
 def group(inner, layout="flow", align=None, bg=None, gradient=None, padding=None, gap=None, radius=None, cls=None,
-          justify=None, wrap=None, valign=None, orientation=None, bgimage=None, border_left=None, extra_style=None):
+          justify=None, wrap=None, valign=None, orientation=None, bgimage=None, border_left=None, extra_style=None, anchor=None):
     import json
     j = {}
+    if anchor:
+        j["anchor"] = anchor  # HTML anchor (Advanced → HTML anchor); saved as id="…"
     if align:
         j["align"] = align
     if cls:
@@ -158,7 +160,8 @@ def group(inner, layout="flow", align=None, bg=None, gradient=None, padding=None
     st = []
     if border_left:
         style.setdefault("border", {})["left"] = {"color": "var:preset|color|" + border_left[0], "width": border_left[1]}
-        st += ["border-left-color:var(--wp--preset--color--%s)" % border_left[0], "border-left-width:%s" % border_left[1], "border-left-style:solid"]
+        # no border-left-style here: the editor's save omits it (the server's style engine adds it)
+        st += ["border-left-color:var(--wp--preset--color--%s)" % border_left[0], "border-left-width:%s" % border_left[1]]
     if radius:
         style.setdefault("border", {})["radius"] = radius
         st.append("border-radius:%s" % radius)
@@ -203,7 +206,8 @@ def group(inner, layout="flow", align=None, bg=None, gradient=None, padding=None
     elif gradient:
         cl.append("has-background")
     stt = (' style="%s"' % ";".join(st)) if st else ""
-    return '<!-- wp:group %s -->\n<div class="%s"%s>%s</div>\n<!-- /wp:group -->' % (json.dumps(j, separators=(",", ":")), " ".join(cl), stt, inner)
+    ida = (' id="%s"' % anchor) if anchor else ""
+    return '<!-- wp:group %s -->\n<div class="%s"%s%s>%s</div>\n<!-- /wp:group -->' % (json.dumps(j, separators=(",", ":")), " ".join(cl), ida, stt, inner)
 
 
 def columns(cols, align="wide", gap=30, valign=None, cls=None):
@@ -257,8 +261,8 @@ def section_header(eye, h2, tagline=None, align="center", body=None):
     return group("\n\n".join(parts), gap=20)
 
 
-def section(inner, bg="base", align="full", bgimage=None, cls=None, gap=40, padding=(70, 70)):
-    return group("\n\n".join(inner), layout="constrained", align=align, bg=bg, padding=padding, gap=gap, bgimage=bgimage, cls=cls)
+def section(inner, bg="base", align="full", bgimage=None, cls=None, gap=40, padding=(70, 70), anchor=None):
+    return group("\n\n".join(inner), layout="constrained", align=align, bg=bg, padding=padding, gap=gap, bgimage=bgimage, cls=cls, anchor=anchor)
 
 
 def card(inner, bg="accent-5", gap=None, cls="wcm-card"):

@@ -1,0 +1,33 @@
+/* ==== LANDING: tier cards ==== */
+/* Checklist: a core List block with the class wcm-check. The bullet becomes a
+   teal tick; everything else is the theme's list styling. */
+.wcm-check {
+    list-style: none;
+    padding-left: 0;
+}
+.wcm-check li {
+    position: relative;
+    padding-left: 1.6em;
+}
+.wcm-check li::before {
+    content: "\2713";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #006b78;
+    font-weight: 700;
+}
+/* Tier card: .wcm-card (hover lift, equal heights) plus .wcm-tier. The card is a
+   flex column and the checklist stretches, so the "Best for" line and the button
+   sit on one line across a row whatever the list length. */
+.wcm-tier {
+    display: flex;
+    flex-direction: column;
+}
+.wcm-tier .wp-block-image {
+    margin: 0;
+}
+.wcm-tier .wcm-check {
+    flex: 1 1 auto;
+}
+/* ==== end ==== */

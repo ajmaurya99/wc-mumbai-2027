@@ -1,0 +1,21 @@
+/* ==== LANDING: links ==== */
+/* Body links: Contrast at rest with no underline, underline in Accent 1 on hover,
+   the shared focus ring on keyboard focus. Buttons are excluded. Also settable in
+   Styles → Colors → Link (text and hover); keep the two in agreement. */
+.entry-content a:not(.wp-element-button) {
+    color: #0d1b2a;
+    text-decoration: none;
+    transition: color 200ms ease, text-decoration-color 200ms ease;
+}
+.entry-content a:not(.wp-element-button):hover {
+    text-decoration: underline;
+    text-decoration-color: #0073aa;
+}
+.entry-content a:not(.wp-element-button):focus-visible {
+    outline: 2px solid #6d28d9;
+    outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+    .entry-content a:not(.wp-element-button) { transition: none; }
+}
+/* ==== end ==== */
