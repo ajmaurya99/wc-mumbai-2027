@@ -2,8 +2,6 @@
 
 | Result | Category | Found | Token | Lines | Note |
 |---|---|---|---|---|---|
-| PASS | colour | `backgroundColor: base` | color.base | 2, 120, 152, 184, 218 +9 |  |
-| PASS | colour | `has-base-background-color` | color.base | 3, 121, 153, 185, 219 +9 |  |
 | PASS | colour | `textColor: accent-2` | color.accent-2 | 4, 12, 104, 515 |  |
 | PASS | colour | `has-accent-2-color` | color.accent-2 | 5, 13, 89, 97, 105 +1 |  |
 | PASS | colour | `textColor: accent-1` | color.accent-1 | 30, 38, 54, 70, 533 |  |
@@ -14,6 +12,8 @@
 | PASS | colour | `has-accent-4-color` | color.accent-4 | 43, 59, 75 |  |
 | PASS | colour | `backgroundColor: accent-2` | color.accent-2 | 88, 96 |  |
 | PASS | colour | `has-accent-2-background-color` | color.accent-2 | 89, 97 |  |
+| PASS | colour | `backgroundColor: base` | color.base | 120, 152, 184, 218, 250 +8 |  |
+| PASS | colour | `has-base-background-color` | color.base | 121, 153, 185, 219, 251 +8 |  |
 | PASS | font-family | `fontFamily: kalam` | type.family.accent | 12 |  |
 | PASS | font-family | `has-kalam-font-family` | type.family.accent | 13 |  |
 | PASS | font-size | `fontSize: small` | type.size.small | 4, 42, 58, 74, 104 +1 |  |

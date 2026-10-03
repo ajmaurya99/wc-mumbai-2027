@@ -109,7 +109,10 @@ sections.append(("01-intro", section([
         stat("1", "Day", "%s at %s." % (EVENT_DATE, VENUE)),
         stat("100%", "Volunteer-run", "No one is paid. Everyone is invested."),
     ]),
-], bg="base", bgimage=(PNG + "motif-gateway@2x.png", "320px auto", "100% 100%", "no-repeat"))))
+], bg=None, bgimage=(PNG + "motif-gateway@2x.png", "320px auto", "100% 100%", "no-repeat"))))
+# bg=None: the page ground is already white, and a Base background here would sit flush
+# under the Header template part and paint over its box-shadow (the shadow shows on
+# /about-us because nothing opaque follows the header).
 
 # 02 separator marigold
 sections.append(("02-sep-marigold", separator("marigold")))
