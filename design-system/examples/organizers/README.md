@@ -29,10 +29,12 @@ design-system/tools/render.sh design-system/examples/organizers/preview.html
 The intro carries the page's H1, so the page needs a template **without** the
 post title but **with** the site header and footer. Neither existing template
 fits: "Pages" adds a centred post-title band above the content, and "Page No
-Title" (the coming-soon template) has no header or footer at all. Add a
-template "Page, no title" containing header template part → Post Content →
-footer template part (the same three blocks as the Front Page template) and
-assign it to the page. Until then the draft is on "Page No Title".
+Title" (the coming-soon template) has no header or footer at all. So the site
+now has a third template, **Page, no title (header and footer)**
+(`page-no-title-header-footer`, added 3 Oct 2026): header template part →
+Post Content → footer template part, the same three blocks as the Front Page
+template. The page is assigned to it; reuse it for other inner pages whose
+intro carries the H1.
 
 ## Organizer card
 
@@ -52,14 +54,15 @@ true circle, which both references use.
 
 ## Paste order
 
-1. **CSS** (once). Appearance → Customize → Additional CSS. `buttons.css`,
-   `links.css`, `card.css` and the separators fence (`separator.css`) are
-   already live from the home page; add only `organizers.css` under its
-   fence. Reload and confirm it survived.
+1. **CSS** (once). Appearance → Customize → Additional CSS. `organizers.css`
+   is live under its fence since 3 Oct 2026, as are the cards and separators
+   fences. Not live yet, checked the same day: the `buttons`, `links` and
+   `fact cards and chips` fences from the home page handover, which is why
+   primary buttons still render in the theme's navy rather than Accent 1.
 2. **Page.** Organizers page → Options → Code editor → paste the output of
    `python3 design-system/tools/preview.py --site design-system/examples/organizers/block.html`.
-   Page settings → Template → the no-title template described above.
-   (Done 3 Oct 2026: the markup is saved on the draft page.)
+   Page settings → Template → "Page, no title (header and footer)".
+   (Done 3 Oct 2026: saved as a draft, not published.)
 3. **Replace.** "Get tickets" goes to `#` until the Tickets page is published;
    the three `#` social links per person (edit `organizers.json`, rebuild);
    Ajay's photo (upload it on his organizer post and re-run `fetch.py`).
