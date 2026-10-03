@@ -1,0 +1,37 @@
+/* ==== LANDING: organizers ==== */
+/* Organizer card = .wcm-card (card.css: hover lift, equal heights, focus ring)
+   plus .wcm-organizer. Rest state comes from block settings. This keeps the
+   round photo tight to the name and gives the Social Links icons (Accent 1 on
+   sky wash, set in the block) their hover and focus states. */
+.wcm-organizer {
+    display: flex;
+    flex-direction: column;
+}
+.wcm-organizer .wcm-organizer__bio {
+    flex: 1 1 auto;
+}
+.wcm-organizer .wp-block-image.aligncenter {
+    margin-left: auto;
+    margin-right: auto;
+}
+.wcm-organizer .wp-block-image img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.wcm-social .wp-social-link {
+    transition: background-color 200ms ease, color 200ms ease;
+}
+.wcm-social .wp-social-link:hover {
+    background-color: #0073aa !important;
+    color: #FFFFFF !important;
+}
+.wcm-social .wp-social-link a:focus-visible {
+    outline: 2px solid #6d28d9;
+    outline-offset: 3px;
+    border-radius: 999px;
+}
+@media (prefers-reduced-motion: reduce) {
+    .wcm-social .wp-social-link { transition: none; }
+}
+/* ==== end ==== */

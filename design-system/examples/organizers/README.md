@@ -74,3 +74,20 @@ true circle, which both references use.
 
 See `report.md` (PASS, 34 and 6 rows). Renders: `preview-390.png`,
 `preview-1366.png`.
+
+## Single organizer template (added 4 Oct 2026)
+
+`single.py` writes `single-template.html`, the Site Editor template
+**Single organizer** (`single-wcb_organizer`, created on the site 4 Oct 2026,
+replacing the plugin's default layout for `/organizer/<name>/`), plus
+`single-preview/` for the gate and renders. Built from
+bengaluru.wordcamp.org/2026/organizer/arun-shenoy.
+
+| # | Section | Background |
+|---|---|---|
+| 1 | "← All organizers" · Post Featured Image as a 240px circle with the 4px Accent 2 ring · eyebrow "Organizer · WordCamp Mumbai 2027", Post Title H1, Kalam tagline, Post Terms (organizer team, when set) | white, gateway motif |
+| 2 | "Bio" eyebrow + Post Content | sky wash, lattice |
+| 3 | "Meet the rest of the organising team": primary "All organizers", outline "Contact the team" | white |
+
+No per-person social links: the organizer post type does not store them (the
+grid's icons were filled in by hand on the Organizers page).
