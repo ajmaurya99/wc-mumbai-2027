@@ -1,0 +1,22 @@
+/* ==== LANDING: cards ==== */
+/* Card = Group with the class wcm-card (Advanced → Additional CSS class).
+   Rest state comes from block settings (radius 16px, padding 40, background).
+   This adds the hover-only shadow and 4px lift, equal heights in a Columns
+   row, and the focus ring on links inside. */
+.wcm-card {
+    height: 100%;
+    transition: box-shadow 200ms ease, transform 200ms ease;
+}
+.wcm-card:hover {
+    box-shadow: 0 12px 32px rgba(13, 27, 42, .12);
+    transform: translateY(-4px);
+}
+.wcm-card a:focus-visible {
+    outline: 2px solid #6d28d9;
+    outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+    .wcm-card { transition: none; }
+    .wcm-card:hover { transform: none; }
+}
+/* ==== end ==== */

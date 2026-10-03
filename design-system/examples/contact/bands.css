@@ -1,0 +1,13 @@
+/* ==== LANDING: bands ==== */
+/* Dark strip under the numbers (Contrast, wide, flex). Text is Base. */
+.wcm-band > .wp-block-group { flex: 1 1 420px; }
+/* "Be part": gradient band; the logo sits in a white disc. */
+.wcm-logo-disc { width: 320px; height: 320px; padding: 0 !important; margin-left: auto; margin-right: auto; align-items: center; justify-content: center; }
+.wcm-logo-disc .wp-block-image { margin: 0; }
+@media (max-width: 781px) {
+    .wcm-logo-disc { width: 240px; height: 240px; }
+    .wcm-logo-disc .wp-block-image img { width: 170px !important; }
+}
+.wcm-map img { width: 100%; }
+.wcm-fake-input { flex: 1 1 240px; }
+/* ==== end ==== */

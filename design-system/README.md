@@ -42,7 +42,8 @@ design-system/
     ├── home-b/               colourful alternative, not chosen, kept for reference
     ├── organizers/           the organizers page: fetch.py (site → organizers.json), build.py, README.md
     ├── sponsors/             call for sponsors + sponsorship tiers: tiers.json, build.py, README.md
-    └── venue-news/           the venue page and the News (Blog Home) template: build.py, README.md
+    ├── venue-news/           the venue page and the News (Blog Home) template: build.py, README.md
+    └── contact/              the contact page: Jetpack Form card, other ways to reach us, quick links
 ```
 
 Each component folder holds:
