@@ -2,42 +2,42 @@
 
 | Result | Category | Found | Token | Lines | Note |
 |---|---|---|---|---|---|
-| PASS | colour | `textColor: accent-2` | color.accent-2 | 3, 11, 33, 50, 132 +4 |  |
-| PASS | colour | `has-accent-2-color` | color.accent-2 | 4, 12, 34, 51, 133 +4 |  |
-| PASS | colour | `textColor: accent-1` | color.accent-1 | 25, 60, 118, 142, 198 +3 |  |
-| PASS | colour | `has-accent-1-color` | color.accent-1 | 26, 61, 119, 143, 199 +3 |  |
-| PASS | colour | `backgroundColor: accent-5` | color.accent-5 | 31, 295 |  |
-| PASS | colour | `has-accent-5-background-color` | color.accent-5 | 32, 296 |  |
-| PASS | colour | `backgroundColor: base` | color.base | 44, 126, 206, 308, 330 +2 |  |
+| PASS | colour | `textColor: accent-2` | color.accent-2 | 3, 11, 33, 50, 126 +4 |  |
+| PASS | colour | `has-accent-2-color` | color.accent-2 | 4, 12, 34, 51, 127 +4 |  |
+| PASS | colour | `textColor: accent-1` | color.accent-1 | 25, 59, 112, 135, 186 +3 |  |
+| PASS | colour | `has-accent-1-color` | color.accent-1 | 26, 60, 113, 136, 187 +3 |  |
+| PASS | colour | `backgroundColor: accent-5` | color.accent-5 | 31, 277 |  |
+| PASS | colour | `has-accent-5-background-color` | color.accent-5 | 32, 278 |  |
+| PASS | colour | `backgroundColor: base` | color.base | 44, 120, 194, 290, 312 +2 |  |
 | PASS | colour | `has-accent-1-border-color` | color.accent-1 | 45 |  |
-| PASS | colour | `has-base-background-color` | color.base | 45, 127, 207, 309, 331 +2 |  |
-| PASS | colour | `textColor: accent-4` | color.accent-4 | 64, 113, 146, 193, 226 +9 |  |
-| PASS | colour | `has-accent-4-color` | color.accent-4 | 65, 114, 147, 194, 227 +9 |  |
-| PASS | colour | `var:preset\|color\|accent-2` | color.accent-2 | 308, 330, 354, 376 |  |
-| PASS | colour | `var(--wp--preset--color--accent-2)` | color.accent-2 | 309, 331, 355, 377 |  |
+| PASS | colour | `has-base-background-color` | color.base | 45, 121, 195, 291, 313 +2 |  |
+| PASS | colour | `textColor: accent-4` | color.accent-4 | 107, 181, 243, 296, 304 +6 |  |
+| PASS | colour | `has-accent-4-color` | color.accent-4 | 108, 182, 244, 297, 305 +6 |  |
+| PASS | colour | `var:preset\|color\|accent-2` | color.accent-2 | 290, 312, 336, 358 |  |
+| PASS | colour | `var(--wp--preset--color--accent-2)` | color.accent-2 | 291, 313, 337, 359 |  |
 | PASS | font-family | `fontFamily: kalam` | type.family.accent | 11 |  |
 | PASS | font-family | `has-kalam-font-family` | type.family.accent | 12 |  |
-| PASS | font-size | `fontSize: small` | type.size.small | 3, 33, 50, 64, 113 +17 |  |
-| PASS | font-size | `has-small-font-size` | type.size.small | 4, 34, 51, 65, 114 +17 |  |
-| PASS | font-size | `fontSize: xx-large` | type.size.xx-large | 7, 60, 142, 222 |  |
-| PASS | font-size | `has-xx-large-font-size` | type.size.xx-large | 8, 61, 143, 223 |  |
-| PASS | font-size | `fontSize: large` | type.size.large | 11, 54, 136, 216, 318 +3 |  |
-| PASS | font-size | `has-large-font-size` | type.size.large | 12, 55, 137, 217, 319 +3 |  |
-| PASS | font-size | `fontSize: x-large` | type.size.x-large | 37, 281, 301, 405 |  |
-| PASS | font-size | `has-x-large-font-size` | type.size.x-large | 38, 282, 302, 406 |  |
-| PASS | radius | `16px` | radius.card | 44, 45, 46, 126, 127 +12 |  |
-| PASS | spacing | `var:preset\|spacing\|70` | spacing.70 | 1, 31, 275, 295, 399 |  |
-| PASS | spacing | `var:preset\|spacing\|40` | spacing.40 | 1, 31, 44, 126, 206 +7 |  |
-| PASS | spacing | `var:preset\|spacing\|20` | spacing.20 | 2, 32, 44, 126, 206 +3 |  |
-| PASS | spacing | `padding-top: var(--wp--preset--spacing--70)` | spacing.70 | 2, 32, 276, 296, 400 |  |
-| PASS | spacing | `padding-bottom: var(--wp--preset--spacing--70)` | spacing.70 | 2, 32, 276, 296, 400 |  |
-| PASS | spacing | `var:preset\|spacing\|30` | spacing.30 | 42, 306, 308, 330, 352 +2 |  |
-| PASS | spacing | `padding-top: var(--wp--preset--spacing--40)` | spacing.40 | 45, 127, 207 |  |
-| PASS | spacing | `padding-right: var(--wp--preset--spacing--40)` | spacing.40 | 45, 127, 207, 309, 331 +2 |  |
-| PASS | spacing | `padding-bottom: var(--wp--preset--spacing--40)` | spacing.40 | 45, 127, 207 |  |
-| PASS | spacing | `padding-left: var(--wp--preset--spacing--40)` | spacing.40 | 45, 127, 207, 309, 331 +2 |  |
-| PASS | spacing | `padding-top: var(--wp--preset--spacing--30)` | spacing.30 | 309, 331, 355, 377 |  |
-| PASS | spacing | `padding-bottom: var(--wp--preset--spacing--30)` | spacing.30 | 309, 331, 355, 377 |  |
+| PASS | font-size | `fontSize: small` | type.size.small | 3, 33, 50, 107, 126 +14 |  |
+| PASS | font-size | `has-small-font-size` | type.size.small | 4, 34, 51, 108, 127 +14 |  |
+| PASS | font-size | `fontSize: xx-large` | type.size.xx-large | 7, 59, 135, 209 |  |
+| PASS | font-size | `has-xx-large-font-size` | type.size.xx-large | 8, 60, 136, 210 |  |
+| PASS | font-size | `fontSize: large` | type.size.large | 11, 54, 130, 204, 300 +3 |  |
+| PASS | font-size | `has-large-font-size` | type.size.large | 12, 55, 131, 205, 301 +3 |  |
+| PASS | font-size | `fontSize: x-large` | type.size.x-large | 37, 263, 283, 387 |  |
+| PASS | font-size | `has-x-large-font-size` | type.size.x-large | 38, 264, 284, 388 |  |
+| PASS | radius | `16px` | radius.card | 44, 45, 46, 120, 121 +12 |  |
+| PASS | spacing | `var:preset\|spacing\|70` | spacing.70 | 1, 31, 257, 277, 381 |  |
+| PASS | spacing | `var:preset\|spacing\|40` | spacing.40 | 1, 31, 44, 120, 194 +7 |  |
+| PASS | spacing | `var:preset\|spacing\|20` | spacing.20 | 2, 32, 44, 120, 194 +3 |  |
+| PASS | spacing | `padding-top: var(--wp--preset--spacing--70)` | spacing.70 | 2, 32, 258, 278, 382 |  |
+| PASS | spacing | `padding-bottom: var(--wp--preset--spacing--70)` | spacing.70 | 2, 32, 258, 278, 382 |  |
+| PASS | spacing | `var:preset\|spacing\|30` | spacing.30 | 42, 288, 290, 312, 334 +2 |  |
+| PASS | spacing | `padding-top: var(--wp--preset--spacing--40)` | spacing.40 | 45, 121, 195 |  |
+| PASS | spacing | `padding-right: var(--wp--preset--spacing--40)` | spacing.40 | 45, 121, 195, 291, 313 +2 |  |
+| PASS | spacing | `padding-bottom: var(--wp--preset--spacing--40)` | spacing.40 | 45, 121, 195 |  |
+| PASS | spacing | `padding-left: var(--wp--preset--spacing--40)` | spacing.40 | 45, 121, 195, 291, 313 +2 |  |
+| PASS | spacing | `padding-top: var(--wp--preset--spacing--30)` | spacing.30 | 291, 313, 337, 359 |  |
+| PASS | spacing | `padding-bottom: var(--wp--preset--spacing--30)` | spacing.30 | 291, 313, 337, 359 |  |
 
 **PASS** · 36 PASS · 0 REVIEW · 0 FAIL · 0 STRIP
 

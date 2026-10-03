@@ -16,7 +16,7 @@ Columns (align wide, blockGap 30, Stack on mobile)
     └── Group .wcm-card.wcm-tier (Accent 5 on white / Base on sky wash, radius 16px, padding 40, gap 20)
         ├── Image            tier icon, 96px, radius 16px
         ├── Group (gap 0)    eyebrow "Platinum" (small, 700, uppercase, Accent 2) + H3 name (large)
-        ├── Group (gap 0)    Paragraph price xx-large 700 Accent 1 + Paragraph "about $850" small Accent 4
+        ├── Paragraph        price xx-large 700 Accent 1: "₹80,000 ($850)"
         ├── Paragraph        one line: who the tier is for
         ├── List .wcm-check  benefits (four headline ones, or all of them)
         ├── Paragraph        short: link "All <tier> benefits →" · full: "Best for: …" small Accent 4

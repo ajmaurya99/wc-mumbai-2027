@@ -35,7 +35,7 @@ def tagline(text):
 def checklist(items):
     """Core List block; the class wcm-check swaps the bullet for a teal tick (sponsors.css)."""
     return ('<!-- wp:list {"className":"wcm-check"} -->\n<ul class="wp-block-list wcm-check">%s</ul>\n<!-- /wp:list -->'
-            % "".join('<!-- wp:list-item -->\n<li>%s</li>\n<!-- /wp:list-item -->' % esc(i) for i in items))
+            % "".join('<!-- wp:list-item -->\n<li>%s</li>\n<!-- /wp:list-item -->' % i for i in items))  # items may carry <strong>
 
 
 def details(q, paras):
@@ -76,10 +76,7 @@ def tier_card(t, full, bg):
             eyebrow(t["level"]),
             heading(esc(t["name"]), 3, "large"),
         ]), gap=0),
-        group("\n\n".join([
-            para(t["inr"], size="xx-large", color="accent-1", weight=700),
-            para(t["usd"], size="small", color="accent-4"),
-        ]), gap=0),
+        para("%s (%s)" % (t["inr"], t["usd"]), size="xx-large", color="accent-1", weight=700),
         para(esc(t["line"])),
         checklist(t["benefits"] if full else t["headline"]),
     ]
@@ -196,8 +193,8 @@ tiers = []
 
 tiers.append(("01-intro", section([
     group("\n\n".join([
-        eyebrow("Sponsorship tiers"),
-        heading("Pick your tier", 1, "xx-large"),
+        eyebrow("WordCamp Mumbai 2027 · %s" % EVENT_DATE),
+        heading("Sponsorship Tiers", 1, "xx-large"),
         tagline("Blockbuster, Megahit, Superhit"),
     ]), gap=20),
     para("Three tiers, named the way Mumbai names its hits. Every tier includes sponsor space at the event, passes for your team, your logo and link on the website and swag in the attendee kit. Payments are handled by WordCamp Central."),

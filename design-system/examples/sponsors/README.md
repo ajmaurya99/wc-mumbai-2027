@@ -33,7 +33,7 @@ there, rebuild, re-paste both pages.
 
 | # | Section | Background | Action |
 |---|---|---|---|
-| 1 | Intro: eyebrow, H1 "Pick your tier", tagline, paragraph, buttons | white, gateway motif | primary "Become a sponsor", outline "Compare the tiers" (#compare) |
+| 1 | Intro: eyebrow, H1 "Sponsorship Tiers" (the page title), tagline, paragraph, buttons | white, gateway motif | primary "Become a sponsor", outline "Compare the tiers" (#compare) |
 | 2 | The tiers: three full tier cards, Blockbuster with the Accent 1 border; anchors `#blockbuster` `#megahit` `#superhit` | sky wash, lattice | outline button per card |
 | 3 | Compare (`#compare`): the 20-row table from the old Compare the Tiers page, Table block, stripes style | white | |
 | 4 | Good to know: four fact cards, 2 × 2 | sky wash | |
