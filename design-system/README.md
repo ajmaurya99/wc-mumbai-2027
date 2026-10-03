@@ -27,7 +27,7 @@ design-system/
 ├── components/
 │   ├── core/        buttons · links · section-header · info-pill · fact-card · separator · pattern-strip
 │   ├── content/     card · speaker-card · faq-details · stat-tile
-│   └── marketing/   sponsor-tier-grid · callout-banner
+│   └── marketing/   sponsor-tier-grid · callout-banner · tier-card
 ├── assets/
 │   ├── svg/                  artwork sources (icons, separators, strips, tiles, motifs)
 │   ├── png/                  the same at 2×, served from jsDelivr on the site
@@ -39,7 +39,9 @@ design-system/
 └── examples/
     ├── why-attend/           worked example of the reference → component workflow
     ├── home/                 the home page (chosen): build.py → sections/, block.html, footer.html, README.md (handover)
-    └── home-b/               colourful alternative, not chosen, kept for reference
+    ├── home-b/               colourful alternative, not chosen, kept for reference
+    ├── organizers/           the organizers page: fetch.py (site → organizers.json), build.py, README.md
+    └── sponsors/             call for sponsors + sponsorship tiers: tiers.json, build.py, README.md
 ```
 
 Each component folder holds:
@@ -72,6 +74,7 @@ whole group.
 | Stat tile | `components/content/stat-tile` | reuses `card.css` | PASS |
 | Sponsor tier grid | `components/marketing/sponsor-tier-grid` | none | PASS |
 | Callout banner | `components/marketing/callout-banner` | none | PASS |
+| Tier card | `components/marketing/tier-card` | `tier-card.css` | REVIEW (text-relative tick indent; justified in spec) |
 
 The focus ring (2px `#6d28d9`, offset 3px) is not a separate component; it is
 written into every CSS file that owns an interactive element.
