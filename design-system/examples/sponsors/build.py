@@ -138,9 +138,9 @@ intro_right = image(D["poster"], "Call for sponsors: WordCamp Mumbai 2027, %s, A
 cfs.append(("01-intro", section([
     columns([column(intro_left, "55%"), column(intro_right, "45%", valign="center")], valign="center"),
     columns([
-        stat("500+", "Attendees", "Developers, designers, marketers, students and site owners."),
-        stat("20+", "Speakers", "Voices from Mumbai, India and the global WordPress community."),
-        stat("1", "Contributor Day", "A day of giving back to the project that powers the web."),
+        stat("300+", "Attendees", "Developers, designers, marketers, students and site owners."),
+        stat("1", "Day", "%s at ATLAS SkillTech University, Kurla." % EVENT_DATE),
+        stat("100%", "Volunteer-run", "No one is paid. Sponsors cover what tickets don’t."),
         stat("43%", "Of the web", "Runs on WordPress. The people in this room keep it that way."),
     ]),
 ], bg=None, bgimage=(PNG + "motif-gateway@2x.png", "320px auto", "100% 100%", "no-repeat"))))
