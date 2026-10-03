@@ -125,9 +125,10 @@ cfs = []
 
 intro_left = "\n\n".join([
     group("\n\n".join([
-        eyebrow("Call for sponsors"),
-        heading("Help build what comes next in WordPress", 1, "xx-large"),
-        tagline("Aamchi Mumbai, Aapla WordPress"),
+        # H1 matches the page title ("Call for Sponsors") for search; the old headline becomes the tagline
+        eyebrow("WordCamp Mumbai 2027 · %s" % EVENT_DATE),
+        heading("Call for Sponsors", 1, "xx-large"),
+        tagline("Help build what comes next in WordPress"),
     ]), gap=20),
     para("On <strong>%s</strong>, Mumbai becomes a meeting point for developers, designers, creators, agencies, entrepreneurs, product builders, educators and business owners who build, use, support and shape the web with WordPress." % EVENT_DATE),
     para("We are inviting organisations that believe in open source, community and the people building the future of the web to join us as sponsors."),
