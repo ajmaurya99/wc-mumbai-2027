@@ -43,7 +43,8 @@ design-system/
     ├── organizers/           the organizers page: fetch.py (site → organizers.json), build.py, README.md
     ├── sponsors/             call for sponsors + sponsorship tiers: tiers.json, build.py, README.md
     ├── venue-news/           the venue page and the News (Blog Home) template: build.py, README.md
-    └── contact/              the contact page: Jetpack Form card, other ways to reach us, quick links
+    ├── contact/              the contact page: Jetpack Form card, other ways to reach us, quick links
+    └── about/                the about page: intro with stat tiles, learn/share/connect/build, FAQ, gradient band
 ```
 
 Each component folder holds:
