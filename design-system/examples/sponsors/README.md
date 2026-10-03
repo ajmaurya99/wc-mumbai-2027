@@ -52,12 +52,15 @@ ticks and the flex column). `tools/blocks.py` gained an `anchor` argument on
    the `sponsors` fence (`sponsors.css`, the comparison table). The faq fence
    (`components/content/faq-details/faq-details.css`) is needed too if it is
    not live yet. Reload and confirm.
-2. **Pages.** Both are new draft pages on the "Page, no title (header and
-   footer)" template, pasted 3 Oct 2026 for review. The existing
-   `/call-for-sponsors/` is a blog **post** (post 5), so the new page's slug
-   is provisional until the post is renamed; `/sponsorship-tiers/` (page 841)
-   stays live until the new one replaces it; `/compare-the-tiers/` (page 843)
-   stays as it is, just unlinked.
+2. **Pages.** Both live since 3 Oct 2026 on the "Page, no title (header and
+   footer)" template: page 1113 at `/call-for-sponsors/` and page 1114 at
+   `/sponsorship-tiers/`. The old call-for-sponsors blog post (post 5) is a
+   draft with the slug `call-for-sponsors-announcement`; the old tiers page
+   (841) is a draft with the slug `sponsorship-tiers-old`; the Compare the
+   Tiers page (843) is still published, just unlinked. The header's "Become a
+   Sponsor" item now points at page 1113 (it had pointed at post 5, and the
+   Navigation block hides links to unpublished posts, so it vanished when the
+   post went to draft).
 3. **Replace.** Nothing is placeholder: the form link, images, prices and FAQ
    are the site's own. Two table rows still say TBD (booth size, sponsor
    dinner), as they did before.
