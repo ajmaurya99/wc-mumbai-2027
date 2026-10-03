@@ -41,7 +41,8 @@ design-system/
     ├── home/                 the home page (chosen): build.py → sections/, block.html, footer.html, README.md (handover)
     ├── home-b/               colourful alternative, not chosen, kept for reference
     ├── organizers/           the organizers page: fetch.py (site → organizers.json), build.py, README.md
-    └── sponsors/             call for sponsors + sponsorship tiers: tiers.json, build.py, README.md
+    ├── sponsors/             call for sponsors + sponsorship tiers: tiers.json, build.py, README.md
+    └── venue-news/           the venue page and the News (Blog Home) template: build.py, README.md
 ```
 
 Each component folder holds:
