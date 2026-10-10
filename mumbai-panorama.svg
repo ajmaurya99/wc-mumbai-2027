@@ -557,47 +557,77 @@
 <path d="M2029,360 l8,15 l-8,15 Z" fill="#E8B93B"/>
 <text x="1925" y="381" font-family="Figtree, Arial, sans-serif" font-size="16.5" font-weight="800" fill="#FFFFFF" text-anchor="middle" letter-spacing=".4">Jai Mata Di</text>
 <!-- Durga idol -->
-<g>
-  <!-- halo / chakra behind her -->
-  <circle cx="1925" cy="440" r="46" fill="#FFD166" fill-opacity=".35"/>
-  <circle cx="1925" cy="440" r="36" fill="#F6A21B" fill-opacity=".35"/>
-  <!-- lion -->
-  <ellipse cx="1925" cy="512" rx="34" ry="12" fill="#D9A050"/>
-  <ellipse cx="1950" cy="500" rx="16" ry="14" fill="#E0A94F"/>
-  <circle cx="1956" cy="494" r="14" fill="#B5722B"/>
-  <circle cx="1957" cy="495" r="9" fill="#E8B96A"/>
-  <circle cx="1953" cy="493" r="1.6" fill="#3A2A1A"/><circle cx="1961" cy="493" r="1.6" fill="#3A2A1A"/>
-  <path d="M1954 500 q4 3 8 0" stroke="#7A3A2A" stroke-width="1.4" fill="none" stroke-linecap="round"/>
-  <g fill="#D9A050"><rect x="1900" y="514" width="7" height="10" rx="3"/><rect x="1912" y="514" width="7" height="10" rx="3"/><rect x="1934" y="514" width="7" height="10" rx="3"/><rect x="1946" y="514" width="7" height="10" rx="3"/></g>
-  <path d="M1892 506 q-12 -8 -8 -18" stroke="#D9A050" stroke-width="4" fill="none" stroke-linecap="round"/>
-  <!-- sari (red with gold border) -->
-  <path d="M1903 506 Q1900 470 1912 452 H1938 Q1950 470 1947 506 Z" fill="#D8332A"/>
-  <path d="M1903 506 Q1904 490 1908 478 H1942 Q1946 490 1947 506 Z" fill="#E8B93B" fill-opacity=".55"/>
-  <rect x="1912" y="452" width="26" height="20" rx="6" fill="#D8332A"/>
-  <path d="M1910 462 Q1925 470 1940 462 V456 Q1925 462 1910 456Z" fill="#E8B93B"/>
-  <!-- eight arms (four each side) fanned behind the torso -->
-  <g stroke="#F2B07A" stroke-width="5" fill="none" stroke-linecap="round">
-    <path d="M1912 462 q-22 -4 -34 -24"/><path d="M1912 466 q-26 2 -38 -8"/><path d="M1912 470 q-24 8 -36 10"/><path d="M1912 474 q-20 14 -32 24"/>
-    <path d="M1938 462 q22 -4 34 -24"/><path d="M1938 466 q26 2 38 -8"/><path d="M1938 470 q24 8 36 10"/><path d="M1938 474 q20 14 32 24"/>
+<g transform="translate(1925,520)">
+  <defs>
+    <linearGradient id="dSkin" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#F3C9A0"/><stop offset="1" stop-color="#D9A071"/></linearGradient>
+    <linearGradient id="dSari" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E63946"/><stop offset="1" stop-color="#A4161A"/></linearGradient>
+    <linearGradient id="dGold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE08A"/><stop offset="1" stop-color="#C9961A"/></linearGradient>
+    <linearGradient id="dLion" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E7B96A"/><stop offset="1" stop-color="#B47A2E"/></linearGradient>
+    <radialGradient id="dHalo" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#FFE9A8"/><stop offset=".7" stop-color="#F6A21B" stop-opacity=".55"/><stop offset="1" stop-color="#F6A21B" stop-opacity="0"/></radialGradient>
+  </defs>
+  <!-- halo -->
+  <circle cx="0" cy="-74" r="52" fill="url(#dHalo)"/>
+  <circle cx="0" cy="-74" r="44" fill="none" stroke="#E8B93B" stroke-width="2.5"/>
+  <g stroke="#E8B93B" stroke-width="1.5" opacity=".7"><line x1="44.0" y1="-74.0" x2="52.0" y2="-74.0"/><line x1="42.5" y1="-62.6" x2="50.2" y2="-60.5"/><line x1="38.1" y1="-52.0" x2="45.0" y2="-48.0"/><line x1="31.1" y1="-42.9" x2="36.8" y2="-37.2"/><line x1="22.0" y1="-35.9" x2="26.0" y2="-29.0"/><line x1="11.4" y1="-31.5" x2="13.5" y2="-23.8"/><line x1="0.0" y1="-30.0" x2="0.0" y2="-22.0"/><line x1="-11.4" y1="-31.5" x2="-13.5" y2="-23.8"/><line x1="-22.0" y1="-35.9" x2="-26.0" y2="-29.0"/><line x1="-31.1" y1="-42.9" x2="-36.8" y2="-37.2"/><line x1="-38.1" y1="-52.0" x2="-45.0" y2="-48.0"/><line x1="-42.5" y1="-62.6" x2="-50.2" y2="-60.5"/><line x1="-44.0" y1="-74.0" x2="-52.0" y2="-74.0"/><line x1="-42.5" y1="-85.4" x2="-50.2" y2="-87.5"/><line x1="-38.1" y1="-96.0" x2="-45.0" y2="-100.0"/><line x1="-31.1" y1="-105.1" x2="-36.8" y2="-110.8"/><line x1="-22.0" y1="-112.1" x2="-26.0" y2="-119.0"/><line x1="-11.4" y1="-116.5" x2="-13.5" y2="-124.2"/><line x1="-0.0" y1="-118.0" x2="-0.0" y2="-126.0"/><line x1="11.4" y1="-116.5" x2="13.5" y2="-124.2"/><line x1="22.0" y1="-112.1" x2="26.0" y2="-119.0"/><line x1="31.1" y1="-105.1" x2="36.8" y2="-110.8"/><line x1="38.1" y1="-96.0" x2="45.0" y2="-100.0"/><line x1="42.5" y1="-85.4" x2="50.2" y2="-87.5"/></g>
+  <!-- lion, lying at her feet, head to the right -->
+  <path d="M-34 0 Q-38 -18 -22 -22 H26 Q46 -22 50 -10 L54 0 Z" fill="url(#dLion)"/>
+  <ellipse cx="46" cy="-18" rx="16" ry="14" fill="#9C5A16"/>
+  <ellipse cx="46" cy="-18" rx="11" ry="10" fill="#E7B96A"/>
+  <ellipse cx="51" cy="-14" rx="5" ry="3.5" fill="#F3D9A4"/>
+  <circle cx="43" cy="-20" r="1.6" fill="#2B1B0E"/><circle cx="50" cy="-20" r="1.6" fill="#2B1B0E"/>
+  <ellipse cx="52" cy="-15" rx="1.8" ry="1.2" fill="#3A2A1A"/>
+  <path d="M-30 0 q-10 -4 -8 -12 q4 -6 8 -2" fill="none" stroke="#B47A2E" stroke-width="3.5" stroke-linecap="round"/>
+  <g fill="#C98A3A"><rect x="-26" y="-6" width="9" height="6" rx="3"/><rect x="-12" y="-6" width="9" height="6" rx="3"/><rect x="20" y="-6" width="9" height="6" rx="3"/><rect x="34" y="-6" width="9" height="6" rx="3"/></g>
+  <!-- lotus seat under her -->
+  <path d="M-26 -20 q26 -10 52 0 q-26 6 -52 0z" fill="#E85D8A"/>
+  <path d="M-20 -20 q20 -7 40 0 q-20 4 -40 0z" fill="#F7A1BE"/>
+  <!-- back arms (behind torso): 3 each side, from shoulder (±12,-58) -->
+  <g stroke="#E8B88C" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-12 -58 L-32 -74 L-40 -96"/><path d="M-12 -58 L-36 -66 L-50 -72"/><path d="M-12 -58 L-30 -52 L-46 -44"/>
+    <path d="M12 -58 L32 -74 L40 -96"/><path d="M12 -58 L36 -66 L50 -72"/><path d="M12 -58 L30 -52 L46 -44"/>
   </g>
-  <!-- weapons / symbols in the hands -->
-  <path d="M1878 438 l0 -14 M1874 428 l4 -6 l4 6" stroke="#9AA0A8" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-  <circle cx="1874" cy="458" r="5" fill="none" stroke="#F6A21B" stroke-width="2.2"/>
-  <path d="M1876 480 q-6 -3 -8 2 q2 5 8 2z" fill="#E85D8A"/>
-  <path d="M1972 438 l0 -16" stroke="#9AA0A8" stroke-width="2.2" stroke-linecap="round"/><path d="M1968 422 h8" stroke="#9AA0A8" stroke-width="2.2" stroke-linecap="round"/>
-  <path d="M1976 456 q6 -8 0 -16 q-6 8 0 16z" fill="#FFFFFF" stroke="#9AA0A8" stroke-width="1.2"/>
-  <circle cx="1970" cy="498" r="4" fill="#5B2DB8"/>
-  <!-- face and crown -->
-  <circle cx="1925" cy="438" r="16" fill="#F2B07A"/>
-  <circle cx="1920" cy="436" r="1.8" fill="#3A2A1A"/><circle cx="1930" cy="436" r="1.8" fill="#3A2A1A"/>
-  <circle cx="1925" cy="430" r="1.8" fill="#D8332A"/>
-  <path d="M1920 444 q5 4 10 0" stroke="#B3372F" stroke-width="1.4" fill="none" stroke-linecap="round"/>
-  <path d="M1909 430 q16 -14 32 0 q-16 -6 -32 0z" fill="#1A2447"/>
-  <path d="M1907 428 L1911 404 L1917 418 L1925 398 L1933 418 L1939 404 L1943 428 Z" fill="#E8B93B"/>
-  <rect x="1907" y="424" width="36" height="5" fill="#F6A21B"/>
-  <circle cx="1925" cy="412" r="3" fill="#D8332A"/><circle cx="1915" cy="416" r="2" fill="#5B2DB8"/><circle cx="1935" cy="416" r="2" fill="#5B2DB8"/>
+  <!-- weapons in back hands -->
+  <g stroke="#9AA0A8" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-40 -96 V-110"/><path d="M-45 -109 L-40 -116 L-35 -109"/><path d="M-40 -109 V-116"/>   <!-- trishul -->
+    <path d="M40 -96 V-108"/><path d="M35 -108 L40 -115 L45 -108 Z" fill="#C9D1D9"/>              <!-- sword -->
+  </g>
+  <circle cx="-50" cy="-72" r="7" fill="none" stroke="#E8B93B" stroke-width="2.4"/><circle cx="-50" cy="-72" r="2" fill="#E8B93B"/>   <!-- chakra -->
+  <path d="M50 -72 q8 -10 0 -20 q-8 10 0 20z" fill="#FFFFFF" stroke="#9AA0A8" stroke-width="1.2"/>                                <!-- conch -->
+  <path d="M-46 -44 q-6 -8 0 -14 q6 6 0 14z M-46 -44 q-10 -2 -12 -10 M-46 -44 q10 -2 12 -10" fill="#E85D8A" stroke="#E85D8A" stroke-width="1.5"/> <!-- lotus -->
+  <path d="M46 -44 l-3 -16 l6 0 z" fill="#C9D1D9"/><path d="M46 -44 l-5 2 l10 0z" fill="#8B5A2B"/>                                 <!-- dagger -->
+  <!-- torso / sari -->
+  <path d="M-16 -62 Q-22 -40 -20 -22 H20 Q22 -40 16 -62 Z" fill="url(#dSari)"/>
+  <path d="M-16 -62 Q0 -56 16 -62 L14 -54 Q0 -50 -14 -54 Z" fill="#F2B07A"/>
+  <path d="M-18 -30 H18 L20 -22 H-20 Z" fill="url(#dGold)"/>
+  <path d="M-10 -62 L-20 -34 L-16 -32 L-6 -58 Z" fill="url(#dGold)" opacity=".9"/>  <!-- pallu border -->
+  <!-- front arms: blessing (right) and holding bowl (left) -->
+  <g stroke="#EDBF95" stroke-width="6.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 -56 L26 -46 L24 -30"/><path d="M-12 -56 L-26 -46 L-24 -32"/>
+  </g>
+  <circle cx="24" cy="-30" r="4.5" fill="#F3C9A0"/><circle cx="-24" cy="-32" r="4.5" fill="#F3C9A0"/>
+  <path d="M-30 -36 q6 -6 12 0 q-6 2 -12 0z" fill="#E8B93B"/>
+  <!-- necklace -->
+  <path d="M-10 -58 Q0 -48 10 -58" fill="none" stroke="#E8B93B" stroke-width="2.5"/>
+  <circle cx="0" cy="-50" r="2.2" fill="#D8332A"/>
+  <!-- neck and face -->
+  <rect x="-5" y="-70" width="10" height="10" fill="#E0AA7C"/>
+  <ellipse cx="0" cy="-80" rx="13" ry="15" fill="url(#dSkin)"/>
+  <ellipse cx="-5" cy="-82" rx="2.6" ry="1.5" fill="#FFFFFF"/><ellipse cx="5" cy="-82" rx="2.6" ry="1.5" fill="#FFFFFF"/>
+  <circle cx="-5" cy="-82" r="1.3" fill="#2B1B0E"/><circle cx="5" cy="-82" r="1.3" fill="#2B1B0E"/>
+  <path d="M-8 -85 q3 -2 6 -1 M2 -86 q3 -1 6 1" stroke="#2B1B0E" stroke-width="1" fill="none"/>
+  <circle cx="0" cy="-88" r="1.4" fill="#D8332A"/>
+  <path d="M-4 -74 q4 2 8 0" stroke="#B3372F" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+  <path d="M0 -78 l-1.5 3 h3z" fill="#D9A071"/>
+  <!-- hair -->
+  <path d="M-13 -84 Q-14 -98 0 -98 Q14 -98 13 -84 Q8 -92 0 -92 Q-8 -92 -13 -84Z" fill="#1A1208"/>
+  <path d="M-13 -84 q-4 14 -2 30 l4 -2 q-2 -14 1 -26z M13 -84 q4 14 2 30 l-4 -2 q2 -14 -1 -26z" fill="#1A1208"/>
+  <!-- crown -->
+  <path d="M-14 -92 L-11 -116 L-5 -102 L0 -122 L5 -102 L11 -116 L14 -92 Z" fill="url(#dGold)"/>
+  <rect x="-15" y="-96" width="30" height="5" rx="1" fill="#C9961A"/>
+  <circle cx="0" cy="-110" r="2.6" fill="#D8332A"/><circle cx="-8" cy="-104" r="1.8" fill="#2FA39F"/><circle cx="8" cy="-104" r="1.8" fill="#2FA39F"/>
+  <circle cx="0" cy="-120" r="2" fill="#E85D8A"/>
   <!-- garland -->
-  <path d="M1910 456 Q1925 476 1940 456" stroke="#F6A21B" stroke-width="3" fill="none" stroke-dasharray="3 2.5" stroke-linecap="round"/>
+  <path d="M-12 -58 Q0 -36 12 -58" fill="none" stroke="#F6A21B" stroke-width="3.5" stroke-dasharray="2.5 2" stroke-linecap="round"/>
 </g></g></g>
 <rect x="1794.8" y="512.8" width="6.4" height="27.200000000000003" fill="#7A5A3A"/><circle cx="1786.8" cy="508.0" r="14.4" fill="#5AA85A"/><circle cx="1807.6" cy="506.4" r="16.0" fill="#6DBF66"/><circle cx="1796.4" cy="495.2" r="16.0" fill="#5AA85A"/><circle cx="1801.2" cy="509.6" r="11.200000000000001" fill="#6DBF66"/>
 <rect x="0" y="526" width="2400" height="22" fill="#D9CDB3"/>
