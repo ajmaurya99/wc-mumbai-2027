@@ -93,7 +93,7 @@ sections.append(("04-why-early", section([
     columns([
         point("01", "Lock in the best price", "Early bird is the lowest price we will put on sale. Rates go up once the first batch is gone."),
         point("02", "Guarantee your seat", "Seats are limited and the early batch tends to go fast. Booking early means you are in the room on %s." % EVENT_DATE),
-        point("03", "Be the first to know", "Early ticket holders hear about the speaker line-up, session tracks and the schedule before anyone else."),
+        point("03", "Be the first to know", "Ticket holders get the speaker line-up, session tracks and schedule news as soon as they are announced."),
     ]),
 ], bg=None, bgimage=(PNG + "motif-palm@2x.png", "420px auto", "0 100%", "no-repeat"))))
 
