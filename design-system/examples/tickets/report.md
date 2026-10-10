@@ -57,10 +57,10 @@
 
 | Result | Category | Found | Token | Lines | Note |
 |---|---|---|---|---|---|
-| REVIEW | colour | `#E0552D` | color.festive.saffron | 187 | festive: badges and dividers only |
+| REVIEW | colour | `#E0552D` | color.festive.saffron | 188 | festive: badges and dividers only |
 | REVIEW | naming | `.admin-bar` | – | 7 | custom classes should be prefixed wcm- |
 | REVIEW | naming | `.tix_tickets_table` | – | 25, 31, 32, 39 | custom classes should be prefixed wcm- |
-| REVIEW | naming | `.tix-tickets-list` | – | 47, 191 | custom classes should be prefixed wcm- |
+| REVIEW | naming | `.tix-tickets-list` | – | 47, 192 | custom classes should be prefixed wcm- |
 | REVIEW | naming | `.tix-ticket-title` | – | 47 | custom classes should be prefixed wcm- |
 | REVIEW | naming | `.tix-column-price` | – | 51 | custom classes should be prefixed wcm- |
 | REVIEW | naming | `.tix-column-per-ticket` | – | 52 | custom classes should be prefixed wcm- |
@@ -68,43 +68,59 @@
 | REVIEW | naming | `.tix-column-remaining` | – | 57 | custom classes should be prefixed wcm- |
 | REVIEW | naming | `.tix-row-total` | – | 60 | custom classes should be prefixed wcm- |
 | REVIEW | naming | `.tix-attendee-form` | – | 66, 72, 76, 98, 99 +6 | custom classes should be prefixed wcm- |
-| REVIEW | naming | `.tix-left` | – | 72, 197, 202 | custom classes should be prefixed wcm- |
-| REVIEW | naming | `.tix-right` | – | 76, 119, 198, 206 | custom classes should be prefixed wcm- |
+| REVIEW | naming | `.tix-left` | – | 72, 198, 203 | custom classes should be prefixed wcm- |
+| REVIEW | naming | `.tix-right` | – | 76, 119, 199, 207 | custom classes should be prefixed wcm- |
 | REVIEW | naming | `.tix-required-star` | – | 79 | custom classes should be prefixed wcm- |
 | REVIEW | naming | `.tix-private-form` | – | 102, 103, 104, 105 | custom classes should be prefixed wcm- |
-| REVIEW | naming | `.tix-copy-claim-link` | – | 141, 155 | custom classes should be prefixed wcm- |
-| REVIEW | naming | `.tix-submit` | – | 158, 162, 209 | custom classes should be prefixed wcm- |
-| REVIEW | naming | `.tix-notice` | – | 174 | custom classes should be prefixed wcm- |
-| REVIEW | naming | `.tix-info` | – | 175 | custom classes should be prefixed wcm- |
-| REVIEW | naming | `.tix-error` | – | 176, 186 | custom classes should be prefixed wcm- |
-| REVIEW | naming | `.tix-resend-claim-links` | – | 177 | custom classes should be prefixed wcm- |
-| REVIEW | naming | `.tix-order-summary` | – | 192 | custom classes should be prefixed wcm- |
-| PASS | colour | `#f2f7fa` | color.accent-5 | 37, 91, 92, 183 |  |
-| PASS | colour | `#006b78` | color.accent-2 | 44, 45, 70, 181 |  |
-| PASS | colour | `#6d28d9` | color.accent-3 | 80, 128, 156 |  |
-| PASS | colour | `#0d1b2a` | color.contrast | 90, 184 |  |
-| PASS | colour | `#0073aa` | color.accent-1 | 117, 136, 146, 166 |  |
-| PASS | colour | `#ffffff` | color.base | 137, 145 |  |
-| PASS | font-size | `1rem` | type.size.medium / button.fontSize | 9, 29, 89, 143 |  |
+| REVIEW | naming | `.tix-copy-claim-link` | – | 142, 156 | custom classes should be prefixed wcm- |
+| REVIEW | naming | `.tix-submit` | – | 159, 163, 210 | custom classes should be prefixed wcm- |
+| REVIEW | naming | `.tix-notice` | – | 175 | custom classes should be prefixed wcm- |
+| REVIEW | naming | `.tix-info` | – | 176 | custom classes should be prefixed wcm- |
+| REVIEW | naming | `.tix-error` | – | 177, 187 | custom classes should be prefixed wcm- |
+| REVIEW | naming | `.tix-resend-claim-links` | – | 178 | custom classes should be prefixed wcm- |
+| REVIEW | naming | `.tix-order-summary` | – | 193 | custom classes should be prefixed wcm- |
+| PASS | colour | `#f2f7fa` | color.accent-5 | 37, 91, 92, 184 |  |
+| PASS | colour | `#006b78` | color.accent-2 | 44, 45, 70, 182 |  |
+| PASS | colour | `#6d28d9` | color.accent-3 | 80, 128, 157 |  |
+| PASS | colour | `#0d1b2a` | color.contrast | 90, 147, 185 |  |
+| PASS | colour | `#0073aa` | color.accent-1 | 117, 136, 167 |  |
+| PASS | colour | `#ffffff` | color.base | 137, 146 |  |
+| PASS | font-size | `1rem` | type.size.medium / button.fontSize | 9, 29, 89, 144 |  |
 | PASS | font-size | `1.75rem` | type.size.x-large | 17 |  |
 | PASS | font-size | `0.875rem` | type.size.small | 40 |  |
 | PASS | font-size | `1.38rem` | type.size.large | 48, 62, 67 |  |
-| PASS | motion | `transition: 200ms` | motion.duration | 152 |  |
-| PASS | motion | `prefers-reduced-motion guard` | motion | 216 |  |
-| PASS | radius | `8px` | radius.chip | 93, 182 |  |
-| PASS | radius | `999px` | radius.pill | 148 |  |
+| PASS | motion | `transition: 200ms` | motion.duration | 153 |  |
+| PASS | motion | `prefers-reduced-motion guard` | motion | 217 |  |
+| PASS | radius | `8px` | radius.chip | 93, 183 |  |
+| PASS | radius | `999px` | radius.pill | 149 |  |
 | PASS | spacing | `padding: var(--wp--preset--spacing--40)` | spacing.40 | 14, 69 |  |
 | PASS | spacing | `padding: var(--wp--preset--spacing--70)` | spacing.70 | 14 |  |
 | PASS | spacing | `margin: var(--wp--preset--spacing--50)` | spacing.50 | 20 |  |
 | PASS | spacing | `margin: var(--wp--preset--spacing--30)` | spacing.30 | 20, 28 |  |
 | PASS | spacing | `padding: var(--wp--preset--spacing--20)` | spacing.20 | 33, 69, 94 |  |
 | PASS | spacing | `padding-top: var(--wp--preset--spacing--30)` | spacing.30 | 63 |  |
-| PASS | spacing | `padding: var(--wp--preset--spacing--30)` | spacing.30 | 94, 179 |  |
+| PASS | spacing | `padding: var(--wp--preset--spacing--30)` | spacing.30 | 94, 180 |  |
 | PASS | spacing | `padding-right: var(--wp--preset--spacing--40)` | spacing.40 | 109 |  |
-| PASS | spacing | `margin: var(--wp--preset--spacing--20)` | spacing.20 | 115, 163, 178 |  |
-| PASS | spacing | `padding: 0.6rem 1.5rem` | button.padding | 149 |  |
-| PASS | spacing | `margin-top: var(--wp--preset--spacing--30)` | spacing.30 | 160 |  |
-| PASS | spacing | `margin-bottom: var(--wp--preset--spacing--40)` | spacing.40 | 172 |  |
+| PASS | spacing | `margin: var(--wp--preset--spacing--20)` | spacing.20 | 115, 164, 179 |  |
+| PASS | spacing | `padding: 0.6rem 1.5rem` | button.padding | 150 |  |
+| PASS | spacing | `margin-top: var(--wp--preset--spacing--30)` | spacing.30 | 161 |  |
+| PASS | spacing | `margin-bottom: var(--wp--preset--spacing--40)` | spacing.40 | 173 |  |
 
 **REVIEW** · 26 PASS · 22 REVIEW · 0 FAIL · 0 STRIP
+
+### report: design-system/examples/tickets/nav-cta.css
+
+| Result | Category | Found | Token | Lines | Note |
+|---|---|---|---|---|---|
+| PASS | colour | `#ffffff` | color.base | 13, 24 |  |
+| PASS | colour | `#0d1b2a` | color.contrast | 14 |  |
+| PASS | colour | `#6d28d9` | color.accent-3 | 25, 29 |  |
+| PASS | motion | `transition: 200ms` | motion.duration | 19 |  |
+| PASS | motion | `prefers-reduced-motion guard` | motion | 43 |  |
+| PASS | radius | `999px` | radius.pill | 16 |  |
+| PASS | spacing | `padding: var(--wp--preset--spacing--30)` | spacing.30 | 11 |  |
+| PASS | spacing | `margin-left: var(--wp--preset--spacing--20)` | spacing.20 | 12 |  |
+| PASS | spacing | `margin-top: var(--wp--preset--spacing--30)` | spacing.30 | 34 |  |
+
+**PASS** · 9 PASS · 0 REVIEW · 0 FAIL · 0 STRIP
 

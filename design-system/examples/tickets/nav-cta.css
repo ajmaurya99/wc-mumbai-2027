@@ -1,0 +1,46 @@
+/* ==== LANDING: nav cta ==== */
+/* The "Tickets" item of the header menu (Navigation link with the class
+   wcm-nav-cta) as the site's primary button: Contrast pill, Base text, purple
+   hover, the focus ring. Specificity matches the home-page header fence so the
+   pill wins there too; this fence must stay below that one. In the mobile
+   overlay the pill goes full width under the other items. */
+header.wp-block-template-part .wp-block-navigation .wcm-nav-cta > .wp-block-navigation-item__content {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 var(--wp--preset--spacing--30);
+    margin-left: var(--wp--preset--spacing--20);
+    color: #ffffff;
+    background-color: #0d1b2a;
+    background-image: none;
+    border-radius: 999px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 200ms ease;
+}
+header.wp-block-template-part .wp-block-navigation .wp-block-navigation-item.wcm-nav-cta > .wp-block-navigation-item__content:hover,
+header.wp-block-template-part .wp-block-navigation .wp-block-navigation-item.wcm-nav-cta > .wp-block-navigation-item__content:active,
+header.wp-block-template-part .wp-block-navigation .wp-block-navigation-item.wcm-nav-cta > .wp-block-navigation-item__content:focus-visible {
+    color: #ffffff;
+    background-color: #6d28d9;
+    background-size: 0 0;
+}
+header.wp-block-template-part .wp-block-navigation .wp-block-navigation-item.wcm-nav-cta > .wp-block-navigation-item__content:focus-visible {
+    outline: 2px solid #6d28d9;
+    outline-offset: 3px;
+}
+header.wp-block-template-part .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wcm-nav-cta {
+    width: 100%;
+    margin-top: var(--wp--preset--spacing--30);
+}
+header.wp-block-template-part .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wcm-nav-cta > .wp-block-navigation-item__content {
+    width: 100%;
+    justify-content: center;
+    margin-left: 0;
+    min-height: 48px;
+    background-position: 0 0;
+}
+@media (prefers-reduced-motion: reduce) {
+    header.wp-block-template-part .wp-block-navigation .wcm-nav-cta > .wp-block-navigation-item__content { transition: none; }
+}
+/* ==== end ==== */

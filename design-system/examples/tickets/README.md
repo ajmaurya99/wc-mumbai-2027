@@ -49,6 +49,21 @@ Live in Appearance → Customize → Additional CSS since 10 Oct 2026 (added
 through the Customizer; every declaration survived the sanitiser, including
 `accent-color`, `:focus-visible` and the media queries).
 
+## The header button (`nav-cta.css`, fence `LANDING: nav cta`)
+
+The Main Navigation menu (navigation post 639) gained a last item, "Tickets"
+(page 14) with the class `wcm-nav-cta`, added 11 Oct 2026 through the REST
+API. The fence turns it into the primary pill (Contrast fill, Base text,
+purple hover, focus ring) on every page, including the home page whose header
+fence restyles the menu, and makes it a full-width button at the bottom of the
+mobile overlay. Keep this fence below the home header fence in Additional CSS.
+
+Note on colour: the site's block buttons render with the **Contrast** fill
+(the theme's Styles never received the Accent 1 fill the brief asks for), so
+the header pill and the CampTix "Register" button use Contrast too, to match
+what visitors see. If Styles → Blocks → Button is ever set to Accent 1, change
+`#0d1b2a` to `#0073aa` in both fences.
+
 ## Going live on 11 October 2026, 12:00 PM IST
 
 1. Tickets → Setup → Payment: take CampTix out of **sandbox mode**.

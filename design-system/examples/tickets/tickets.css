@@ -136,14 +136,15 @@ body.admin-bar #tix {
     border-color: #0073aa;
     background: #ffffff;
 }
-/* buttons: the primary button, radius 999px, hover purple */
+/* buttons: the site's primary button as it renders today (Contrast fill, the
+   theme's Styles never got the Accent 1 fill from the brief), hover purple */
 #tix input[type="submit"],
 #tix button.tix-copy-claim-link {
     font: inherit;
     font-size: 1rem;
     font-weight: 700;
     color: #ffffff;
-    background: #0073aa;
+    background: #0d1b2a;
     border: 0;
     border-radius: 999px;
     padding: 0.6rem 1.5rem;
