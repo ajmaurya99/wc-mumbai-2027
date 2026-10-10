@@ -20,12 +20,10 @@ design-system/tools/render.sh design-system/examples/footer/preview.html
 
 | # | Row | What |
 |---|---|---|
-| 1 | Closing call to action | eyebrow "13 February 2027 · Mumbai", H2 "Come spend a day with us.", primary "Get your ticket", outline "Get involved" (call for speakers) |
+| 1 | Columns 37 / 21 / 21 / 21 | brand lockup (Site Logo 64px, name, Kalam tagline), one-line blurb, venue link · Event menu · Get Involved menu · Community menu + "Write to us" email |
 | 2 | Rule | wide Separator, Accent 5 |
-| 3 | Columns 37 / 21 / 21 / 21 | brand lockup (Site Logo 64px, name, Kalam tagline), one-line blurb, venue link · Event menu · Get Involved menu · Community menu + "Write to us" email |
-| 4 | Rule | |
-| 5 | Follow and subscribe | "Follow" + Social Links (X, Instagram, LinkedIn, Facebook, the site's accounts) · "Get updates in your inbox" + Jetpack Subscriptions |
-| 6 | Credit | "© 2027 WordCamp Mumbai · Organised by the Mumbai WordPress community" · Code of Conduct · Proudly powered by WordPress |
+| 3 | Follow and subscribe | "Follow" + Social Links (X, Instagram, LinkedIn, Facebook, the site's accounts) · "Get updates in your inbox" + Jetpack Subscriptions |
+| 4 | Credit | "© 2027 WordCamp Mumbai · Organised by the Mumbai WordPress community" · Code of Conduct · Proudly powered by WordPress |
 
 White background (the pages above it end on a tinted or gradient band), Base
 text, Accent 2 eyebrows. The Navigation blocks render nothing in previews, so
@@ -48,8 +46,9 @@ item → Advanced → Additional CSS class). Live in Additional CSS since 11 Oct
 
 * The Mumbai Meetup URL (`https://www.meetup.com/wordpress-mumbai/`) could not
   be verified from here; confirm it opens the right group.
-* "Get involved" points at the call for speakers; change the URL in `build.py`
-  if a volunteers page appears.
+* The closing call-to-action row ("Come spend a day with us." with two
+  buttons) was built and then removed the same day at the user's request;
+  `cta` still exists in `build.py` if it is wanted back.
 * The subscribe form is Jetpack Subscriptions, as on the News page.
 
 Report: `report.md`, block.html PASS; footer.css one FAIL (the pulse, see above).

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Generate the site footer (the Footer template part) for WordCamp Mumbai 2027.
 
-Modelled on the WordCamp Bengaluru 2026 footer: a closing call to action, a
-brand column beside three link columns (Event, Get Involved, Community), a
+Modelled on the WordCamp Bengaluru 2026 footer (minus its closing call to
+action): a brand column beside three link columns (Event, Get Involved, Community), a
 follow + subscribe row and the credit line. Core blocks only. The three menus
 are Navigation posts on the site (Footer: Event 1353, Footer: Get Involved
 1354, Footer: Community 1355); previews show static stand-ins. Writes
@@ -96,7 +96,7 @@ credit = group("\n\n".join([
     para('<a href="/2027/code-of-conduct/">Code of Conduct</a> · Proudly powered by <a href="https://wordpress.org/">WordPress</a>', size="small", color="accent-4"),
 ]), layout="flex", wrap="wrap", justify="space-between", align="wide", gap=20, cls="wcm-footer-credit")
 
-footer = group("\n\n".join([cta, rule(), cols, rule(), follow_row, credit]),
+footer = group("\n\n".join([cols, rule(), follow_row, credit]),  # the closing CTA row was dropped on 11 Oct 2026
                layout="constrained", align="full", bg="base", cls="wcm-footer", gap=40, padding=(70, 50))
 
 with open(os.path.join(HERE, "block.html"), "w") as fh:
