@@ -70,8 +70,6 @@ sections.append(("01-intro", section([
         column(fact_card("fact-pin", "Venue", "ATLAS SkillTech University", "Off BKC, Kurla West, Mumbai")),
         column(fact_card("fact-ticket", "Early bird", EARLY_BIRD_PRICE, "Limited seats, the lowest price we will put on sale") if ON_SALE else
                fact_card("fact-ticket", "Tickets on sale", "11 October 2026", SALE_TIME + ", right here on this page")),
-        column(fact_card("fact-ticket", "To buy", "WordPress.org account", "Log in to buy; creating one takes a minute") if ON_SALE else
-               fact_card("fact-ticket", "Early bird", "Limited seats", "The lowest price we will put on sale")),
     ]),
 ], bg=None, bgimage=(PNG + "motif-gateway@2x.png", "320px auto", "100% 100%", "no-repeat"))))
 

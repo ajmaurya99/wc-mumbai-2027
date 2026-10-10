@@ -26,7 +26,7 @@ design-system/tools/render.sh design-system/examples/tickets/preview.html
 
 | # | Section | Background | Action |
 |---|---|---|---|
-| 1 | Intro, two columns: eyebrow, H1 "Tickets", Kalam "Early bird tickets go on sale soon", two paragraphs, buttons · past-WordCamp speaker photo (attachment 1200, 4:3) · four fact cards (date, venue, tickets on sale 11 October 2026, early bird limited seats) | white, gateway motif | primary "Get updates" (news), outline "Explore the venue" |
+| 1 | Intro, two columns: eyebrow, H1 "Tickets", Kalam "Early bird tickets go on sale soon", two paragraphs, buttons · past-WordCamp speaker photo (attachment 1200, 4:3) · three fact cards (date, venue, early bird ₹650) | white, gateway motif | primary "Get updates" (news), outline "Explore the venue" |
 | 2 | Separator: vada pav | | |
 | 3 | Choose your pass (`#tickets`): section header · the CampTix widget in a Base card (`wcm-tix`) · one meta line. Before `ON_SALE`: a notice card with the "Coming soon" chip and the WordPress.org-account note instead | sky wash, lattice | CampTix "Register →" |
 | 4 | Why grab your ticket early: three numbered cards (best price, guaranteed seat, first to know) | white, palm motif | |
