@@ -1,0 +1,42 @@
+/* ==== LANDING: sponsors ==== */
+/* Why-sponsor cards: the numeral is an inline Accent 1 highlight; browsers paint
+   <mark> yellow and the sanitiser drops the transparent inline background. */
+.wcm-why mark.has-inline-color {
+    background-color: transparent;
+}
+/* Comparison table: first column left, tier columns centred, header in Contrast
+   on sky wash, the stripes come from the block style. */
+.wcm-compare table {
+    border-collapse: collapse;
+}
+.wcm-compare th,
+.wcm-compare td {
+    border: 0;
+    padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--30);
+    text-align: center;
+    vertical-align: middle;
+}
+.wcm-compare th:first-child,
+.wcm-compare td:first-child {
+    text-align: left;
+}
+.wcm-compare thead th {
+    background: #f2f7fa;
+    color: #0d1b2a;
+    font-weight: 700;
+}
+.wcm-compare tbody tr:last-child td {
+    font-weight: 700;
+}
+/* On phones the four columns do not fit; the figure scrolls sideways instead of
+   the page (core sets overflow-x on .wp-block-table; repeated here for clarity). */
+.wcm-compare {
+    overflow-x: auto;
+}
+@media (max-width: 600px) {
+    .wcm-compare table {
+        min-width: 560px;
+        font-size: var(--wp--preset--font-size--small);
+    }
+}
+/* ==== end ==== */

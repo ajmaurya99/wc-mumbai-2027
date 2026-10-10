@@ -279,9 +279,9 @@ def fact_card(icon, label, value, note=None, bg="accent-5"):
                  padding=(30, 30, 40, 40), gap=30, border_left=("accent-2", "4px"))
 
 
-def chip(text, tone="open"):
+def chip(text, tone="open", bg="base"):
     color = "accent-2" if tone == "open" else "accent-4"
-    return group(para(text, size="small", color=color, weight=700), layout="flex", bg="base", radius="8px",
+    return group(para(text, size="small", color=color, weight=700), layout="flex", bg=bg, radius="8px",
                  padding=(20, 20, 30, 30), gap=0, cls="wcm-chip")
 
 
