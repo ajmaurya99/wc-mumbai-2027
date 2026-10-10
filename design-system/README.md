@@ -44,7 +44,9 @@ design-system/
     ├── sponsors/             call for sponsors + sponsorship tiers: tiers.json, build.py, README.md
     ├── venue-news/           the venue page and the News (Blog Home) template: build.py, README.md
     ├── contact/              the contact page: Jetpack Form card, other ways to reach us, quick links
-    └── about/                the about page: intro with stat tiles, learn/share/connect/build, FAQ, gradient band
+    ├── about/                the about page: intro with stat tiles, learn/share/connect/build, FAQ, gradient band
+    ├── tickets/              the tickets page (countdown and on-sale states), CampTix and header-button CSS
+    └── footer/               the Footer template part: closing CTA, brand and three menus, follow and subscribe
 ```
 
 Each component folder holds:

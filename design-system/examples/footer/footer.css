@@ -1,0 +1,87 @@
+/* ==== LANDING: footer ==== */
+/* The Footer template part (Group .wcm-footer): link columns with a thin
+   divider between them, quiet links that turn Accent 1 on hover, the pulsing
+   "Open" label on the calls that are open (Navigation links with the class
+   wcm-nav-open), and the subscribe form inline. The pulse is the one looping
+   animation on the site, asked for on 11 Oct 2026; it stops under
+   prefers-reduced-motion. */
+.wcm-footer .wcm-footer-nav .wp-block-navigation-item__content {
+    color: #0d1b2a;
+    text-decoration: none;
+    transition: color 200ms ease;
+}
+.wcm-footer .wcm-footer-nav .wp-block-navigation-item__content:hover,
+.wcm-footer .wcm-footer-nav .wp-block-navigation-item__content:focus-visible {
+    color: #0073aa;
+    text-decoration: underline;
+}
+.wcm-footer a:focus-visible,
+.wcm-footer button:focus-visible,
+.wcm-footer input:focus-visible {
+    outline: 2px solid #6d28d9;
+    outline-offset: 3px;
+}
+.wcm-footer .wcm-footer-rule {
+    margin: 0;
+    height: 2px;
+    border: 0;
+}
+.wcm-footer .wcm-footer-cols > .wp-block-column + .wp-block-column {
+    border-left: 2px solid #f2f7fa;
+    padding-left: var(--wp--preset--spacing--40);
+}
+.wcm-footer .wcm-footer-lockup .wp-block-image,
+.wcm-footer .wcm-footer-lockup .wp-block-site-logo {
+    flex: 0 0 auto;
+    margin: 0;
+}
+.wcm-footer .wcm-footer-lockup .wp-block-site-logo img {
+    width: 64px;
+    height: auto;
+}
+/* the "Open" label */
+.wcm-footer .wcm-nav-open > .wp-block-navigation-item__content::after {
+    content: "Open";
+    display: inline-block;
+    margin-left: var(--wp--preset--spacing--20);
+    padding: 0 var(--wp--preset--spacing--20);
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.7;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #006b78;
+    background: #f2f7fa;
+    border-radius: 999px;
+    animation: wcm-open-pulse 2.4s ease-in-out infinite;
+}
+@keyframes wcm-open-pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.45; }
+    100% { opacity: 1; }
+}
+/* subscribe form (Jetpack Subscriptions) sits inline beside its label */
+.wcm-footer .wcm-footer-subscribe .wp-block-jetpack-subscriptions {
+    min-width: 280px;
+}
+.wcm-footer .wcm-footer-subscribe .wp-block-jetpack-subscriptions input[type="email"] {
+    background: #f2f7fa;
+    border: 2px solid #f2f7fa;
+}
+.wcm-footer .wcm-fake-input {
+    flex: 1 1 200px;
+}
+@media (max-width: 781px) {
+    .wcm-footer .wcm-footer-cols > .wp-block-column + .wp-block-column {
+        border-left: 0;
+        padding-left: 0;
+    }
+    .wcm-footer .wcm-footer-cta .wp-block-buttons {
+        justify-content: flex-start;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .wcm-footer .wcm-nav-open > .wp-block-navigation-item__content::after { animation: none; }
+    .wcm-footer .wcm-footer-nav .wp-block-navigation-item__content { transition: none; }
+}
+/* ==== end ==== */
