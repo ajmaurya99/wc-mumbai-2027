@@ -20,6 +20,8 @@ REGISTER = "https://login.wordpress.org/register"
 EVENT_DATE = "13 February 2027"
 SALE_DATE = "Sunday, 11 October 2026"
 SALE_TIME = "12:00 PM IST"
+ON_SALE = True          # False: the "on sale soon" page; True: the CampTix widget and live wording
+EARLY_BIRD_PRICE = "₹650"
 
 
 def tagline(text, align="left"):
@@ -53,11 +55,12 @@ intro_left = "\n\n".join([
     group("\n\n".join([
         eyebrow("WordCamp Mumbai 2027 · %s" % EVENT_DATE),
         heading("Tickets", 1, "xx-large"),
-        tagline("Early bird tickets go on sale soon"),
+        tagline("Early bird tickets are on sale now" if ON_SALE else "Early bird tickets go on sale soon"),
     ]), gap=20),
-    para("Mark your calendars! The countdown to WordCamp Mumbai 2027 has begun, and early bird tickets go live on <strong>%s at %s</strong>." % (SALE_DATE, SALE_TIME)),
+    para("Early bird tickets for WordCamp Mumbai 2027 are <strong>on sale now</strong>. Lock in the best price before rates go up, and guarantee your seat at one of the community's most anticipated events." if ON_SALE else
+         "Mark your calendars! The countdown to WordCamp Mumbai 2027 has begun, and early bird tickets go live on <strong>%s at %s</strong>." % (SALE_DATE, SALE_TIME)),
     para("Join developers, designers, content creators and WordPress enthusiasts from across the community for a day of learning, networking, collaboration, food and fun."),
-    buttons([button("Get updates", "/2027/news/"), button("Explore the venue", "/2027/venue/", style="outline", color="accent-1")], justify="left"),
+    buttons([button("Get your ticket", "#tickets") if ON_SALE else button("Get updates", "/2027/news/"), button("Explore the venue", "/2027/venue/", style="outline", color="accent-1")], justify="left"),
 ])
 intro_right = image(PHOTO, "A speaker on stage at a past WordCamp Mumbai", ratio="4/3", radius="16px")
 sections.append(("01-intro", section([
@@ -65,8 +68,10 @@ sections.append(("01-intro", section([
     columns([
         column(fact_card("fact-calendar", "Date", EVENT_DATE, "Saturday, one full day")),
         column(fact_card("fact-pin", "Venue", "ATLAS SkillTech University", "Off BKC, Kurla West, Mumbai")),
-        column(fact_card("fact-ticket", "Tickets on sale", "11 October 2026", SALE_TIME + ", right here on this page")),
-        column(fact_card("fact-ticket", "Early bird", "Limited seats", "The lowest price we will put on sale")),
+        column(fact_card("fact-ticket", "Early bird", EARLY_BIRD_PRICE, "Limited seats, the lowest price we will put on sale") if ON_SALE else
+               fact_card("fact-ticket", "Tickets on sale", "11 October 2026", SALE_TIME + ", right here on this page")),
+        column(fact_card("fact-ticket", "To buy", "WordPress.org account", "Log in to buy; creating one takes a minute") if ON_SALE else
+               fact_card("fact-ticket", "Early bird", "Limited seats", "The lowest price we will put on sale")),
     ]),
 ], bg=None, bgimage=(PNG + "motif-gateway@2x.png", "320px auto", "100% 100%", "no-repeat"))))
 
@@ -81,10 +86,21 @@ slot = group("\n\n".join([
     buttons([button("Create a WordPress.org account", REGISTER), button("Get updates", "/2027/news/", style="outline", color="accent-1")], justify="left"),
 ]), bg="base", radius="16px", padding=(50, 50, 50, 50), gap=30, cls="wcm-ticket-slot", border_left=("accent-2", "4px"))
 
+# the CampTix widget: the shortcode on the site, a static stand-in for previews and the gate
+fake_row = lambda name, price, left: '<tr><td>%s</td><td>%s</td><td>%s</td><td>0</td></tr>' % (name, price, left)
+widget_preview = group("\n\n".join([
+    para("Please <a href=\"#\">log in with your WordPress.org account</a> before choosing a ticket.", color="accent-4", size="small"),
+    '<!-- wp:table --><figure class="wp-block-table"><table><thead><tr><th>Description</th><th>Price</th><th>Remaining</th><th>Quantity</th></tr></thead><tbody>%s</tbody></table></figure><!-- /wp:table -->' % fake_row("Early Bird", EARLY_BIRD_PRICE, "50"),
+    buttons([button("Go to attendee information", "#")], justify="right"),
+]), bg="base", radius="16px", padding=(50, 50, 50, 50), gap=30, cls="wcm-tix")
+widget = ('<!-- ds:site-only -->\n%s\n<!-- /ds:site-only -->\n<!-- ds:preview-only -->\n%s\n<!-- /ds:preview-only -->'
+          % (group('<!-- wp:shortcode -->\n[camptix]\n<!-- /wp:shortcode -->', bg="base", radius="16px", padding=(50, 50, 50, 50), gap=30, cls="wcm-tix"), widget_preview))
+
 sections.append(("03-tickets", section([
-    section_header("Tickets", "Choose your pass", "On sale from %s, %s" % (SALE_DATE, SALE_TIME)),
-    slot,
-    para("Ticket types and prices will be listed here when sales open. Each ticket admits one person.", align="center", size="small", color="accent-4"),
+    section_header("Tickets", "Choose your pass", "Early bird tickets are on sale now" if ON_SALE else "On sale from %s, %s" % (SALE_DATE, SALE_TIME)),
+    widget if ON_SALE else slot,
+    para("Each ticket admits one person. Your confirmation and receipt arrive by email, with a link to edit your details or pass the ticket on." if ON_SALE else
+         "Ticket types and prices will be listed here when sales open. Each ticket admits one person.", align="center", size="small", color="accent-4"),
 ], bg="accent-5", bgimage=(PNG + "tile-lattice-light@2x.png", "120px auto", "0 0", "repeat"), anchor="tickets")))
 
 # 4. why early -----------------------------------------------------------------
@@ -110,8 +126,10 @@ sections.append(("05-included", section([
 
 # 6. good to know --------------------------------------------------------------------
 faqs = group("\n\n".join([
-    details("When do tickets go on sale?", ["Early bird tickets go on sale on %s at %s, on this page. Early bird is a limited batch; regular tickets follow once it is gone." % (SALE_DATE, SALE_TIME)]),
-    details("How much does a ticket cost?", ["Prices will be listed here when sales open. WordCamp tickets are kept deliberately affordable; our <a href=\"/2027/call-for-sponsors/\">sponsors</a> cover most of what it takes to run the day."]),
+    details("Which tickets are on sale?", ["Early bird tickets are on sale now, <a href=\"#tickets\">on this page</a>. Early bird is a limited batch; regular tickets follow once it is gone."] if ON_SALE else
+            ["Early bird tickets go on sale on %s at %s, on this page. Early bird is a limited batch; regular tickets follow once it is gone." % (SALE_DATE, SALE_TIME)]),
+    details("How much does a ticket cost?", ["Early bird tickets are %s. WordCamp tickets are kept deliberately affordable; our <a href=\"/2027/call-for-sponsors/\">sponsors</a> cover most of what it takes to run the day." % EARLY_BIRD_PRICE] if ON_SALE else
+            ["Prices will be listed here when sales open. WordCamp tickets are kept deliberately affordable; our <a href=\"/2027/call-for-sponsors/\">sponsors</a> cover most of what it takes to run the day."]),
     details("Do I need an account to buy a ticket?", ["Yes. Tickets are sold through WordCamp.org, so you log in with your WordPress.org account before choosing a ticket. This is the account for the official WordPress.org website, not your personal WordPress site. <a href=\"%s\">Create one here</a> if you do not have one yet." % REGISTER]),
     details("How can I pay?", ["We accept all major cards and UPI. Your confirmation and receipt arrive by email as soon as the payment goes through."]),
     details("Can I transfer my ticket or get a refund?", ["Each ticket admits one person. Attendee details can be edited from the link in your confirmation email, so a ticket can be passed on to someone else. Refund terms will be published alongside the tickets when sales open."]),
@@ -132,8 +150,9 @@ sections.append(("06-good-to-know", section([
 band_inner = group("\n\n".join([
     eyebrow("Save the date", align="center", color="base"),
     heading(EVENT_DATE, 2, "x-large", align="center", color="base"),
-    para("Don't wait: early bird spots are limited and tend to go fast. Stay tuned for the sale and grab yours the moment it drops. #WCMumbai", align="center", color="base"),
-    buttons([button("Get updates", "/2027/news/", bg="base", color="accent-3"), button("Contact us", "/2027/contact/", style="outline", color="base")]),
+    para("Don't wait: early bird spots are limited and tend to go fast. Grab yours before the price goes up. #WCMumbai" if ON_SALE else
+         "Don't wait: early bird spots are limited and tend to go fast. Stay tuned for the sale and grab yours the moment it drops. #WCMumbai", align="center", color="base"),
+    buttons([button("Get your ticket", "#tickets", bg="base", color="accent-3") if ON_SALE else button("Get updates", "/2027/news/", bg="base", color="accent-3"), button("Contact us", "/2027/contact/", style="outline", color="base")]),
 ]), layout="constrained", padding=(70, 70), gap=30)
 sections.append(("07-save-the-date", group(band_inner, layout="constrained", align="full", gradient=GRADIENT, cls="wcm-band-gradient", gap=0)))
 

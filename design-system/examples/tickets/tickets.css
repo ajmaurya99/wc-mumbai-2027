@@ -1,0 +1,219 @@
+/* ==== LANDING: tickets ==== */
+/* CampTix on the Tickets page. The ticket table sits inside the .wcm-tix card;
+   on the checkout steps (attendee info, payment, receipt, edit) CampTix replaces
+   the page content with #tix, so those get a frame of their own. Literal values
+   only: the WordCamp.org CSS sanitiser strips custom properties. */
+#tix,
+body.admin-bar #tix {
+    padding-top: 0;
+    font-size: 1rem;
+}
+.entry-content > #tix {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--wp--preset--spacing--40) 0 var(--wp--preset--spacing--70);
+}
+#tix h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: var(--wp--preset--spacing--50) 0 var(--wp--preset--spacing--30);
+}
+#tix > form > h2:first-of-type {
+    margin-top: 0;
+}
+#tix table.tix_tickets_table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 0 var(--wp--preset--spacing--30);
+    font-size: 1rem;
+}
+#tix .tix_tickets_table th,
+#tix .tix_tickets_table td {
+    padding: var(--wp--preset--spacing--20);
+    text-align: left;
+    vertical-align: middle;
+    border: 0;
+    border-bottom: 2px solid #f2f7fa;
+}
+#tix .tix_tickets_table thead th {
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #006b78;
+    border-bottom: 2px solid #006b78;
+}
+#tix .tix-tickets-list .tix-ticket-title {
+    font-size: 1.38rem;
+    font-weight: 700;
+}
+#tix .tix-column-price,
+#tix .tix-column-per-ticket {
+    font-weight: 700;
+    white-space: nowrap;
+}
+#tix .tix-column-quantity,
+#tix .tix-column-remaining {
+    text-align: center;
+}
+#tix .tix-row-total td {
+    border-bottom: 0;
+    font-size: 1.38rem;
+    padding-top: var(--wp--preset--spacing--30);
+}
+/* the attendee form: the "1. Early Bird" heading row, labels and inputs */
+#tix .tix-attendee-form > tbody > tr:first-child > th {
+    font-size: 1.38rem;
+    font-weight: 700;
+    padding: var(--wp--preset--spacing--40) var(--wp--preset--spacing--20) var(--wp--preset--spacing--20);
+    border-bottom: 2px solid #006b78;
+}
+#tix .tix-attendee-form td.tix-left {
+    width: 40%;
+    font-weight: 700;
+}
+#tix .tix-attendee-form td.tix-right {
+    width: 60%;
+}
+#tix .tix-required-star {
+    color: #6d28d9;
+}
+#tix input[type="text"],
+#tix input[type="email"],
+#tix input[type="url"],
+#tix input[type="number"],
+#tix select,
+#tix textarea {
+    font: inherit;
+    font-size: 1rem;
+    color: #0d1b2a;
+    background: #f2f7fa;
+    border: 2px solid #f2f7fa;
+    border-radius: 8px;
+    padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--30);
+    min-height: 44px;
+    max-width: 100%;
+}
+#tix .tix-attendee-form input[type="text"],
+#tix .tix-attendee-form input[type="email"],
+#tix .tix-attendee-form input[type="url"],
+#tix .tix-attendee-form textarea,
+#tix .tix-private-form input[type="text"],
+#tix .tix-private-form input[type="email"],
+#tix .tix-private-form input[type="url"],
+#tix .tix-private-form textarea {
+    width: 100%;
+}
+#tix select {
+    padding-right: var(--wp--preset--spacing--40);
+}
+#tix input[type="checkbox"],
+#tix input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    margin: 0 var(--wp--preset--spacing--20) 0 0;
+    vertical-align: middle;
+    accent-color: #0073aa;
+}
+#tix .tix-right label {
+    display: inline-block;
+    line-height: 1.8;
+}
+#tix input:focus-visible,
+#tix select:focus-visible,
+#tix textarea:focus-visible,
+#tix a:focus-visible,
+#tix button:focus-visible {
+    outline: 2px solid #6d28d9;
+    outline-offset: 3px;
+}
+#tix input[type="text"]:focus,
+#tix input[type="email"]:focus,
+#tix input[type="url"]:focus,
+#tix select:focus,
+#tix textarea:focus {
+    border-color: #0073aa;
+    background: #ffffff;
+}
+/* buttons: the primary button, radius 999px, hover purple */
+#tix input[type="submit"],
+#tix button.tix-copy-claim-link {
+    font: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ffffff;
+    background: #0073aa;
+    border: 0;
+    border-radius: 999px;
+    padding: 0.6rem 1.5rem;
+    min-height: 44px;
+    cursor: pointer;
+    transition: background-color 200ms ease;
+}
+#tix input[type="submit"]:hover,
+#tix button.tix-copy-claim-link:hover {
+    background: #6d28d9;
+}
+#tix .tix-submit {
+    text-align: right;
+    margin-top: var(--wp--preset--spacing--30);
+}
+#tix .tix-submit select[name="tix_payment_method"] {
+    margin: 0 var(--wp--preset--spacing--20) var(--wp--preset--spacing--20) 0;
+}
+#tix a {
+    color: #0073aa;
+    text-decoration: underline;
+}
+/* notices (log in to buy, confirm your details, errors) as left-edged cards */
+#tix-errors,
+#tix-notices {
+    margin-bottom: var(--wp--preset--spacing--40);
+}
+#tix .tix-notice,
+#tix .tix-info,
+#tix .tix-error,
+#tix .tix-resend-claim-links {
+    margin: 0 0 var(--wp--preset--spacing--20);
+    padding: var(--wp--preset--spacing--30);
+    border: 0;
+    border-left: 4px solid #006b78;
+    border-radius: 8px;
+    background: #f2f7fa;
+    color: #0d1b2a;
+}
+#tix .tix-error {
+    border-left-color: #E0552D;
+}
+/* phones: the ticket table scrolls, the attendee form stacks label over field */
+@media (max-width: 600px) {
+    #tix table.tix-tickets-list,
+    #tix table.tix-order-summary {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    #tix .tix-attendee-form td.tix-left,
+    #tix .tix-attendee-form td.tix-right {
+        display: block;
+        width: 100%;
+    }
+    #tix .tix-attendee-form td.tix-left {
+        padding-bottom: 0;
+        border-bottom: 0;
+    }
+    #tix .tix-attendee-form td.tix-right {
+        padding-top: 0;
+    }
+    #tix .tix-submit {
+        text-align: center;
+    }
+    #tix input[type="submit"] {
+        width: 100%;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    #tix input[type="submit"] { transition: none; }
+}
+/* ==== end ==== */
