@@ -555,30 +555,50 @@
 <rect x="1821" y="360" width="208" height="30" fill="#7A1730" rx="4" stroke="#E8B93B" stroke-width="2.5"/>
 <path d="M1821,360 l-8,15 l8,15 Z" fill="#E8B93B"/>
 <path d="M2029,360 l8,15 l-8,15 Z" fill="#E8B93B"/>
-<text x="1925" y="381" font-family="Figtree, Arial, sans-serif" font-size="16.5" font-weight="800" fill="#FFFFFF" text-anchor="middle" letter-spacing=".4">Ganpati Bappa Morya</text>
-<ellipse cx="1901" cy="520" rx="18" ry="8" fill="#F2A03D"/>
-<ellipse cx="1949" cy="520" rx="18" ry="8" fill="#F2A03D"/>
-<path d="M1887,516 Q1925,530 1963,516 L1959,494 L1891,494 Z" fill="#E8B93B"/>
-<ellipse cx="1925" cy="494" rx="34" ry="30" fill="#F2A03D"/>
-<ellipse cx="1921" cy="498" rx="22" ry="20" fill="#F7B25A"/>
-<path d="M1895,478 Q1879,466 1883,448" fill="none" stroke="#F2A03D" stroke-width="10" stroke-linecap="round"/>
-<path d="M1955,478 Q1971,466 1967,448" fill="none" stroke="#F2A03D" stroke-width="10" stroke-linecap="round"/>
-<circle cx="1883" cy="444" r="6" fill="#F5B14E"/>
-<circle cx="1967" cy="444" r="6" fill="#F5B14E"/>
-<circle cx="1967" cy="438" r="4" fill="#F5D67A"/>
-<path d="M1899,482 Q1925,496 1951,482" fill="none" stroke="#E8B93B" stroke-width="4"/>
-<ellipse cx="1891" cy="448" rx="13" ry="20" fill="#F2A03D"/>
-<ellipse cx="1959" cy="448" rx="13" ry="20" fill="#F2A03D"/>
-<ellipse cx="1891" cy="448" rx="7" ry="12" fill="#F7B25A"/>
-<ellipse cx="1959" cy="448" rx="7" ry="12" fill="#F7B25A"/>
-<circle cx="1925" cy="444" r="26" fill="#F5B14E"/>
-<path d="M1923,454 Q1919,476 1909,486" fill="none" stroke="#E58A2C" stroke-width="11" stroke-linecap="round"/>
-<path d="M1933,460 L1945,464 L1934,468 Z" fill="#FFFFFF"/>
-<circle cx="1916" cy="438" r="2.6" fill="#3A2A1A"/>
-<circle cx="1934" cy="438" r="2.6" fill="#3A2A1A"/>
-<path d="M1922,420 L1928,420 L1925,430 Z" fill="#B3372F"/>
-<path d="M1899,426 L1907,400 L1917,416 L1925,392 L1933,416 L1943,400 L1951,426 Z" fill="#E8B93B"/>
-<circle cx="1925" cy="410" r="3.5" fill="#B3372F"/></g></g>
+<text x="1925" y="381" font-family="Figtree, Arial, sans-serif" font-size="16.5" font-weight="800" fill="#FFFFFF" text-anchor="middle" letter-spacing=".4">Jai Mata Di</text>
+<!-- Durga idol -->
+<g>
+  <!-- halo / chakra behind her -->
+  <circle cx="1925" cy="440" r="46" fill="#FFD166" fill-opacity=".35"/>
+  <circle cx="1925" cy="440" r="36" fill="#F6A21B" fill-opacity=".35"/>
+  <!-- lion -->
+  <ellipse cx="1925" cy="512" rx="34" ry="12" fill="#D9A050"/>
+  <ellipse cx="1950" cy="500" rx="16" ry="14" fill="#E0A94F"/>
+  <circle cx="1956" cy="494" r="14" fill="#B5722B"/>
+  <circle cx="1957" cy="495" r="9" fill="#E8B96A"/>
+  <circle cx="1953" cy="493" r="1.6" fill="#3A2A1A"/><circle cx="1961" cy="493" r="1.6" fill="#3A2A1A"/>
+  <path d="M1954 500 q4 3 8 0" stroke="#7A3A2A" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+  <g fill="#D9A050"><rect x="1900" y="514" width="7" height="10" rx="3"/><rect x="1912" y="514" width="7" height="10" rx="3"/><rect x="1934" y="514" width="7" height="10" rx="3"/><rect x="1946" y="514" width="7" height="10" rx="3"/></g>
+  <path d="M1892 506 q-12 -8 -8 -18" stroke="#D9A050" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <!-- sari (red with gold border) -->
+  <path d="M1903 506 Q1900 470 1912 452 H1938 Q1950 470 1947 506 Z" fill="#D8332A"/>
+  <path d="M1903 506 Q1904 490 1908 478 H1942 Q1946 490 1947 506 Z" fill="#E8B93B" fill-opacity=".55"/>
+  <rect x="1912" y="452" width="26" height="20" rx="6" fill="#D8332A"/>
+  <path d="M1910 462 Q1925 470 1940 462 V456 Q1925 462 1910 456Z" fill="#E8B93B"/>
+  <!-- eight arms (four each side) fanned behind the torso -->
+  <g stroke="#F2B07A" stroke-width="5" fill="none" stroke-linecap="round">
+    <path d="M1912 462 q-22 -4 -34 -24"/><path d="M1912 466 q-26 2 -38 -8"/><path d="M1912 470 q-24 8 -36 10"/><path d="M1912 474 q-20 14 -32 24"/>
+    <path d="M1938 462 q22 -4 34 -24"/><path d="M1938 466 q26 2 38 -8"/><path d="M1938 470 q24 8 36 10"/><path d="M1938 474 q20 14 32 24"/>
+  </g>
+  <!-- weapons / symbols in the hands -->
+  <path d="M1878 438 l0 -14 M1874 428 l4 -6 l4 6" stroke="#9AA0A8" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <circle cx="1874" cy="458" r="5" fill="none" stroke="#F6A21B" stroke-width="2.2"/>
+  <path d="M1876 480 q-6 -3 -8 2 q2 5 8 2z" fill="#E85D8A"/>
+  <path d="M1972 438 l0 -16" stroke="#9AA0A8" stroke-width="2.2" stroke-linecap="round"/><path d="M1968 422 h8" stroke="#9AA0A8" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M1976 456 q6 -8 0 -16 q-6 8 0 16z" fill="#FFFFFF" stroke="#9AA0A8" stroke-width="1.2"/>
+  <circle cx="1970" cy="498" r="4" fill="#5B2DB8"/>
+  <!-- face and crown -->
+  <circle cx="1925" cy="438" r="16" fill="#F2B07A"/>
+  <circle cx="1920" cy="436" r="1.8" fill="#3A2A1A"/><circle cx="1930" cy="436" r="1.8" fill="#3A2A1A"/>
+  <circle cx="1925" cy="430" r="1.8" fill="#D8332A"/>
+  <path d="M1920 444 q5 4 10 0" stroke="#B3372F" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+  <path d="M1909 430 q16 -14 32 0 q-16 -6 -32 0z" fill="#1A2447"/>
+  <path d="M1907 428 L1911 404 L1917 418 L1925 398 L1933 418 L1939 404 L1943 428 Z" fill="#E8B93B"/>
+  <rect x="1907" y="424" width="36" height="5" fill="#F6A21B"/>
+  <circle cx="1925" cy="412" r="3" fill="#D8332A"/><circle cx="1915" cy="416" r="2" fill="#5B2DB8"/><circle cx="1935" cy="416" r="2" fill="#5B2DB8"/>
+  <!-- garland -->
+  <path d="M1910 456 Q1925 476 1940 456" stroke="#F6A21B" stroke-width="3" fill="none" stroke-dasharray="3 2.5" stroke-linecap="round"/>
+</g></g></g>
 <rect x="1794.8" y="512.8" width="6.4" height="27.200000000000003" fill="#7A5A3A"/><circle cx="1786.8" cy="508.0" r="14.4" fill="#5AA85A"/><circle cx="1807.6" cy="506.4" r="16.0" fill="#6DBF66"/><circle cx="1796.4" cy="495.2" r="16.0" fill="#5AA85A"/><circle cx="1801.2" cy="509.6" r="11.200000000000001" fill="#6DBF66"/>
 <rect x="0" y="526" width="2400" height="22" fill="#D9CDB3"/>
 <rect x="0" y="526" width="2400" height="5" fill="#C4B69A"/>
