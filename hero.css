@@ -31,7 +31,7 @@
 .wcm-motion-toggle {
     position: absolute;
     right: clamp(1rem, 3vw, 2.5rem);
-    bottom: clamp(.75rem, 2vh, 1.25rem);
+    top: clamp(64px, 9vh, 88px);
     z-index: 6;
     display: inline-flex;
     align-items: center;
