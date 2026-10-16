@@ -1552,14 +1552,14 @@ body.admin-bar #tix {
 /* phones: the ticket table scrolls, the attendee form stacks label over field */
 @media (max-width: 600px) {
 	#tix table.tix-tickets-list,
-																				    #tix table.tix-order-summary {
+																												    #tix table.tix-order-summary {
 		display: block;
 		overflow-x: auto;
 		white-space: nowrap;
 	}
 	
 	#tix .tix-attendee-form td.tix-left,
-																				    #tix .tix-attendee-form td.tix-right {
+																												    #tix .tix-attendee-form td.tix-right {
 		display: block;
 		width: 100%;
 	}
@@ -1838,14 +1838,14 @@ footer.wp-block-template-part p a:not(.wp-element-button):hover {
 	}
 	
 	.wcm-compare th,
-				    .wcm-compare td {
+												    .wcm-compare td {
 		padding: 6px 4px;
 		white-space: normal;
 		word-break: break-word;
 	}
 	
 	.wcm-compare th:first-child,
-				    .wcm-compare td:first-child {
+												    .wcm-compare td:first-child {
 		width: 40%;
 	}
 }
