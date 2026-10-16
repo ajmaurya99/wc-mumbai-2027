@@ -1851,23 +1851,3 @@ footer.wp-block-template-part p a:not(.wp-element-button):hover {
 }
 
 /* ==== A11Y: end ==== */
-
-/* ==== COUNTDOWN: start ====
-   Live days/hours/minutes countdown with no JavaScript: an SVG whose digit strips are driven by
-   CSS steps() animations. GitHub Actions rebuilds it every 10 minutes (.github/workflows/countdown.yml)
-   and serves it from GitHub Pages, so it is never more than a few minutes off.
-   Revert: delete this section and the .wcm-countdown <img> in the hero block. */
-#wcm-hero .wcm-countdown {
-    display: block;
-    width: min(92%, 400px);
-    height: auto;
-    margin: .9rem auto 0;
-}
-
-@media (max-height: 700px) {
-    #wcm-hero .wcm-countdown {
-        width: min(80%, 320px);
-        margin-top: .5rem;
-    }
-}
-/* ==== COUNTDOWN: end ==== */
