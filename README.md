@@ -110,3 +110,22 @@ Rules learned the hard way:
 * The sanitiser drops `fetchpriority` on images; `loading="lazy"` is enough.
 * The choice resets on reload; persisting it needs JavaScript, which WordCamp.org disallows.
   `prefers-reduced-motion` still stops everything automatically.
+
+## Accessibility pass (16 Oct 2026)
+
+Audit: axe-core 4.10 on 11 pages × desktop/phone, plus a focus-ring probe. Findings and fixes:
+
+* Home page had no `<main>` and no `<h1>`: the site's front page is rendered by the
+  `front-page` template, which overrides the page's assigned template. That template now wraps
+  the post content in a `<main>` group; the hero logo image is wrapped in `<h1 class="wcm-h1">`.
+* Heading order: call-for-speakers h4→h3; code-of-conduct h3→h2 (content edits via REST).
+* Content links were colour-only (navy on navy, no underline). The `A11Y` CSS section gives
+  content and footer links accent-1 + underline, purple on hover.
+* Filled buttons with a custom colour had no hover state; an inset shadow now darkens any button
+  on hover/active and focus.
+* One 3px focus ring (accent-3, offset 3px) for every interactive element on `:focus-visible`.
+* Contrast: the tagline teal and the hero nav hover blue were below 4.5:1 on the lightest sky;
+  now `#146866` and `#0963A8`.
+* Sponsorship tiers table scrolled sideways on phones with no keyboard access; it now fits.
+* Not fixable here: the Jetpack cookie banner sits outside any landmark; the Jetpack form's
+  "Thank you" message is an h4.
