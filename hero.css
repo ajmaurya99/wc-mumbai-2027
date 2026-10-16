@@ -1764,7 +1764,7 @@ header.wp-block-template-part .wp-block-navigation__responsive-container.is-menu
    Buttons, social icons and the hero are excluded. */
 .entry-content a:not(.wp-element-button):not(.wp-block-button__link):not(.wp-block-social-link-anchor):not(.wcm-spot):not(.wcm-btn),
 .wp-block-post-excerpt a,
-footer.wp-block-template-part a:not(.wp-element-button):not(.wp-block-social-link-anchor) {
+footer.wp-block-template-part p a:not(.wp-element-button) {
 	color: #0073aa;
 	text-decoration: underline;
 	text-decoration-thickness: 1.5px;
@@ -1772,7 +1772,7 @@ footer.wp-block-template-part a:not(.wp-element-button):not(.wp-block-social-lin
 
 .entry-content a:not(.wp-element-button):not(.wp-block-button__link):not(.wp-block-social-link-anchor):not(.wcm-spot):not(.wcm-btn):hover,
 .wp-block-post-excerpt a:hover,
-footer.wp-block-template-part a:not(.wp-element-button):not(.wp-block-social-link-anchor):hover {
+footer.wp-block-template-part p a:not(.wp-element-button):hover {
 	color: #5B2DB8;
 	text-decoration-thickness: 3px;
 }
