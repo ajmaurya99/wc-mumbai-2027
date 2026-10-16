@@ -135,10 +135,3 @@ Appearance → Customize → Additional CSS (it includes the landing-page CSS fr
 session). Keep them in step: change one, copy to the other. The never-deployed `FOOTER SCENE`
 section from the old file is in git history (commit before this sync) if the footer artwork is
 ever set up.
-
-## Optional layer added 16 Oct 2026
-
-| Feature | Where it lives | Revert |
-|---|---|---|
-| Scroll-driven animations | `scroll-fx.css`, pasted into **Appearance → Editor → Styles → Additional CSS** (not the Customizer, which strips `animation-timeline`) | delete the `SCROLL FX` section from Styles CSS |
-
