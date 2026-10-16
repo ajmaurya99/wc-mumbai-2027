@@ -94,3 +94,19 @@ Rules to keep:
 
 Rollback: `git checkout before-core-nav -- hero.css hero-block.html` restores the
 hand-built About / Venue / Contact links inside the block.
+
+## Pause / play control (accessibility, WCAG 2.2.2)
+
+A `<details class="wcm-motion" open>` sits before the hero as a sibling. Its `<summary>` is the
+Pause / Play button; `open` means playing, closed means paused. CSS uses the sibling selector
+`.wcm-motion:not([open]) ~ #wcm-hero` to freeze the clouds and plane and to swap the skyline
+image for `mumbai-panorama-still.svg`, a copy with the animation `<style>` block removed.
+
+Rules learned the hard way:
+
+* Never put the hero INSIDE the `<details>`. Browsers collapse a closed `<details>` to zero
+  height and move its summary off-screen, even when CSS forces the content to display.
+* Regenerate the still copy whenever the panorama changes (strip the `<style>` block).
+* The sanitiser drops `fetchpriority` on images; `loading="lazy"` is enough.
+* The choice resets on reload; persisting it needs JavaScript, which WordCamp.org disallows.
+  `prefers-reduced-motion` still stops everything automatically.

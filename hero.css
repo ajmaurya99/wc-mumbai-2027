@@ -1,5 +1,109 @@
 /* WordCamp Mumbai 2027 hero — paste into Appearance → Customize → Additional CSS
    (written without CSS variables, will-change or container units: WordCamp's CSS sanitiser strips those) */
+/* ==== MOTION TOGGLE: start ====
+   A <details> element sits BEFORE the hero as a sibling and is used only for its open state;
+   its <summary> is the Pause / Play button. It ships with the open attribute, so open = playing
+   and closed = paused. A sibling selector (details:not([open]) ~ #wcm-hero) freezes every CSS
+   animation and swaps the skyline for a still copy. The hero is never inside the <details>, so
+   no browser can collapse it. This is the WCAG 2.2.2 pause control; prefers-reduced-motion still
+   stops everything on its own. */
+.wcm-hero-wrap {
+    position: relative;
+    width: auto;
+    max-width: none !important;
+}
+
+.wcm-motion {
+    display: block;
+    height: 0;
+    margin: 0 !important;
+    overflow: visible;
+}
+
+.wcm-motion > summary {
+    list-style: none;
+}
+
+.wcm-motion > summary::-webkit-details-marker {
+    display: none;
+}
+
+.wcm-motion-toggle {
+    position: absolute;
+    right: clamp(1rem, 3vw, 2.5rem);
+    bottom: clamp(.75rem, 2vh, 1.25rem);
+    z-index: 6;
+    display: inline-flex;
+    align-items: center;
+    gap: .45rem;
+    min-height: 44px;
+    padding: 0 1rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .92);
+    color: #1A2447;
+    font-family: "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-size: .9rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(26, 36, 71, .18);
+}
+
+.wcm-motion-toggle:hover {
+    background: #FFFFFF;
+    color: #0A6CB5;
+}
+
+.wcm-motion-toggle:focus-visible {
+    outline: 2px solid #5B2DB8;
+    outline-offset: 3px;
+}
+
+/* icon: two bars while playing (press to pause), a triangle while paused (press to play) */
+.wcm-motion-toggle::before {
+    content: "";
+    width: 4px;
+    height: 12px;
+    border-left: 4px solid currentColor;
+    border-right: 4px solid currentColor;
+}
+
+.wcm-motion:not([open]) .wcm-motion-toggle::before {
+    width: 0;
+    height: 0;
+    border: 0;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 10px solid currentColor;
+}
+
+.wcm-motion-play,
+.wcm-motion:not([open]) .wcm-motion-pause {
+    display: none;
+}
+
+.wcm-motion:not([open]) .wcm-motion-play {
+    display: inline;
+}
+
+.wcm-motion:not([open]) ~ #wcm-hero [class*="wcm-cloud-x"],
+.wcm-motion:not([open]) ~ #wcm-hero .wcm-plane,
+.wcm-motion:not([open]) ~ #wcm-hero .wcm-banner {
+    animation-play-state: paused;
+}
+
+.wcm-city-img--still {
+    display: none;
+}
+
+.wcm-motion:not([open]) ~ #wcm-hero .wcm-city-img--still {
+    display: block;
+}
+
+.wcm-motion:not([open]) ~ #wcm-hero .wcm-city-img:not(.wcm-city-img--still) {
+    display: none;
+}
+/* ==== MOTION TOGGLE: end ==== */
+
 #wcm-hero {
     position: relative;
     overflow: hidden;
