@@ -25,7 +25,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: python3 countdown/build.py
-      - run: printf 'Cache-Control: max-age=60\n' > site/_headers
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site
