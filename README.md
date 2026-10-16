@@ -136,13 +136,12 @@ session). Keep them in step: change one, copy to the other. The never-deployed `
 section from the old file is in git history (commit before this sync) if the footer artwork is
 ever set up.
 
-## Three optional layers added 16 Oct 2026 (each reverts on its own)
+## Two optional layers added 16 Oct 2026 (each reverts on its own)
 
 | Feature | Where it lives | Revert |
 |---|---|---|
 | Countdown | `countdown/build.py`, `.github/workflows/countdown.yml`, the `COUNTDOWN` section in `hero.css` / Customizer, and the `.wcm-countdown` `<img>` in `hero-block.html` | delete the CSS section and the `<img>`; optionally disable the workflow |
 | Scroll-driven animations | `scroll-fx.css`, pasted into **Appearance → Editor → Styles → Additional CSS** (not the Customizer, which strips `animation-timeline`) | delete the `SCROLL FX` section from Styles CSS |
-| Dark mode | the `DARK MODE` section in `hero.css` / Customizer and the `.wcm-theme` `<details>` in `hero-block.html` | delete the CSS section and the `<details>` |
 
 The countdown SVG is rebuilt every 10 minutes by GitHub Actions and published to
 https://ajmaurya99.github.io/wc-mumbai-2027/countdown.svg (GitHub Pages, source = Actions).
