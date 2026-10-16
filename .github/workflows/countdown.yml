@@ -1,0 +1,33 @@
+# Rebuilds site/countdown.svg every 10 minutes and publishes it to GitHub Pages
+# (https://ajmaurya99.github.io/wc-mumbai-2027/countdown.svg). The hero embeds that URL.
+# No commits are made: the SVG is built in the runner and deployed as a Pages artifact.
+name: countdown
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['countdown/**', '.github/workflows/countdown.yml']
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 countdown/build.py
+      - run: printf 'Cache-Control: max-age=60\n' > site/_headers
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deploy
+        uses: actions/deploy-pages@v4

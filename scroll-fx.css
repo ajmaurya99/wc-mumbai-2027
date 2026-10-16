@@ -1,0 +1,68 @@
+/* ==== SCROLL FX: start ====
+   Scroll-driven animations. This section lives in the Site Editor's Styles → Additional CSS
+   (Appearance → Editor → Styles → ⋮ → Additional CSS), NOT in the Customizer: the Customizer's
+   sanitiser strips animation-timeline. Everything is guarded by @supports (older browsers get the
+   static page) and by prefers-reduced-motion. The hero is not touched.
+   Revert: delete this section. */
+@supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+        /* content rises and fades in as it enters the viewport */
+        main .wcm-fact,
+        main .wcm-card,
+        main .wcm-point,
+        main .wcm-logo-disc,
+        main .wcm-organizer,
+        main .wp-block-post-template > li,
+        main .entry-content > .wp-block-group .wp-block-heading,
+        main .wp-block-columns > .wp-block-column {
+            animation: wcm-rise linear both;
+            animation-timeline: view();
+            animation-range: entry 0% entry 55%;
+        }
+
+        /* stagger siblings a little */
+        main .wcm-card:nth-child(2), main .wcm-fact:nth-child(2), main .wp-block-column:nth-child(2) { animation-range: entry 10% entry 65%; }
+        main .wcm-card:nth-child(3), main .wcm-fact:nth-child(3), main .wp-block-column:nth-child(3) { animation-range: entry 20% entry 75%; }
+        main .wcm-card:nth-child(4), main .wp-block-column:nth-child(4) { animation-range: entry 30% entry 85%; }
+
+        /* the thin separator line draws itself */
+        main .wcm-sep .wcm-sep__line {
+            transform-origin: left center;
+            animation: wcm-draw linear both;
+            animation-timeline: view();
+            animation-range: entry 0% entry 80%;
+        }
+
+        /* reading progress bar across the very top of the page */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            width: 100%;
+            background: linear-gradient(90deg, #0A6CB5, #5B2DB8);
+            transform-origin: left center;
+            animation: wcm-progress linear both;
+            animation-timeline: scroll(root);
+            z-index: 99999;
+            pointer-events: none;
+        }
+
+        @keyframes wcm-rise {
+            from { opacity: 0; transform: translateY(28px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes wcm-draw {
+            from { transform: scaleX(0); }
+            to { transform: scaleX(1); }
+        }
+
+        @keyframes wcm-progress {
+            from { transform: scaleX(0); }
+            to { transform: scaleX(1); }
+        }
+    }
+}
+/* ==== SCROLL FX: end ==== */
