@@ -1920,7 +1920,7 @@ body:has(.wcm-theme[open]) .wcm-theme-icon { box-shadow: none; outline: 3px dott
 
 /* --- dark palette, applied automatically when the system prefers dark --- */
 @media (prefers-color-scheme: dark) {
-:not(:has(.wcm-theme[open]))body, :not(:has(.wcm-theme[open])).wp-site-blocks { background-color: #0F1430; color: #E8EEF6; }
+body:not(:has(.wcm-theme[open])), body:not(:has(.wcm-theme[open])) .wp-site-blocks { background-color: #0F1430; color: #E8EEF6; }
 body:not(:has(.wcm-theme[open])) header.wp-block-template-part > .wp-block-group, body:not(:has(.wcm-theme[open])) footer.wp-block-template-part, body:not(:has(.wcm-theme[open])) footer.wp-block-template-part > .wp-block-group { background-color: #182448 !important; color: #E8EEF6; }
 body:not(:has(.wcm-theme[open])) .home header.wp-block-template-part > .wp-block-group { background-color: transparent !important; }
 body:not(:has(.wcm-theme[open])) .wp-block-navigation, body:not(:has(.wcm-theme[open])) .wp-block-navigation .wp-block-navigation-item__content, body:not(:has(.wcm-theme[open])) .wp-block-navigation__submenu-icon, body:not(:has(.wcm-theme[open])) .wp-block-navigation__responsive-container-open, body:not(:has(.wcm-theme[open])) .wp-block-navigation__responsive-container-close { color: #E8EEF6; }
@@ -1958,7 +1958,7 @@ body:not(:has(.wcm-theme[open])) .home header.wp-block-template-part .wp-block-n
 }
 /* --- dark palette, forced by the toggle when the system prefers light --- */
 @media (prefers-color-scheme: light), (prefers-color-scheme: no-preference) {
-:has(.wcm-theme[open])body, :has(.wcm-theme[open]).wp-site-blocks { background-color: #0F1430; color: #E8EEF6; }
+body:has(.wcm-theme[open]), body:has(.wcm-theme[open]) .wp-site-blocks { background-color: #0F1430; color: #E8EEF6; }
 body:has(.wcm-theme[open]) header.wp-block-template-part > .wp-block-group, body:has(.wcm-theme[open]) footer.wp-block-template-part, body:has(.wcm-theme[open]) footer.wp-block-template-part > .wp-block-group { background-color: #182448 !important; color: #E8EEF6; }
 body:has(.wcm-theme[open]) .home header.wp-block-template-part > .wp-block-group { background-color: transparent !important; }
 body:has(.wcm-theme[open]) .wp-block-navigation, body:has(.wcm-theme[open]) .wp-block-navigation .wp-block-navigation-item__content, body:has(.wcm-theme[open]) .wp-block-navigation__submenu-icon, body:has(.wcm-theme[open]) .wp-block-navigation__responsive-container-open, body:has(.wcm-theme[open]) .wp-block-navigation__responsive-container-close { color: #E8EEF6; }
