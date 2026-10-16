@@ -746,7 +746,7 @@
 
 .home header.wp-block-template-part .wp-block-navigation a:focus-visible,
 .home header.wp-block-template-part .wp-block-navigation button:focus-visible {
-    outline: 2px solid #5B2DB8;
+    outline: 3px solid #6d28d9;
     outline-offset: 3px;
     border-radius: 6px;
 }
@@ -938,7 +938,8 @@ footer.wp-block-template-part a:not(.wp-element-button):not(.wp-block-social-lin
     background: #0d1b2a;
     color: #FFFFFF;
     padding: .75rem 1.25rem;
-    outline-color: #F5C242;
+    outline: 3px solid #F5C242;
+    outline-offset: 3px;
 }
 
 /* Sponsorship tiers table: fit four columns on a phone instead of scrolling,
@@ -947,6 +948,7 @@ footer.wp-block-template-part a:not(.wp-element-button):not(.wp-block-social-lin
     .wcm-compare table {
         table-layout: fixed;
         width: 100%;
+        min-width: 0;
         font-size: .78rem;
     }
 

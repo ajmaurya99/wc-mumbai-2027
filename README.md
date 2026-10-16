@@ -129,3 +129,7 @@ Audit: axe-core 4.10 on 11 pages × desktop/phone, plus a focus-ring probe. Find
 * Sponsorship tiers table scrolled sideways on phones with no keyboard access; it now fits.
 * Not fixable here: the Jetpack cookie banner sits outside any landmark; the Jetpack form's
   "Thank you" message is an h4.
+
+Note: the Customizer's Additional CSS holds landing-page CSS (for example `.wcm-compare` rules with
+`min-width: 560px` on phones) that is not in this repo. Edit the Customizer with targeted
+replacements, never by pasting `hero.css` over it.
