@@ -130,6 +130,8 @@ Audit: axe-core 4.10 on 11 pages × desktop/phone, plus a focus-ring probe. Find
 * Not fixable here: the Jetpack cookie banner sits outside any landmark; the Jetpack form's
   "Thank you" message is an h4.
 
-Note: the Customizer's Additional CSS holds landing-page CSS (for example `.wcm-compare` rules with
-`min-width: 560px` on phones) that is not in this repo. Edit the Customizer with targeted
-replacements, never by pasting `hero.css` over it.
+`hero.css` was synced from the Customizer on 16 Oct 2026 and is now a byte-for-byte mirror of
+Appearance → Customize → Additional CSS (it includes the landing-page CSS from the design-system
+session). Keep them in step: change one, copy to the other. The never-deployed `FOOTER SCENE`
+section from the old file is in git history (commit before this sync) if the footer artwork is
+ever set up.
